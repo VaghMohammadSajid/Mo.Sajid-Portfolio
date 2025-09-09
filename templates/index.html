@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Mo.Sajid Vagh</title>
+    <meta name="description" content="Mohammad Sajid Vagh - Backend Developer with expertise in Django and server-side logic.">
+    <meta name="keywords" content="Backend Developer, Django, Mohammad Sajid Vagh, Server Logic">
+
+    <!--Start all css file-->
+    {% include 'all_css.html' %}
+    <!--End all css file-->
+
+</head>
+
+<body class="index-page">
+
+    <!--Start navbar-->
+    {% include 'navbar.html' %}
+    <!--End navbar-->
+
+    <main class="main">
+
+        <!-- Hero Section -->
+        <section id="hero" class="hero section">
+            <div class="container text-center" data-aos="zoom-out" data-aos-delay="70">
+                <div class="row justify-content-center">
+                    <div class="info-item-1 col-lg-8">
+                        <h2 style="color:#34b7a7;">
+                            <span style="font-weight: bold;font-size: 30px;color: #222222;">Hi, I'm</span>
+                            {{ details.name }}.
+                        </h2>
+                        <p>{{ details.detail }}</p>
+                        <a href="about" class="btn btn-get-started">About Me</a>
+                    </div>
+                </div>
+            </div>
+        </section><!-- /Hero Section -->
+
+    </main>
+
+    <!--Start Footer -->
+    {% include 'footer.html' %}
+    <!--End Footer -->
+
+</body>
+</html>

@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Mo.Sajid Vagh</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <!--Start all css file-->
+    {% include 'all_css.html' %}
+    <!--End all css file-->
+
+    <style>
+        .custom-image {
+            border-radius: 78px 0px 78px 0px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .custom-image:hover {
+            transform: translateY(-10px); /* Slight lift effect */
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+        }
+        .btn-get-started-project {
+            background: var(--accent-color);
+            font-family: var(--heading-font);
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 12px;
+            letter-spacing: 1px;
+            display: inline-block;
+            padding: 5px 20px;
+            border-radius: 50px;
+            transition: 0.5s;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body class="about-page">
+
+<!--Start navbar-->
+{% include 'navbar.html' %}
+<!--End navbar-->
+
+<!-- FEATURES -->
+<main class="main">
+    <!-- About Section -->
+    <section id="about" class="about section">
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+            <h2>About Me</h2>
+        </div><!-- End Section Title -->
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+            <div class="row gy-4 justify-content-center">
+                <!-- Image Container -->
+                <div class="col-lg-4">
+                    <div class="info-item-1">
+                        <img style="border-radius: 78px 0px 78px 0px;"
+                             src="static/images/ms images/IMG_20250727_205223_708.webp" class="img-fluid" alt="">
+                        <h3 class="h4 mb-2">{{ details.name }}</h3>
+                        <p class="text-muted mb-2">Python & Java Developer</p>
+                        <a href="/contact" class="btn-get-started">Contact Me</a>
+                    </div>
+                </div>
+                <div class="col-lg-8 content">
+                    <p class="fst-italic py-3">
+                        {{ details.introduction }}
+                    </p>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <ul>
+                                <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong>
+                                    <span>{{details.birth_date}}</span></li>
+                                <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong>
+                                    <span>{{details.Phone}}</span></li>
+                                <li><i class="bi bi-chevron-right"></i> <strong>City:</strong>
+                                    <span>{{details.City}}</span></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-6">
+                            <ul>
+                                <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong>
+                                    <span>{{details.age}}</span></li>
+                                <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong>
+                                    <span>{{details.Degree}}</span></li>
+                                <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>{{ details.Email }}</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p class="fst-italic py-3">
+                        I am actively seeking work-from-home (WFH) or remote work opportunities to bring value to
+                        innovative projects and organizations worldwide.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Skills Section -->
+    <section id="contact" class="contact section" style="margin-top:-55px;">
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+            <h2>Skills & Education</h2>
+        </div><!-- End Section Title -->
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+            <div class="row gy-4">
+                <div class="col-lg-5">
+
+                    <!-- Start Organization -->
+                    <div class="info-wrap mb-3">
+                        <div class="" data-aos="fade-up">
+                            <div class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+                                <h5 data-filter="*" style="color: var(--nav-hover-color);" class="filter-active">
+                                    <i><img style="border-radius:0px;width:30px; height:30px;"
+                                            src="static/images/organization/organization.svg"></i>
+                                    Organizations
+                                </h5>
+                            </div><!-- End Portfolio Filters -->
+                        </div><!-- End Section Title -->
+                        <ul class="mt-4 info-list">
+                            <li style="margin-top: 20px;margin-bottom: 20px;border-radius:20px;"
+                                class="info-item d-flex"
+                                data-aos="fade-up"
+                                data-aos-delay="200">
+                                <i class="flex-shrink-0"
+                                   style="padding:30px 30px 30px 30px;margin: 13px 0px 10px 17px;margin-bottom: 20px;width: 70px;">
+                                    <img style="padding:7px 7px 7px 7px;border-radius: 20px; width: auto; height: 70px;"
+                                         src="static/images/organization/stackerbee.svg">
+                                </i>
+                                <div style="margin: 10px 0px 0px 17px;">
+                                    <a href="https://www.stackerbee.com/" target="_blank">
+                                        <h5>Stackerbee Technologies</h5>
+                                        <h6>Python Developer</h6>
+                                        <p class="mb-2">January 2024 - March 2025 </p>
+                                    </a>
+                                </div>
+                            </li><!-- End Info Item -->
+                        </ul>
+                    </div>
+                    <!-- End Organization -->
+
+                    <!-- Start Educations -->
+                    <div class="info-wrap mb-3">
+                        <div class="" data-aos="fade-up">
+                            <div class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+                                <h5 data-filter="*" style="color: var(--nav-hover-color);">
+                                    <i><img style="border-radius:0px;width:30px; height:30px;"
+                                            src="static/images/education/graduation-cap.svg"></i>
+                                    Education
+                                </h5>
+                            </div><!-- End Portfolio Filters -->
+                        </div><!-- End Section Title -->
+                        <ul class="mt-4 info-list">
+                            <li style="margin-bottom: 20px;border-radius:20px;" class="info-item d-flex"
+                                data-aos="fade-up"
+                                data-aos-delay="200">
+                                <i class="flex-shrink-0"
+                                   style="padding:30px 30px 30px 30px;margin: 13px 0px 10px 17px;margin-bottom: 20px;width: 70px;">
+                                    <img style="padding:7px 7px 7px 7px;border-radius: 20px; width: auto; height: 75px;"
+                                         src="static/images/education/mj_image.svg">
+                                </i>
+                                <div style="margin: 10px 0px 10px 17px;">
+                                    <a href="https://maktabahjafariyah.org/" target="_blank">
+                                        <h5>Bachelor of Computer Applications</h5>
+                                        <p>Maktabah Jafariyah Knowledge & Research Academy</p>
+                                        <p>September 2020 - May 2023</p>
+                                    </a>
+                                </div>
+                            </li><!-- End Info Item -->
+                        </ul>
+                    </div>
+                    <!-- End Educations -->
+
+                    <!-- Start Skills -->
+                    <div class="info-wrap mb-3">
+                        <div class="" data-aos="fade-up">
+                            <div class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+                                <h5 data-filter="*" style="color: var(--nav-hover-color);" class="filter-active">
+                                    <i><img style="border-radius:0px;width:30px; height:30px;"
+                                            src="static/images/skills/skill.svg"></i>
+                                    Skills
+                                </h5>
+                            </div><!-- End Portfolio Filters -->
+                        </div><!-- End Section Title -->
+                        <ul class="mt-4 info-list">
+                            <li style="margin-bottom: 3px;border-radius:20px;" class="info-item d-flex"
+                                data-aos="fade-up"
+                                data-aos-delay="200">
+                                <i class="flex-shrink-0" style="margin: 10px 0px 10px 17px;">
+                                    <img style="border-radius: 0px; width: 50px; height: 50px;"
+                                         src="static/images/skills/Python.svg">
+                                </i>
+                                <div style="margin: 20px 0px 0px 17px;">
+                                    <a href="https://www.python.org" target="_blank">
+                                        <h5>Python</h5>
+                                    </a>
+                                </div>
+                            </li><!-- End Info Item -->
+                            <li style="margin-bottom: 3px;border-radius:20px;" class="info-item d-flex"
+                                data-aos="fade-up"
+                                data-aos-delay="200">
+                                <i class="flex-shrink-0" style="margin: 10px 0px 10px 17px;">
+                                    <img style="border-radius: 0px; width: 50px; height: 50px;"
+                                         src="static/images/skills/Django.svg">
+                                </i>
+                                <div style="margin: 20px 0px 0px 17px;">
+                                    <a href="https://www.djangoproject.com" target="_blank">
+                                        <h5>Django</h5>
+                                    </a>
+                                </div>
+                            </li><!-- End Info Item -->
+                            <li style="margin-bottom: 3px;border-radius:20px;" class="info-item d-flex"
+                                data-aos="fade-up"
+                                data-aos-delay="200">
+                                <i class="flex-shrink-0" style="margin: 10px 0px 10px 17px;">
+                                    <img style="border-radius: 0px; width: 50px; height: 50px;"
+                                         src="static/images/skills/Django REST.svg">
+                                </i>
+                                <div style="margin: 20px 0px 0px 17px;">
+                                    <a href="https://django-rest-framework-old-docs.readthedocs.io/en/3.7.7/topics/documenting-your-api/"
+                                       target="_blank">
+                                        <h5>Django Rest Framework</h5>
+                                    </a>
+                                </div>
+                            </li><!-- End Info Item -->
+                            <li style="margin-bottom: 3px;border-radius:20px;" class="info-item d-flex"
+                                data-aos="fade-up"
+                                data-aos-delay="200">
+                                <i class="flex-shrink-0" style="margin: 10px 0px 10px 17px;">
+                                    <img style="border-radius: 0px; width: 70px; height: 50px;"
+                                         src="static/images/skills/logo-teal.svg">
+                                </i>
+                                <div style="margin: 20px 0px 0px 17px;">
+                                    <a href="https://www.oracle.com/java" target="_blank">
+                                        <h5>FastAPI</h5>
+                                    </a>
+                                </div>
+                            </li><!-- End Info Item -->
+                            <li style="margin-bottom: 3px;border-radius:20px;" class="info-item d-flex"
+                                data-aos="fade-up"
+                                data-aos-delay="200">
+                                <i class="flex-shrink-0" style="margin: 10px 0px 10px 17px;">
+                                    <img style="border-radius: 0px; width: 50px; height: 50px;"
+                                         src="static/images/skills/java.svg">
+                                </i>
+                                <div style="margin: 20px 0px 0px 17px;">
+                                    <a href="https://www.oracle.com/java" target="_blank">
+                                        <h5>Basic Java</h5>
+                                    </a>
+                                </div>
+                            </li><!-- End Info Item -->
+
+                            <li style="margin-bottom: 3px;border-radius:20px;" class="info-item d-flex"
+                                data-aos="fade-up"
+                                data-aos-delay="200">
+                                <i class="flex-shrink-0" style="margin: 10px 0px 10px 17px;">
+                                    <img style="border-radius: 0px; width: 50px; height: 50px;"
+                                         src="static/images/skills/hibernate.svg">
+                                </i>
+                                <div style="margin: 20px 0px 0px 17px;">
+                                    <a href="https://hibernate.org" target="_blank">
+                                        <h5>Hibernate</h5>
+                                    </a>
+                                </div>
+                            </li><!-- End Info Item -->
+                            <li style="margin-bottom: 3px;border-radius:20px;" class="info-item d-flex"
+                                data-aos="fade-up"
+                                data-aos-delay="200">
+                                <i class="flex-shrink-0" style="margin: 10px 0px 10px 17px;">
+                                    <img style="border-radius: 0px; width: 50px; height: 50px;"
+                                         src="static/images/skills/Java.svg">
+                                </i>
+                                <div style="margin: 20px 0px 0px 17px;">
+                                    <a href="https://www.oracle.com/java/technologies/javaserverpages.html"
+                                       target="_blank">
+                                        <h5>Servlet - JSP</h5>
+                                    </a>
+                                </div>
+                            </li><!-- End Info Item -->
+                            <li style="margin-bottom: 3px;border-radius:20px;" class="info-item d-flex"
+                                data-aos="fade-up"
+                                data-aos-delay="200">
+                                <i class="flex-shrink-0" style="margin: 10px 0px 10px 17px;">
+                                    <img style="border-radius: 0px; width: 50px; height: 50px;"
+                                         src="static/images/skills/structure.svg">
+                                </i>
+                                <div style="margin: 20px 0px 0px 17px;">
+                                    <a href="https://www.w3schools.com/dsa/dsa_intro.php" target="_blank">
+                                        <h5>Data Structure</h5>
+                                    </a>
+                                </div>
+                            </li><!-- End Info Item -->
+                            <li style="margin-bottom: 3px;border-radius:20px;" class="info-item d-flex"
+                                data-aos="fade-up"
+                                data-aos-delay="200">
+                                <i class="flex-shrink-0" style="margin: 10px 0px 10px 17px;">
+                                    <img style="border-radius: 0px; width: 50px; height: 50px;"
+                                         src="static/images/skills/elephant.svg">
+                                </i>
+                                <div style="margin: 20px 0px 0px 17px;">
+                                    <a href="https://www.postgresql.org/" target="_blank">
+                                        <h5>PostgreSQL</h5>
+                                    </a>
+                                </div>
+                            </li><!-- End Info Item -->
+                        </ul>
+                    </div>
+                    <!-- End Skills -->
+
+                    <!-- Start Tools -->
+                    <div class="info-wrap">
+                        <div class="" data-aos="fade-up">
+                            <div class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+                                <h5 data-filter="*" style="color: var(--nav-hover-color);" class="filter-active">
+                                    <i><img style="border-radius:0px;width:30px; height:30px;"
+                                            src="static/images/tools/tools.svg"></i>
+                                    Tools
+                                </h5>
+                            </div><!-- End Portfolio Filters -->
+                        </div><!-- End Section Title -->
+                        <ul class="mt-4 info-list">
+                            <li style="margin-bottom: 3px;border-radius:20px;" class="info-item d-flex"
+                                data-aos="fade-up"
+                                data-aos-delay="200">
+                                <i class="flex-shrink-0" style="margin: 10px 0px 10px 17px;">
+                                    <img style="border-radius: 0px; width: 50px; height: 50px;"
+                                         src="static/images/tools/vs_code.svg">
+                                </i>
+                                <div style="margin: 20px 0px 0px 17px;">
+                                    <a href="https://code.visualstudio.com/" target="_blank">
+                                        <h5>Visual Studio Code</h5>
+                                    </a>
+                                </div>
+                            </li><!-- End Info Item -->
+                            <li style="margin-bottom: 3px;border-radius:20px;" class="info-item d-flex"
+                                data-aos="fade-up"
+                                data-aos-delay="200">
+                                <i class="flex-shrink-0" style="margin: 10px 0px 10px 17px;">
+                                    <img style="border-radius: 0px; width: 50px; height: 50px;"
+                                         src="static/images/tools/pycharm.svg">
+                                </i>
+                                <div style="margin: 20px 0px 0px 17px;">
+                                    <a href="https://www.jetbrains.com/pycharm/" target="_blank">
+                                        <h5>Pycharm IDE</h5>
+                                    </a>
+                                </div>
+                            </li><!-- End Info Item -->
+                            <li style="margin-bottom: 3px;border-radius:20px;" class="info-item d-flex"
+                                data-aos="fade-up"
+                                data-aos-delay="200">
+                                <i class="flex-shrink-0" style="margin: 10px 0px 10px 17px;">
+                                    <img style="border-radius: 0px; width: 50px; height: 50px;"
+                                         src="static/images/tools/intellij-idea.svg">
+                                </i>
+                                <div style="margin: 20px 0px 0px 17px;">
+                                    <a href="https://www.jetbrains.com/idea/"
+                                       target="_blank">
+                                        <h5>IntelliJ IDEA</h5>
+                                    </a>
+                                </div>
+                            </li><!-- End Info Item -->
+                            <li style="margin-bottom: 3px;border-radius:20px;" class="info-item d-flex"
+                                data-aos="fade-up"
+                                data-aos-delay="200">
+                                <i class="flex-shrink-0" style="margin: 10px 0px 10px 17px;">
+                                    <img style="border-radius: 0px; width: 50px; height: 50px;"
+                                         src="static/images/tools/postman.svg">
+                                </i>
+                                <div style="margin: 20px 0px 0px 17px;">
+                                    <a href="https://www.postman.com/" target="_blank">
+                                        <h5>Postman</h5>
+                                    </a>
+                                </div>
+                            </li><!-- End Info Item -->
+
+                        </ul>
+                    </div>
+                    <!-- End Tools -->
+                </div>
+                <div class="col-lg-7">
+                    <!-- Start Organization -->
+                    <div class="info-wrap mb-3">
+                        <div class="" data-aos="fade-up">
+                            <div class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+                                <h5 data-filter="*" style="color: var(--nav-hover-color);" class="filter-active">
+                                    <i><img style="border-radius:0px;width:30px; height:30px;"
+                                            src="static/images/experience/computer.svg"></i>
+                                    Experience
+                                </h5>
+                            </div><!-- End Portfolio Filters -->
+                        </div><!-- End Section Title -->
+                        <ul class="mt-4 info-list">
+                            <li style="padding:2px 2px 2px 2px;margin: 10px 0px 10px 17px;margin-bottom: 20px;"
+                                data-aos="fade-up"
+                                data-aos-delay="200">
+                                <div>
+                                    <ul>
+                                        <li>
+                                            <p class="fst-italic py-3">
+                                                I have 1 year of hands-on experience in Python Django, where I honed my
+                                                contact
+                                                in web development, API integration, and efficient database design. My
+                                                experience has equipped me with the ability to work on challenging
+                                                projects and
+                                                contribute effectively to dynamic teams.
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- End Experience -->
+
+                    <!-- Start Projects -->
+                    <div class="info-wrap mb-3">
+                        <div class="" data-aos="fade-up">
+                            <div class="portfolio-filters isotope-filters" style="" data-aos="fade-up"
+                                 data-aos-delay="100">
+                                <h5 data-filter="*" style="color: var(--nav-hover-color);" class="filter-active">
+                                    <i><img style="border-radius:0px;width:40px; height:40px;"
+                                            src="static/images/project/project.svg"></i>
+                                    Projects
+                                </h5>
+                            </div>
+                        </div><!-- End Section Title -->
+                        <ul class="mt-4 info-list">
+                            <li style="margin: 10px 0px 10px 17px;margin-bottom: 20px; border-radius:20px;"
+                                class="info-item"
+                                data-aos="fade-up"
+                                data-aos-delay="200">
+                                <div class="d-flex">
+                                    <i class="flex-shrink-0"
+                                       style="padding:2px 2px 2px 2px;margin: 10px 0px 10px 17px;margin-bottom: 20px;width: 100px;">
+                                        <img style="padding:7px 7px 7px 7px;border-radius: 0px; width: 110px; height: 35px;"
+                                             src="static/images/project/oneup.svg">
+                                    </i>
+                                    <div style="margin: 10px 0px 0px 17px;">
+                                        <h5>E-Commerce Website - OneUpBrand</h5>
+                                        <p class="mb-2">January 2024 - October 2024 </p>
+                                    </div>
+                                </div>
+                                <div style="padding:2px 2px 2px 2px; margin: 10px 0px 10px 17px; margin-bottom: 20px;"
+                                     data-aos="fade-up"
+                                     data-aos-delay="200">
+                                    <div>
+                                        <h5>Description:</h5>
+                                        <ul>
+                                            <li>
+                                                <strong>OneUp Brand</strong> is a comprehensive e-commerce platform
+                                                that
+                                                enables users to buy and sell products online, featuring a diverse
+                                                range of
+                                                brands like Crompton, Bajaj, Veger, etc. The project focuses on
+                                                providing a
+                                                seamless shopping experience with a user-friendly interface and
+                                                efficient
+                                                backend management.
+
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="py-2">
+                                        <h5>My Role:</h5>
+                                        <p style="margin-left: 1.3rem !important;" class="mb-2">
+                                            I contributed as a <strong>Full-Stack Developer</strong> with the following
+                                            responsibilities:
+                                        </p>
+                                        <ul>
+                                            <li>Developed RESTful APIs using Django Rest Framework (DRF) to handle user
+                                                authentication, product management, and order processing.
+                                            </li>
+                                            <li>Implemented and customized the admin panel using Django Oscar, ensuring
+                                                effective management of products, brands, and categories.
+                                            </li>
+                                            <li>Designed and styled the admin interface using HTML, CSS, and Bootstrap,
+                                                enhancing usability and responsiveness.
+                                            </li>
+                                            <li>Collaborated with team members to ensure smooth integration between the
+                                                backend and frontend components.
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h5>Key Achievements:</h5>
+                                        <ul class="mb-2">
+                                            <li>Successfully developed and deployed scalable APIs for product and order
+                                                management.
+                                            </li>
+                                            <li>Customized Django Oscar to meet the specific requirements of the
+                                                platform.
+                                            </li>
+                                            <li>Enhanced the admin panel's usability by implementing a responsive design
+                                                using Bootstrap.
+                                            </li>
+                                            <li>Collaborated with a cross-functional team to ensure timely project
+                                                delivery and optimal performance.
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h5>Tech Stack:</h5>
+                                        <ul class="mb-2">
+                                            <span>
+                                                <a href="https://www.python.org" target="_blank"
+                                                   class="btn-get-started-project">Python</a>
+                                            </span>
+                                            <span>
+                                                <a href="https://www.djangoproject.org" target="_blank"
+                                                   class="btn-get-started-project">Django</a>
+                                            </span>
+                                            <span>
+                                                <a href="https://django-oscar.readthedocs.io/en/3.1/internals/contributing/index.html"
+                                                   target="_blank"
+                                                   class="btn-get-started-project">Django-oscar</a>
+                                            </span>
+                                            <span>
+                                                <a href="https://django-rest-framework-old-docs.readthedocs.io/en/3.7.7/topics/documenting-your-api/"
+                                                   target="_blank"
+                                                   class="btn-get-started-project">
+                                                    Django Rest Framework
+                                                </a>
+                                            </span>
+                                            <span>
+                                                <a href="https://www.w3schools.com/html/"
+                                                   target="_blank"
+                                                   class="btn-get-started-project">
+                                                    HTML
+                                                </a>
+                                            </span>
+                                            <span>
+                                                <a href="https://www.w3schools.com/css/default.asp"
+                                                   target="_blank"
+                                                   class="btn-get-started-project">
+                                                    CSS
+                                                </a>
+                                            </span>
+                                            <span>
+                                                <a href="https://getbootstrap.com/"
+                                                   target="_blank"
+                                                   class="btn-get-started-project">
+                                                    Boostrap Framework
+                                                </a>
+                                            </span>
+                                            <span>
+                                                <a href="https://www.postgresql.org/"
+                                                   target="_blank"
+                                                   class="btn-get-started-project">
+                                                    PostgreSQL
+                                                </a>
+                                            </span>
+                                            <span>
+                                                <a href="https://www.postman.com/"
+                                                   target="_blank"
+                                                   class="btn-get-started-project">
+                                                    Postman
+                                                </a>
+                                            </span>
+                                            <span>
+                                                <a href="https://www.jetbrains.com/pycharm/"
+                                                   target="_blank"
+                                                   class="btn-get-started-project">
+                                                    Pycharm IDE
+                                                </a>
+                                            </span>
+                                        </ul>
+                                    </div>
+                                    <div class="d-flex">
+                                        <span class="d-flex" style="color:var(--nav-hover-color); width:110px;">
+                                            <i class="flex-shrink-0">
+                                                <img style="margin-top:15px;width: 30px;height: 30px;"
+                                                     src="static/images/project/link.svg">
+                                            </i>
+                                            <div style="position: relative;margin-top: 17px;width: 230px;height: 30px;left:-15px;">
+                                                <a href="https://oneupbrands.com/" target="_blank">
+                                                    Website
+                                                </a>
+                                            </div>
+                                        </span>
+                                        <span class="d-flex" style="color:var(--nav-hover-color);width:110px;">
+                                            <i class="flex-shrink-0">
+                                                <img style="margin-top:15px;width: 30px;height: 30px;"
+                                                     src="static/images/project/link.svg">
+                                            </i>
+                                            <div style="position: relative;margin-top: 17px;width: 230px;height: 30px;left:-15px;">
+                                                <a href="https://github.com/VaghMohammadSajid/OneupBrand_Project-Admin_panel-"
+                                                   target="_blank">
+                                                    GitHub
+                                                </a>
+                                            </div>
+                                        </span>
+                                    </div>
+                                </div>
+                            </li><!-- End Info Item -->
+                            <li style="margin: 10px 0px 10px 17px;margin-bottom: 20px;" class="info-item"
+                                data-aos="fade-up"
+                                data-aos-delay="200">
+                                <div class="d-flex">
+                                    <i class="flex-shrink-0"
+                                       style="padding:2px 2px 2px 2px;margin-bottom: 20px;width: 100px;">
+                                        <img style="margin: 50px 0px 10px 17px;border-radius:20px;padding:7px 7px 7px 7px; width: 100px; height: auto;"
+                                             src="static/images/project/teens.svg">
+                                    </i>
+                                    <div style="margin: 10px 0px 0px 17px;">
+                                        <a href="https://www.stackerbee.com/">
+                                            <h5>Website - TeensTogather</h5>
+                                            <p class="mb-2">July 2024 - Present </p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div style="padding:2px 2px 2px 2px;margin: 10px 0px 10px 17px;margin-bottom: 20px;"
+                                     data-aos="fade-up"
+                                     data-aos-delay="200">
+                                    <div>
+                                        <h5>Description:</h5>
+                                        <ul>
+                                            <li>
+                                                <p class="mb-2">
+                                                    Teens Together is an innovative platform designed for online
+                                                    chatting,
+                                                    fostering
+                                                    safe and interactive communication among teenagers. This project
+                                                    focuses on
+                                                    building a secure and user-friendly environment for real-time
+                                                    interactions,
+                                                    ensuring privacy and user engagement.
+                                                </p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h5>My Role:</h5>
+                                        <ul>
+                                            <li>
+                                                <p class="mb-2">
+                                                    As a <strong>Backend Developer</strong>, I was responsible for
+                                                    creating
+                                                    robust APIs using Django Rest Framework (DRF). My work included API
+                                                    development for user authentication, real-time messaging, and user
+                                                    profile
+                                                    management, as well as database design and integration with the
+                                                    frontend
+                                                    team.
+                                                </p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h5>Key Achievements:</h5>
+                                        <ul class="mb-2">
+                                            <li>Designed and implemented scalable APIs for real-time communication.</li>
+                                            <li>Collaborated effectively with the frontend team to deliver a seamless
+                                                user experience.
+                                            </li>
+                                            <li>Enhanced data security and privacy by implementing secure authentication
+                                                mechanisms.
+                                            </li>
+                                            <li>Provided comprehensive API documentation for future developers.</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h5>Tech Stack:</h5>
+                                        <ul class="mb-2">
+                                            <span>
+                                                <a href="https://www.python.org" target="_blank"
+                                                   class="btn-get-started-project">Python</a>
+                                            </span>
+                                            <span>
+                                                <a href="https://www.djangoproject.org" target="_blank"
+                                                   class="btn-get-started-project">Django</a>
+                                            </span>
+                                            <span>
+                                                <a href="https://django-rest-framework-old-docs.readthedocs.io/en/3.7.7/topics/documenting-your-api/"
+                                                   target="_blank"
+                                                   class="btn-get-started-project">
+                                                    Django Rest Framework
+                                                </a>
+                                            </span>
+                                            <span>
+                                                <a href="https://django-rest-swagger.readthedocs.io/en/latest/#django-rest-swagger"
+                                                   target="_blank"
+                                                   class="btn-get-started-project">
+                                                    Swagger
+                                                </a>
+                                            </span>
+
+                                            <span>
+                                                <a href="https://www.postgresql.org/"
+                                                   target="_blank"
+                                                   class="btn-get-started-project">
+                                                    PostgreSQL
+                                                </a>
+                                            </span>
+                                            <span>
+                                                <a href="https://www.postman.com/"
+                                                   target="_blank"
+                                                   class="btn-get-started-project">
+                                                    Postman
+                                                </a>
+                                            </span>
+                                            <span>
+                                                <a href="https://www.jetbrains.com/pycharm/"
+                                                   target="_blank"
+                                                   class="btn-get-started-project">
+                                                    Pycharm IDE
+                                                </a>
+                                            </span>
+                                        </ul>
+                                    </div>
+                                    <div class="d-flex">
+                                        <span class="d-flex" style="color:var(--nav-hover-color); width:110px;">
+                                            <i class="flex-shrink-0">
+                                                <img style="margin-top:15px;width: 30px;height: 30px;"
+                                                     src="static/images/project/link.svg">
+                                            </i>
+                                            <div style="position: relative;margin-top: 17px;width: 230px;height: 30px;left:-15px;">
+                                                <a href="https://teentogether.stackerbee.com/swagger/" target="_blank">
+                                                    Website
+                                                </a>
+                                            </div>
+                                        </span>
+                                        <!--                                        <span class="d-flex" style="color:var(&#45;&#45;nav-hover-color);width:110px;">-->
+                                        <!--                                            <i class="flex-shrink-0">-->
+                                        <!--                                                <img style="margin-top:15px;width: 30px;height: 30px;"-->
+                                        <!--                                                     src="static/images/logo/link.svg">-->
+                                        <!--                                            </i>-->
+                                        <!--                                            <div style="position: relative;margin-top: 17px;width: 230px;height: 30px;left:-15px;">-->
+                                        <!--                                                <a href="https://oneupbrands.com/" target="_blank">-->
+                                        <!--                                                    GitHub-->
+                                        <!--                                                </a>-->
+                                        <!--                                            </div>-->
+                                        <!--                                        </span>-->
+                                    </div>
+                                </div>
+                            </li><!-- End Info Item -->
+                        </ul>
+                    </div>
+                    <!-- End Experience -->
+                </div><!-- End Contact Form -->
+            </div>
+        </div>
+    </section><!-- /Contact Section -->
+</main>
+
+<!--Start navbar-->
+{% include 'footer.html' %}
+<!--End navbar-->
+
+</body>
+</html>

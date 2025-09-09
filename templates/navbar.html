@@ -1,0 +1,43 @@
+<!-- MENU -->
+<header id="header" class="header d-flex align-items-center light-background sticky-top">
+    <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+
+        <div class="header-social-links">
+        </div>
+
+        <a href="/" class="logo d-flex align-items-center me-auto me-xl-0">
+            <img
+                    class="hover-logo"
+                    style="border-radius: 20px;"
+                    src="static/images/navbar/cm-letter-logo-design-icon_877718-743.svg"
+                    alt="Logo"
+            >
+        </a>
+
+        <nav id="navmenu" class="navmenu">
+            <div class="header-social-links">
+            </div>
+            <ul>
+                <li><a href="/" class="{% if request.path == '/' %}active{% endif %}"><i><img
+                        style="width:20px; height:20px;" src="static/images/navbar/home.svg"> </i><span
+                        style="position: relative;left: 5px;">Home</span></a></li>
+                <li><a href="/about" class="{% if request.path == '/about/' %}active{% endif %}"> <i><img
+                        style="width:20px; height:20px;" src="static/images/navbar/user.svg"> </i>
+                    <span
+                            style="position: relative;left: 5px;">About Me</span></a>
+                </li>
+                <li><a href="/contact"
+                       class="{% if request.path == '/contact/' %}active{% endif %}"><i><img
+                        style="width:20px; height:20px;" src="static/images/navbar/support.svg"> </i>
+                    <span style="position: relative;left: 5px;">Contact</span>
+                </a>
+                </li>
+            </ul>
+            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+
+        <div class="header-social-links">
+        </div>
+
+    </div>
+</header>
