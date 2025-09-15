@@ -45,7 +45,6 @@ source env/bin/activate     # macOS / Linux
 
 # install & run
 pip install -r requirements.txt
-cp .env.example .env        # set DB creds
-python manage.py migrate
-python manage.py runserver
+fastapi dev main.py
+
  
