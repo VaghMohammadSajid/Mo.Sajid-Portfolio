@@ -33,7 +33,19 @@ This website is my digital presence — built to feature who I am, what I do, an
 
 ## 🔧 Setup & Running Locally
 
-1. Clone the repo:  
-   ```bash
-   git clone https://github.com/VaghMohammadSajid/Mo.Sajid-Portfolio.git
-   cd Mo.Sajid-Portfolio
+```bash
+# clone project
+git clone https://github.com/VaghMohammadSajid/Mo.Sajid-Portfolio.git
+cd Mo.Sajid-Portfolio
+
+# create & activate venv
+python -m venv env
+source env/bin/activate     # macOS / Linux
+# .\env\Scripts\activate    # Windows
+
+# install & run
+pip install -r requirements.txt
+cp .env.example .env        # set DB creds
+python manage.py migrate
+python manage.py runserver
+ 
