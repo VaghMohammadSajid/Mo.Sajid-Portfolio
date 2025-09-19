@@ -9,7 +9,7 @@
             <img
                     class="hover-logo"
                     style="border-radius: 20px;"
-                    src="{{ request.url_for('static', path='images/navbar/cm-letter-logo-design-icon_877718-743.svg') }}"
+                    src="{{ request.url_for('static', path='images/navbar/logo_icon.svg') }}"
                     alt="Logo"
             >
         </a>
@@ -28,12 +28,14 @@
                     <span
                             style="position: relative;left: 5px;">About Me</span></a>
                 </li>
-                <li><a href="/project" class="{% if request.path == '/projects' %}active{% endif %}">
-                    <i><img style="width:20px; height:20px;"
-                            src="{{ url_for('static', path='images/project/folder-management.svg') }}"></i>
-                    <span style="position: relative; left: 5px;">Projects</span>
-                </a>
+                <li>
+                    <a href="/projects" class="{% if request.url.path == '/projects' %}active{% endif %}">
+                        <i><img style="width:20px; height:20px;"
+                                src="{{ url_for('static', path='images/project/folder-management.svg') }}"></i>
+                        <span style="position: relative; left: 5px;">Projects</span>
+                    </a>
                 </li>
+
 
                 <li><a href="/contact"
                        class="{% if request.path == '/contact' %}active{% endif %}"><i><img

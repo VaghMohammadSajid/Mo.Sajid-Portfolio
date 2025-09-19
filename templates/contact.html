@@ -35,25 +35,28 @@
         <div class="container">
             <ul class="con-info-list">
                 <li class="con-info-item">
-                    <img src="static/images/contact/email.svg" alt="Email Icon">
+                    <img src="{{ request.url_for('static', path='images/contact/email.svg') }}" alt="Email Icon">
                     <h3 class="h4 mb-2">Mail</h3>
                     <p class="py-2">vaghmohammadsajid8@gmail.com</p>
                     <a href="mailto:vaghmohammadsajid8@gmail.com" class="btn-get-started">Send Me</a>
                 </li>
                 <li class="con-info-item" style="border-color: #34b7a7;">
-                    <img src="static/images/contact/telegram.svg" alt="Telegram Icon">
+                    <img src="{{ request.url_for('static', path='images/contact/telegram.svg') }}"
+                         alt="Telegram Icon">
                     <h3 class="h4 mb-2">Telegram</h3>
                     <p class="py-2">@VaghMohammadSajid786</p>
                     <a href="https://t.me/MoSajid786" class="btn-get-started">Message</a>
                 </li>
                 <li class="con-info-item">
-                    <img src="static/images/contact/github.svg" alt="GitHub Icon">
+                    <img src="{{ request.url_for('static', path='images/contact/github.svg') }}"
+                         alt="GitHub Icon">
                     <h3 class="h4 mb-2">GitHub</h3>
                     <p class="py-2">@VaghMohammadSajid</p>
                     <a href="https://github.com/VaghMohammadSajid" class="btn-get-started">Follow</a>
                 </li>
                 <li class="con-info-item" style="border-color: #34b7a7;">
-                    <img src="static/images/contact/skype.svg" alt="Telegram Icon">
+                    <img src="{{ request.url_for('static', path='images/contact/skype.svg') }}"
+                         alt="Telegram Icon">
                     <h3 class="h4 mb-2">Skype</h3>
                     <p class="py-2">Mohammad Sajid</p>
                     <a href="https://join.skype.com/invite/ytIwbahbF6eW" class="btn-get-started">Call Me</a>
