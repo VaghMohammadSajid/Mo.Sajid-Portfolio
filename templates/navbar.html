@@ -9,7 +9,7 @@
             <img
                     class="hover-logo"
                     style="border-radius: 20px;"
-                    src="static/images/navbar/cm-letter-logo-design-icon_877718-743.svg"
+                    src="{{ request.url_for('static', path='images/navbar/cm-letter-logo-design-icon_877718-743.svg') }}"
                     alt="Logo"
             >
         </a>
@@ -19,16 +19,26 @@
             </div>
             <ul>
                 <li><a href="/" class="{% if request.path == '/' %}active{% endif %}"><i><img
-                        style="width:20px; height:20px;" src="static/images/navbar/home.svg"> </i><span
+                        style="width:20px; height:20px;"
+                        src="{{ request.url_for('static', path='images/navbar/home.svg') }}"> </i><span
                         style="position: relative;left: 5px;">Home</span></a></li>
-                <li><a href="/about" class="{% if request.path == '/about/' %}active{% endif %}"> <i><img
-                        style="width:20px; height:20px;" src="static/images/navbar/user.svg"> </i>
+                <li><a href="/about" class="{% if request.path == '/about' %}active{% endif %}"> <i><img
+                        style="width:20px; height:20px;"
+                        src="{{ request.url_for('static', path='images/navbar/user.svg') }}"> </i>
                     <span
                             style="position: relative;left: 5px;">About Me</span></a>
                 </li>
+                <li><a href="/project" class="{% if request.path == '/projects' %}active{% endif %}">
+                    <i><img style="width:20px; height:20px;"
+                            src="{{ url_for('static', path='images/project/folder-management.svg') }}"></i>
+                    <span style="position: relative; left: 5px;">Projects</span>
+                </a>
+                </li>
+
                 <li><a href="/contact"
-                       class="{% if request.path == '/contact/' %}active{% endif %}"><i><img
-                        style="width:20px; height:20px;" src="static/images/navbar/support.svg"> </i>
+                       class="{% if request.path == '/contact' %}active{% endif %}"><i><img
+                        style="width:20px; height:20px;"
+                        src="{{ request.url_for('static', path='images/navbar/support.svg') }}"> </i>
                     <span style="position: relative;left: 5px;">Contact</span>
                 </a>
                 </li>

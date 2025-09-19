@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Mo.Sajid Vagh</title>
+    <title>Mo.Sajid | About</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
 
@@ -58,40 +58,40 @@
                 <div class="col-lg-4">
                     <div class="info-item-1">
                         <img style="border-radius: 78px 0px 78px 0px;"
-                             src="static/images/ms images/IMG_20250727_205223_708.webp" class="img-fluid" alt="">
-                        <h3 class="h4 mb-2">{{ details.name }}</h3>
+                             src="{{ request.url_for('static', path='images/ms_images/myphoto.jpg') }}" class="img-fluid" alt="">
+                        <h3 class="h4 mb-2">{{ details['name'] }}</h3>
                         <p class="text-muted mb-2">Python & Java Developer</p>
                         <a href="/contact" class="btn-get-started">Contact Me</a>
                     </div>
                 </div>
                 <div class="col-lg-8 content">
                     <p class="fst-italic py-3">
-                        {{ details.introduction }}
+                        {{ details['introduction'] }}
                     </p>
                     <div class="row">
                         <div class="col-lg-6">
                             <ul>
                                 <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong>
-                                    <span>{{details.birth_date}}</span></li>
+                                    <span>{{ details['birth_date'] }}</span></li>
                                 <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong>
-                                    <span>{{details.Phone}}</span></li>
+                                    <span>{{ details['Phone'] }}</span></li>
                                 <li><i class="bi bi-chevron-right"></i> <strong>City:</strong>
-                                    <span>{{details.City}}</span></li>
+                                    <span>{{ details['City'] }}</span></li>
                             </ul>
                         </div>
                         <div class="col-lg-6">
                             <ul>
                                 <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong>
-                                    <span>{{details.age}}</span></li>
+                                    <span>{{ details['age'] }}</span></li>
                                 <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong>
-                                    <span>{{details.Degree}}</span></li>
-                                <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>{{ details.Email }}</span>
+                                    <span>{{ details['Degree'] }}</span></li>
+                                <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>{{ details['Email'] }}</span>
                                 </li>
                             </ul>
                         </div>
                     </div>
                     <p class="fst-italic py-3">
-                        I am actively seeking work-from-home (WFH) or remote work opportunities to bring value to
+                        I am actively seeking hybrid work opportunities to bring value to
                         innovative projects and organizations worldwide.
                     </p>
                 </div>
@@ -114,7 +114,7 @@
                             <div class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
                                 <h5 data-filter="*" style="color: var(--nav-hover-color);" class="filter-active">
                                     <i><img style="border-radius:0px;width:30px; height:30px;"
-                                            src="static/images/organization/organization.svg"></i>
+                                            src="{{ request.url_for('static', path='images/organization/organization.svg') }}"></i>
                                     Organizations
                                 </h5>
                             </div><!-- End Portfolio Filters -->
@@ -127,7 +127,7 @@
                                 <i class="flex-shrink-0"
                                    style="padding:30px 30px 30px 30px;margin: 13px 0px 10px 17px;margin-bottom: 20px;width: 70px;">
                                     <img style="padding:7px 7px 7px 7px;border-radius: 20px; width: auto; height: 70px;"
-                                         src="static/images/organization/stackerbee.svg">
+                                         src="{{ request.url_for('static', path='images/organization/stackerbee.svg') }}">
                                 </i>
                                 <div style="margin: 10px 0px 0px 17px;">
                                     <a href="https://www.stackerbee.com/" target="_blank">
@@ -147,7 +147,7 @@
                             <div class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
                                 <h5 data-filter="*" style="color: var(--nav-hover-color);">
                                     <i><img style="border-radius:0px;width:30px; height:30px;"
-                                            src="static/images/education/graduation-cap.svg"></i>
+                                            src="{{ request.url_for('static', path='images/education/graduation-cap.svg') }}"></i>
                                     Education
                                 </h5>
                             </div><!-- End Portfolio Filters -->
@@ -159,7 +159,7 @@
                                 <i class="flex-shrink-0"
                                    style="padding:30px 30px 30px 30px;margin: 13px 0px 10px 17px;margin-bottom: 20px;width: 70px;">
                                     <img style="padding:7px 7px 7px 7px;border-radius: 20px; width: auto; height: 75px;"
-                                         src="static/images/education/mj_image.svg">
+                                         src="{{ request.url_for('static', path='images/education/mj_image.svg') }}">
                                 </i>
                                 <div style="margin: 10px 0px 10px 17px;">
                                     <a href="https://maktabahjafariyah.org/" target="_blank">
@@ -179,7 +179,7 @@
                             <div class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
                                 <h5 data-filter="*" style="color: var(--nav-hover-color);" class="filter-active">
                                     <i><img style="border-radius:0px;width:30px; height:30px;"
-                                            src="static/images/skills/skill.svg"></i>
+                                            src="{{ request.url_for('static', path='images/skills/skill.svg') }}"></i>
                                     Skills
                                 </h5>
                             </div><!-- End Portfolio Filters -->
@@ -190,7 +190,7 @@
                                 data-aos-delay="200">
                                 <i class="flex-shrink-0" style="margin: 10px 0px 10px 17px;">
                                     <img style="border-radius: 0px; width: 50px; height: 50px;"
-                                         src="static/images/skills/Python.svg">
+                                         src="{{ request.url_for('static', path='images/skills/Python.svg') }}">
                                 </i>
                                 <div style="margin: 20px 0px 0px 17px;">
                                     <a href="https://www.python.org" target="_blank">
@@ -203,7 +203,7 @@
                                 data-aos-delay="200">
                                 <i class="flex-shrink-0" style="margin: 10px 0px 10px 17px;">
                                     <img style="border-radius: 0px; width: 50px; height: 50px;"
-                                         src="static/images/skills/Django.svg">
+                                         src="{{ request.url_for('static', path='images/skills/Django.svg') }}">
                                 </i>
                                 <div style="margin: 20px 0px 0px 17px;">
                                     <a href="https://www.djangoproject.com" target="_blank">
@@ -216,7 +216,7 @@
                                 data-aos-delay="200">
                                 <i class="flex-shrink-0" style="margin: 10px 0px 10px 17px;">
                                     <img style="border-radius: 0px; width: 50px; height: 50px;"
-                                         src="static/images/skills/Django REST.svg">
+                                         src="{{ request.url_for('static', path='images/skills/Django_rest.svg') }}">
                                 </i>
                                 <div style="margin: 20px 0px 0px 17px;">
                                     <a href="https://django-rest-framework-old-docs.readthedocs.io/en/3.7.7/topics/documenting-your-api/"
@@ -230,7 +230,7 @@
                                 data-aos-delay="200">
                                 <i class="flex-shrink-0" style="margin: 10px 0px 10px 17px;">
                                     <img style="border-radius: 0px; width: 70px; height: 50px;"
-                                         src="static/images/skills/logo-teal.svg">
+                                         src="{{ request.url_for('static', path='images/skills/logo-teal.svg') }}">
                                 </i>
                                 <div style="margin: 20px 0px 0px 17px;">
                                     <a href="https://www.oracle.com/java" target="_blank">
@@ -243,7 +243,7 @@
                                 data-aos-delay="200">
                                 <i class="flex-shrink-0" style="margin: 10px 0px 10px 17px;">
                                     <img style="border-radius: 0px; width: 50px; height: 50px;"
-                                         src="static/images/skills/java.svg">
+                                         src="{{ request.url_for('static', path='images/skills/Java.svg') }}">
                                 </i>
                                 <div style="margin: 20px 0px 0px 17px;">
                                     <a href="https://www.oracle.com/java" target="_blank">
@@ -257,7 +257,7 @@
                                 data-aos-delay="200">
                                 <i class="flex-shrink-0" style="margin: 10px 0px 10px 17px;">
                                     <img style="border-radius: 0px; width: 50px; height: 50px;"
-                                         src="static/images/skills/hibernate.svg">
+                                         src="{{ request.url_for('static', path='images/skills/Hibernate.svg') }}">
                                 </i>
                                 <div style="margin: 20px 0px 0px 17px;">
                                     <a href="https://hibernate.org" target="_blank">
@@ -270,7 +270,7 @@
                                 data-aos-delay="200">
                                 <i class="flex-shrink-0" style="margin: 10px 0px 10px 17px;">
                                     <img style="border-radius: 0px; width: 50px; height: 50px;"
-                                         src="static/images/skills/Java.svg">
+                                         src="{{ request.url_for('static', path='images/skills/Java.svg') }}">
                                 </i>
                                 <div style="margin: 20px 0px 0px 17px;">
                                     <a href="https://www.oracle.com/java/technologies/javaserverpages.html"
@@ -284,7 +284,7 @@
                                 data-aos-delay="200">
                                 <i class="flex-shrink-0" style="margin: 10px 0px 10px 17px;">
                                     <img style="border-radius: 0px; width: 50px; height: 50px;"
-                                         src="static/images/skills/structure.svg">
+                                         src="{{ request.url_for('static', path='images/skills/structure.svg') }}">
                                 </i>
                                 <div style="margin: 20px 0px 0px 17px;">
                                     <a href="https://www.w3schools.com/dsa/dsa_intro.php" target="_blank">
@@ -297,7 +297,7 @@
                                 data-aos-delay="200">
                                 <i class="flex-shrink-0" style="margin: 10px 0px 10px 17px;">
                                     <img style="border-radius: 0px; width: 50px; height: 50px;"
-                                         src="static/images/skills/elephant.svg">
+                                         src="{{ request.url_for('static', path='images/skills/elephant.svg') }}">
                                 </i>
                                 <div style="margin: 20px 0px 0px 17px;">
                                     <a href="https://www.postgresql.org/" target="_blank">
@@ -315,7 +315,7 @@
                             <div class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
                                 <h5 data-filter="*" style="color: var(--nav-hover-color);" class="filter-active">
                                     <i><img style="border-radius:0px;width:30px; height:30px;"
-                                            src="static/images/tools/tools.svg"></i>
+                                            src="{{ request.url_for('static', path='images/tools/tools.svg') }}"></i>
                                     Tools
                                 </h5>
                             </div><!-- End Portfolio Filters -->
@@ -326,7 +326,7 @@
                                 data-aos-delay="200">
                                 <i class="flex-shrink-0" style="margin: 10px 0px 10px 17px;">
                                     <img style="border-radius: 0px; width: 50px; height: 50px;"
-                                         src="static/images/tools/vs_code.svg">
+                                         src="{{ request.url_for('static', path='images/tools/vs_code.svg') }}">
                                 </i>
                                 <div style="margin: 20px 0px 0px 17px;">
                                     <a href="https://code.visualstudio.com/" target="_blank">
@@ -339,7 +339,7 @@
                                 data-aos-delay="200">
                                 <i class="flex-shrink-0" style="margin: 10px 0px 10px 17px;">
                                     <img style="border-radius: 0px; width: 50px; height: 50px;"
-                                         src="static/images/tools/pycharm.svg">
+                                         src="{{ request.url_for('static', path='images/tools/pycharm.svg') }}">
                                 </i>
                                 <div style="margin: 20px 0px 0px 17px;">
                                     <a href="https://www.jetbrains.com/pycharm/" target="_blank">
@@ -352,7 +352,7 @@
                                 data-aos-delay="200">
                                 <i class="flex-shrink-0" style="margin: 10px 0px 10px 17px;">
                                     <img style="border-radius: 0px; width: 50px; height: 50px;"
-                                         src="static/images/tools/intellij-idea.svg">
+                                         src="{{ request.url_for('static', path='images/tools/intellij-idea.svg') }}">
                                 </i>
                                 <div style="margin: 20px 0px 0px 17px;">
                                     <a href="https://www.jetbrains.com/idea/"
@@ -366,7 +366,7 @@
                                 data-aos-delay="200">
                                 <i class="flex-shrink-0" style="margin: 10px 0px 10px 17px;">
                                     <img style="border-radius: 0px; width: 50px; height: 50px;"
-                                         src="static/images/tools/postman.svg">
+                                         src="{{ request.url_for('static', path='images/tools/postman.svg') }}">
                                 </i>
                                 <div style="margin: 20px 0px 0px 17px;">
                                     <a href="https://www.postman.com/" target="_blank">
@@ -380,7 +380,7 @@
                     <!-- End Tools -->
                 </div>
                 <div class="col-lg-7">
-                    <!-- Start Organization -->
+                    <!-- Start Experience -->
                     <div class="info-wrap mb-3">
                         <div class="" data-aos="fade-up">
                             <div class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
@@ -421,7 +421,7 @@
                                  data-aos-delay="100">
                                 <h5 data-filter="*" style="color: var(--nav-hover-color);" class="filter-active">
                                     <i><img style="border-radius:0px;width:40px; height:40px;"
-                                            src="static/images/project/project.svg"></i>
+                                            src="{{ request.url_for('static', path='images/project/project.svg') }}"></i>
                                     Projects
                                 </h5>
                             </div>
@@ -435,7 +435,7 @@
                                     <i class="flex-shrink-0"
                                        style="padding:2px 2px 2px 2px;margin: 10px 0px 10px 17px;margin-bottom: 20px;width: 100px;">
                                         <img style="padding:7px 7px 7px 7px;border-radius: 0px; width: 110px; height: 35px;"
-                                             src="static/images/project/oneup.svg">
+                                             src="{{ request.url_for('static', path='images/project/oneup.svg') }}">
                                     </i>
                                     <div style="margin: 10px 0px 0px 17px;">
                                         <h5>E-Commerce Website - OneUpBrand</h5>
@@ -571,7 +571,7 @@
                                         <span class="d-flex" style="color:var(--nav-hover-color); width:110px;">
                                             <i class="flex-shrink-0">
                                                 <img style="margin-top:15px;width: 30px;height: 30px;"
-                                                     src="static/images/project/link.svg">
+                                                     src="{{ request.url_for('static', path='images/project/link.svg') }}">
                                             </i>
                                             <div style="position: relative;margin-top: 17px;width: 230px;height: 30px;left:-15px;">
                                                 <a href="https://oneupbrands.com/" target="_blank">
@@ -582,7 +582,7 @@
                                         <span class="d-flex" style="color:var(--nav-hover-color);width:110px;">
                                             <i class="flex-shrink-0">
                                                 <img style="margin-top:15px;width: 30px;height: 30px;"
-                                                     src="static/images/project/link.svg">
+                                                     src="{{ request.url_for('static', path='images/project/link.svg') }}">
                                             </i>
                                             <div style="position: relative;margin-top: 17px;width: 230px;height: 30px;left:-15px;">
                                                 <a href="https://github.com/VaghMohammadSajid/OneupBrand_Project-Admin_panel-"
@@ -601,7 +601,7 @@
                                     <i class="flex-shrink-0"
                                        style="padding:2px 2px 2px 2px;margin-bottom: 20px;width: 100px;">
                                         <img style="margin: 50px 0px 10px 17px;border-radius:20px;padding:7px 7px 7px 7px; width: 100px; height: auto;"
-                                             src="static/images/project/teens.svg">
+                                             src="{{ request.url_for('static', path='images/project/teens.svg') }}">
                                     </i>
                                     <div style="margin: 10px 0px 0px 17px;">
                                         <a href="https://www.stackerbee.com/">
@@ -713,7 +713,7 @@
                                         <span class="d-flex" style="color:var(--nav-hover-color); width:110px;">
                                             <i class="flex-shrink-0">
                                                 <img style="margin-top:15px;width: 30px;height: 30px;"
-                                                     src="static/images/project/link.svg">
+                                                     src="{{ request.url_for('static', path='images/project/link.svg') }}">
                                             </i>
                                             <div style="position: relative;margin-top: 17px;width: 230px;height: 30px;left:-15px;">
                                                 <a href="https://teentogether.stackerbee.com/swagger/" target="_blank">
