@@ -57,8 +57,9 @@
                 <!-- Image Container -->
                 <div class="col-lg-4">
                     <div class="info-item-1">
-                        <img style="border-radius: 78px 0px 78px 0px;"
-                             src="{{ request.url_for('static', path='images/ms_images/myphoto.jpg') }}" class="img-fluid" alt="">
+                        <img style="border-radius: 70px 0px 70px 0px;"
+                             src="{{ request.url_for('static', path='images/ms_images/myphoto.jpg') }}"
+                             class="img-fluid" alt="">
                         <h3 class="h4 mb-2">{{ details['name'] }}</h3>
                         <p class="text-muted mb-2">Python & Java Developer</p>
                         <a href="/contact" class="btn-get-started">Contact Me</a>
@@ -115,7 +116,7 @@
                                 <h5 data-filter="*" style="color: var(--nav-hover-color);" class="filter-active">
                                     <i><img style="border-radius:0px;width:30px; height:30px;"
                                             src="{{ request.url_for('static', path='images/organization/organization.svg') }}"></i>
-                                    Organizations
+                                    Experience
                                 </h5>
                             </div><!-- End Portfolio Filters -->
                         </div><!-- End Section Title -->
@@ -140,38 +141,6 @@
                         </ul>
                     </div>
                     <!-- End Organization -->
-
-                    <!-- Start Educations -->
-                    <div class="info-wrap mb-3">
-                        <div class="" data-aos="fade-up">
-                            <div class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-                                <h5 data-filter="*" style="color: var(--nav-hover-color);">
-                                    <i><img style="border-radius:0px;width:30px; height:30px;"
-                                            src="{{ request.url_for('static', path='images/education/graduation-cap.svg') }}"></i>
-                                    Education
-                                </h5>
-                            </div><!-- End Portfolio Filters -->
-                        </div><!-- End Section Title -->
-                        <ul class="mt-4 info-list">
-                            <li style="margin-bottom: 20px;border-radius:20px;" class="info-item d-flex"
-                                data-aos="fade-up"
-                                data-aos-delay="200">
-                                <i class="flex-shrink-0"
-                                   style="padding:30px 30px 30px 30px;margin: 13px 0px 10px 17px;margin-bottom: 20px;width: 70px;">
-                                    <img style="padding:7px 7px 7px 7px;border-radius: 20px; width: auto; height: 75px;"
-                                         src="{{ request.url_for('static', path='images/education/mj_image.svg') }}">
-                                </i>
-                                <div style="margin: 10px 0px 10px 17px;">
-                                    <a href="https://maktabahjafariyah.org/" target="_blank">
-                                        <h5>Bachelor of Computer Applications</h5>
-                                        <p>Maktabah Jafariyah Knowledge & Research Academy</p>
-                                        <p>September 2020 - May 2023</p>
-                                    </a>
-                                </div>
-                            </li><!-- End Info Item -->
-                        </ul>
-                    </div>
-                    <!-- End Educations -->
 
                     <!-- Start Skills -->
                     <div class="info-wrap mb-3">
@@ -308,7 +277,40 @@
                         </ul>
                     </div>
                     <!-- End Skills -->
-
+                </div>
+                <div class="col-lg-7">
+                    <!-- Start Educations -->
+                    <div class="info-wrap mb-3">
+                        <div class="" data-aos="fade-up">
+                            <div class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+                                <h5 data-filter="*" style="color: var(--nav-hover-color);" class="filter-active">
+                                    <i><img style="border-radius:0px;width:30px; height:30px;"
+                                            src="{{ request.url_for('static', path='images/education/graduation-cap.svg') }}"></i>
+                                    Education
+                                </h5>
+                            </div><!-- End Portfolio Filters -->
+                        </div><!-- End Section Title -->
+                        <ul class="mt-4 info-list">
+                            <li style="margin-top: 20px;margin-bottom: 20px;border-radius:20px;"
+                                class="info-item d-flex"
+                                data-aos="fade-up"
+                                data-aos-delay="200">
+                                <i class="flex-shrink-0"
+                                   style="padding:30px 30px 30px 30px;margin: 13px 0px 10px 17px;margin-bottom: 20px;width: 70px;">
+                                    <img style="padding:7px 7px 7px 7px;border-radius: 20px; width: auto; height: 70px;"
+                                         src="{{ request.url_for('static', path='images/education/mj_image.svg') }}">
+                                </i>
+                                <div style="margin: 10px 0px 0px 17px;">
+                                    <a href="https://maktabahjafariyah.org/" target="_blank">
+                                        <h5>Bachelor of Computer Applications</h5>
+                                        <h6>Maktabah Jafariyah Knowledge & Research Academy</h6>
+                                        <p class="mb-2">September 2020 - May 2023</p>
+                                    </a>
+                                </div>
+                            </li><!-- End Info Item -->
+                        </ul>
+                    </div>
+                    <!-- End Educations -->
                     <!-- Start Tools -->
                     <div class="info-wrap">
                         <div class="" data-aos="fade-up">
@@ -378,366 +380,6 @@
                         </ul>
                     </div>
                     <!-- End Tools -->
-                </div>
-                <div class="col-lg-7">
-                    <!-- Start Experience -->
-                    <div class="info-wrap mb-3">
-                        <div class="" data-aos="fade-up">
-                            <div class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-                                <h5 data-filter="*" style="color: var(--nav-hover-color);" class="filter-active">
-                                    <i><img style="border-radius:0px;width:30px; height:30px;"
-                                            src="static/images/experience/computer.svg"></i>
-                                    Experience
-                                </h5>
-                            </div><!-- End Portfolio Filters -->
-                        </div><!-- End Section Title -->
-                        <ul class="mt-4 info-list">
-                            <li style="padding:2px 2px 2px 2px;margin: 10px 0px 10px 17px;margin-bottom: 20px;"
-                                data-aos="fade-up"
-                                data-aos-delay="200">
-                                <div>
-                                    <ul>
-                                        <li>
-                                            <p class="fst-italic py-3">
-                                                I have 1 year of hands-on experience in Python Django, where I honed my
-                                                contact
-                                                in web development, API integration, and efficient database design. My
-                                                experience has equipped me with the ability to work on challenging
-                                                projects and
-                                                contribute effectively to dynamic teams.
-                                            </p>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- End Experience -->
-
-                    <!-- Start Projects -->
-                    <div class="info-wrap mb-3">
-                        <div class="" data-aos="fade-up">
-                            <div class="portfolio-filters isotope-filters" style="" data-aos="fade-up"
-                                 data-aos-delay="100">
-                                <h5 data-filter="*" style="color: var(--nav-hover-color);" class="filter-active">
-                                    <i><img style="border-radius:0px;width:40px; height:40px;"
-                                            src="{{ request.url_for('static', path='images/project/project.svg') }}"></i>
-                                    Projects
-                                </h5>
-                            </div>
-                        </div><!-- End Section Title -->
-                        <ul class="mt-4 info-list">
-                            <li style="margin: 10px 0px 10px 17px;margin-bottom: 20px; border-radius:20px;"
-                                class="info-item"
-                                data-aos="fade-up"
-                                data-aos-delay="200">
-                                <div class="d-flex">
-                                    <i class="flex-shrink-0"
-                                       style="padding:2px 2px 2px 2px;margin: 10px 0px 10px 17px;margin-bottom: 20px;width: 100px;">
-                                        <img style="padding:7px 7px 7px 7px;border-radius: 0px; width: 110px; height: 35px;"
-                                             src="{{ request.url_for('static', path='images/project/oneup.svg') }}">
-                                    </i>
-                                    <div style="margin: 10px 0px 0px 17px;">
-                                        <h5>E-Commerce Website - OneUpBrand</h5>
-                                        <p class="mb-2">January 2024 - October 2024 </p>
-                                    </div>
-                                </div>
-                                <div style="padding:2px 2px 2px 2px; margin: 10px 0px 10px 17px; margin-bottom: 20px;"
-                                     data-aos="fade-up"
-                                     data-aos-delay="200">
-                                    <div>
-                                        <h5>Description:</h5>
-                                        <ul>
-                                            <li>
-                                                <strong>OneUp Brand</strong> is a comprehensive e-commerce platform
-                                                that
-                                                enables users to buy and sell products online, featuring a diverse
-                                                range of
-                                                brands like Crompton, Bajaj, Veger, etc. The project focuses on
-                                                providing a
-                                                seamless shopping experience with a user-friendly interface and
-                                                efficient
-                                                backend management.
-
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="py-2">
-                                        <h5>My Role:</h5>
-                                        <p style="margin-left: 1.3rem !important;" class="mb-2">
-                                            I contributed as a <strong>Full-Stack Developer</strong> with the following
-                                            responsibilities:
-                                        </p>
-                                        <ul>
-                                            <li>Developed RESTful APIs using Django Rest Framework (DRF) to handle user
-                                                authentication, product management, and order processing.
-                                            </li>
-                                            <li>Implemented and customized the admin panel using Django Oscar, ensuring
-                                                effective management of products, brands, and categories.
-                                            </li>
-                                            <li>Designed and styled the admin interface using HTML, CSS, and Bootstrap,
-                                                enhancing usability and responsiveness.
-                                            </li>
-                                            <li>Collaborated with team members to ensure smooth integration between the
-                                                backend and frontend components.
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div>
-                                        <h5>Key Achievements:</h5>
-                                        <ul class="mb-2">
-                                            <li>Successfully developed and deployed scalable APIs for product and order
-                                                management.
-                                            </li>
-                                            <li>Customized Django Oscar to meet the specific requirements of the
-                                                platform.
-                                            </li>
-                                            <li>Enhanced the admin panel's usability by implementing a responsive design
-                                                using Bootstrap.
-                                            </li>
-                                            <li>Collaborated with a cross-functional team to ensure timely project
-                                                delivery and optimal performance.
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div>
-                                        <h5>Tech Stack:</h5>
-                                        <ul class="mb-2">
-                                            <span>
-                                                <a href="https://www.python.org" target="_blank"
-                                                   class="btn-get-started-project">Python</a>
-                                            </span>
-                                            <span>
-                                                <a href="https://www.djangoproject.org" target="_blank"
-                                                   class="btn-get-started-project">Django</a>
-                                            </span>
-                                            <span>
-                                                <a href="https://django-oscar.readthedocs.io/en/3.1/internals/contributing/index.html"
-                                                   target="_blank"
-                                                   class="btn-get-started-project">Django-oscar</a>
-                                            </span>
-                                            <span>
-                                                <a href="https://django-rest-framework-old-docs.readthedocs.io/en/3.7.7/topics/documenting-your-api/"
-                                                   target="_blank"
-                                                   class="btn-get-started-project">
-                                                    Django Rest Framework
-                                                </a>
-                                            </span>
-                                            <span>
-                                                <a href="https://www.w3schools.com/html/"
-                                                   target="_blank"
-                                                   class="btn-get-started-project">
-                                                    HTML
-                                                </a>
-                                            </span>
-                                            <span>
-                                                <a href="https://www.w3schools.com/css/default.asp"
-                                                   target="_blank"
-                                                   class="btn-get-started-project">
-                                                    CSS
-                                                </a>
-                                            </span>
-                                            <span>
-                                                <a href="https://getbootstrap.com/"
-                                                   target="_blank"
-                                                   class="btn-get-started-project">
-                                                    Boostrap Framework
-                                                </a>
-                                            </span>
-                                            <span>
-                                                <a href="https://www.postgresql.org/"
-                                                   target="_blank"
-                                                   class="btn-get-started-project">
-                                                    PostgreSQL
-                                                </a>
-                                            </span>
-                                            <span>
-                                                <a href="https://www.postman.com/"
-                                                   target="_blank"
-                                                   class="btn-get-started-project">
-                                                    Postman
-                                                </a>
-                                            </span>
-                                            <span>
-                                                <a href="https://www.jetbrains.com/pycharm/"
-                                                   target="_blank"
-                                                   class="btn-get-started-project">
-                                                    Pycharm IDE
-                                                </a>
-                                            </span>
-                                        </ul>
-                                    </div>
-                                    <div class="d-flex">
-                                        <span class="d-flex" style="color:var(--nav-hover-color); width:110px;">
-                                            <i class="flex-shrink-0">
-                                                <img style="margin-top:15px;width: 30px;height: 30px;"
-                                                     src="{{ request.url_for('static', path='images/project/link.svg') }}">
-                                            </i>
-                                            <div style="position: relative;margin-top: 17px;width: 230px;height: 30px;left:-15px;">
-                                                <a href="https://oneupbrands.com/" target="_blank">
-                                                    Website
-                                                </a>
-                                            </div>
-                                        </span>
-                                        <span class="d-flex" style="color:var(--nav-hover-color);width:110px;">
-                                            <i class="flex-shrink-0">
-                                                <img style="margin-top:15px;width: 30px;height: 30px;"
-                                                     src="{{ request.url_for('static', path='images/project/link.svg') }}">
-                                            </i>
-                                            <div style="position: relative;margin-top: 17px;width: 230px;height: 30px;left:-15px;">
-                                                <a href="https://github.com/VaghMohammadSajid/OneupBrand_Project-Admin_panel-"
-                                                   target="_blank">
-                                                    GitHub
-                                                </a>
-                                            </div>
-                                        </span>
-                                    </div>
-                                </div>
-                            </li><!-- End Info Item -->
-                            <li style="margin: 10px 0px 10px 17px;margin-bottom: 20px;" class="info-item"
-                                data-aos="fade-up"
-                                data-aos-delay="200">
-                                <div class="d-flex">
-                                    <i class="flex-shrink-0"
-                                       style="padding:2px 2px 2px 2px;margin-bottom: 20px;width: 100px;">
-                                        <img style="margin: 50px 0px 10px 17px;border-radius:20px;padding:7px 7px 7px 7px; width: 100px; height: auto;"
-                                             src="{{ request.url_for('static', path='images/project/teens.svg') }}">
-                                    </i>
-                                    <div style="margin: 10px 0px 0px 17px;">
-                                        <a href="https://www.stackerbee.com/">
-                                            <h5>Website - TeensTogather</h5>
-                                            <p class="mb-2">July 2024 - Present </p>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div style="padding:2px 2px 2px 2px;margin: 10px 0px 10px 17px;margin-bottom: 20px;"
-                                     data-aos="fade-up"
-                                     data-aos-delay="200">
-                                    <div>
-                                        <h5>Description:</h5>
-                                        <ul>
-                                            <li>
-                                                <p class="mb-2">
-                                                    Teens Together is an innovative platform designed for online
-                                                    chatting,
-                                                    fostering
-                                                    safe and interactive communication among teenagers. This project
-                                                    focuses on
-                                                    building a secure and user-friendly environment for real-time
-                                                    interactions,
-                                                    ensuring privacy and user engagement.
-                                                </p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div>
-                                        <h5>My Role:</h5>
-                                        <ul>
-                                            <li>
-                                                <p class="mb-2">
-                                                    As a <strong>Backend Developer</strong>, I was responsible for
-                                                    creating
-                                                    robust APIs using Django Rest Framework (DRF). My work included API
-                                                    development for user authentication, real-time messaging, and user
-                                                    profile
-                                                    management, as well as database design and integration with the
-                                                    frontend
-                                                    team.
-                                                </p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div>
-                                        <h5>Key Achievements:</h5>
-                                        <ul class="mb-2">
-                                            <li>Designed and implemented scalable APIs for real-time communication.</li>
-                                            <li>Collaborated effectively with the frontend team to deliver a seamless
-                                                user experience.
-                                            </li>
-                                            <li>Enhanced data security and privacy by implementing secure authentication
-                                                mechanisms.
-                                            </li>
-                                            <li>Provided comprehensive API documentation for future developers.</li>
-                                        </ul>
-                                    </div>
-                                    <div>
-                                        <h5>Tech Stack:</h5>
-                                        <ul class="mb-2">
-                                            <span>
-                                                <a href="https://www.python.org" target="_blank"
-                                                   class="btn-get-started-project">Python</a>
-                                            </span>
-                                            <span>
-                                                <a href="https://www.djangoproject.org" target="_blank"
-                                                   class="btn-get-started-project">Django</a>
-                                            </span>
-                                            <span>
-                                                <a href="https://django-rest-framework-old-docs.readthedocs.io/en/3.7.7/topics/documenting-your-api/"
-                                                   target="_blank"
-                                                   class="btn-get-started-project">
-                                                    Django Rest Framework
-                                                </a>
-                                            </span>
-                                            <span>
-                                                <a href="https://django-rest-swagger.readthedocs.io/en/latest/#django-rest-swagger"
-                                                   target="_blank"
-                                                   class="btn-get-started-project">
-                                                    Swagger
-                                                </a>
-                                            </span>
-
-                                            <span>
-                                                <a href="https://www.postgresql.org/"
-                                                   target="_blank"
-                                                   class="btn-get-started-project">
-                                                    PostgreSQL
-                                                </a>
-                                            </span>
-                                            <span>
-                                                <a href="https://www.postman.com/"
-                                                   target="_blank"
-                                                   class="btn-get-started-project">
-                                                    Postman
-                                                </a>
-                                            </span>
-                                            <span>
-                                                <a href="https://www.jetbrains.com/pycharm/"
-                                                   target="_blank"
-                                                   class="btn-get-started-project">
-                                                    Pycharm IDE
-                                                </a>
-                                            </span>
-                                        </ul>
-                                    </div>
-                                    <div class="d-flex">
-                                        <span class="d-flex" style="color:var(--nav-hover-color); width:110px;">
-                                            <i class="flex-shrink-0">
-                                                <img style="margin-top:15px;width: 30px;height: 30px;"
-                                                     src="{{ request.url_for('static', path='images/project/link.svg') }}">
-                                            </i>
-                                            <div style="position: relative;margin-top: 17px;width: 230px;height: 30px;left:-15px;">
-                                                <a href="https://teentogether.stackerbee.com/swagger/" target="_blank">
-                                                    Website
-                                                </a>
-                                            </div>
-                                        </span>
-                                        <!--                                        <span class="d-flex" style="color:var(&#45;&#45;nav-hover-color);width:110px;">-->
-                                        <!--                                            <i class="flex-shrink-0">-->
-                                        <!--                                                <img style="margin-top:15px;width: 30px;height: 30px;"-->
-                                        <!--                                                     src="static/images/logo/link.svg">-->
-                                        <!--                                            </i>-->
-                                        <!--                                            <div style="position: relative;margin-top: 17px;width: 230px;height: 30px;left:-15px;">-->
-                                        <!--                                                <a href="https://oneupbrands.com/" target="_blank">-->
-                                        <!--                                                    GitHub-->
-                                        <!--                                                </a>-->
-                                        <!--                                            </div>-->
-                                        <!--                                        </span>-->
-                                    </div>
-                                </div>
-                            </li><!-- End Info Item -->
-                        </ul>
-                    </div>
-                    <!-- End Experience -->
                 </div><!-- End Contact Form -->
             </div>
         </div>

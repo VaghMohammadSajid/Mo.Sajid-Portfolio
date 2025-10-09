@@ -21,48 +21,293 @@
 <!--End navbar-->
 
 <main class="main">
-    <!-- Contact Section -->
-    <section id="contact" class="contact section">
+    <section id="about" class="about section">
+        <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
             <h2>Projects</h2>
-            <h3 class="text-center mt-0">Tell me about your next project</h3>
-            <p style="font-size: 18px; font-weight: 300; line-height: 1.5; color: #5b5b5b;">
-                Feel free to reach out for collaborations or just a friendly hello
-            </p>
+        </div><!-- End Section Title -->
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+            {% if projects %}
+            <div class="row gy-4 justify-content-center">
+                {% for project in projects %}
+                <div class="col-lg-4">
+                    <div class="info-item-1">
+                        {% if project.img %}
+                        <img style="border-radius: 0; width: 200px; max-height:36px;"
+                             src="{{ request.url_for('static', path=project.img) }}"
+                             class="img-fluid" alt="{{ project.project_name }}">
+                        {% else %}
+                        <img style="border-radius: 0;"
+                             src="{{ request.url_for('static', path='images/ms_images/default_project.jpg') }}"
+                             class="img-fluid" alt="{{ project.project_name }}">
+                        {% endif %}
+
+                        <h3 class="h4 mb-2">{{ project.project_name }}</h3>
+
+                        <!-- single link to open the single modal, pass safe JS values with tojson -->
+                        <a href="javascript:void(0)" class="btn btn-get-started"
+                           data-title="{{ project.project_name|default('') }}"
+                           data-logo="{{ request.url_for('static', path=project.logo_img|default('')) }}"
+                           data-img="{{ request.url_for('static', path=project.img|default('')) }}"
+                           data-desc="{{ project.description|default('') }}"
+                           data-startdate="{{ project.start_date|default('') }}"
+                           data-enddate="{{ project.end_date|default('') }}"
+                           data-role-title="{{ project.my_roll_obj.roll_title|default('') }}"
+                           data-role-topic="{{ project.my_roll_obj.roll_topic|default('') }}"
+                           data-achievements="{{ project.key_achievement|default('') }}"
+                           data-tech-language="{{ project.req_skill_obj.language|default('') }}"
+                           data-tech-frameworks="{{ project.req_skill_obj.frameworks|default('') }}"
+                           data-tech-tools="{{ project.req_skill_obj.tools|default('') }}"
+                           data-tech-database="{{ project.req_skill_obj.database|default('') }}"
+                           data-website="{{ project.website_link|default('#') }}"
+                           data-github="{{ project.github_link|default('#') }}"
+                           onclick="openProjectModalFromEl(this)">
+                            See More
+                        </a>
+
+                    </div>
+                </div>
+                {% endfor %}
+                <!-- SINGLE Project Details Modal (place once, outside the loop) -->
+                <div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header d-flex align-items-center">
+                                <i class="flex-shrink-0">
+                                    <img id="projectModalLogo"
+                                         style="margin: 0 10px 0 0; border-radius: 20px; width: 100px; height: auto;"
+                                         src="" alt="Project Logo">
+                                </i>
+                                <div>
+                                    <h5 id="projectModalLabel" class="mb-1">Project Title</h5>
+                                    <p class="mb-0 text-muted">
+                                        <span id="projectModalStartDate">StartDate</span>
+                                        -
+                                        <span id="projectModalEndDate" class="mb-0 text-muted">EndDate</span>
+                                    </p>
+                                </div>
+                                <a href="javascript:void(0)" class="btn-close ms-auto" data-bs-dismiss="modal"
+                                   aria-label="Close"></a>
+                            </div>
+                            <div class="modal-body">
+                                <div id="projectModalDesc"></div>
+
+                                <div class="py-2">
+                                    <h5>My Role:</h5>
+                                    <p style="margin-left: 1.3rem !important;" class="mb-2" id="projectModalRoleTitle">
+                                    </p>
+                                    <ul>
+                                        <li id="projectModalRoleTopic"></li>
+
+                                    </ul>
+
+                                </div>
+
+                                <div>
+                                    <h5>Key Achievements:</h5>
+                                    <ul id="projectModalAchievements"></ul>
+                                </div>
+
+                                <div class="py-2">
+                                    <h5>Tech Stack:</h5>
+                                    <ul>
+                                        <li>
+                                            Languages : <span id="projectModalTechLanguage"></span>
+                                        </li>
+                                        <li>
+                                            Frameworks : <span id="projectModalTechFrameworks"></span>
+                                        </li>
+                                        <li>
+                                            Tools : <span id="projectModalTechTools"></span>
+                                        </li>
+                                        <li>
+                                            Databases : <span id="projectModalTechDatabase"></span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="d-flex mt-3">
+                                  <span id="websiteSection" class="d-flex me-3">
+                                    <i class="flex-shrink-0">
+                                      <img style="width:30px;height:30px;"
+                                           src="{{ request.url_for('static', path='images/project/link.svg') }}">
+                                    </i>
+                                    <div style="margin-left:10px;">
+                                      <a id="projectModalWebsite" target="_blank">Website</a>
+                                    </div>
+                                  </span>
+
+                                    <span id="githubSection" class="d-flex">
+                                    <i class="flex-shrink-0">
+                                      <img style="width:30px;height:30px;"
+                                           src="{{ request.url_for('static', path='images/project/link.svg') }}">
+                                    </i>
+                                    <div style="margin-left:10px;">
+                                      <a id="projectModalGithub" target="_blank">GitHub</a>
+                                    </div>
+                                  </span>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <a href="javascript:void(0)" class="btn btn-secondary" data-bs-dismiss="modal">Close</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    function escapeHtml(str) {
+                      return String(str).replace(/[&<>"']/g, function (m) {
+                        return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[m];
+                      });
+                    }
+
+                    // Clean DB strings: remove [ ], quotes, and ensure commas
+                    function cleanListString(str) {
+                      if (!str) return "";
+                      return str
+                        .replace(/^\[|\]$/g, "") // remove []
+                        .replace(/['"]+/g, "")   // remove quotes
+                        .replace(/\s*,\s*/g, ",") // normalize commas
+                        .trim();
+                    }
+
+
+                    function openProjectModalFromEl(el) {
+                      const title = el.getAttribute("data-title") || "";
+                      const imgUrl = el.getAttribute("data-img") || "";
+                      const logoUrl = el.getAttribute("data-logo") || "";
+                      const desc = el.getAttribute("data-desc") || "";
+                      const startdate = el.getAttribute("data-startdate") || "";
+                      const enddate = el.getAttribute("data-enddate") || "";
+                      let role_title = el.getAttribute("data-role-title") || "";
+                      let role_topic = el.getAttribute("data-role-topic") || "";
+                      let achievements = el.getAttribute("data-achievements") || "";
+                      let tech_language = el.getAttribute("data-tech-language") || "";
+                      let tech_frameworks = el.getAttribute("data-tech-frameworks") || "";
+                      let tech_tools = el.getAttribute("data-tech-tools") || "";
+                      let tech_database = el.getAttribute("data-tech-database") || "";
+                      const website = el.getAttribute("data-website");
+                      const github = el.getAttribute("data-github");
+
+                      // Title
+                      document.getElementById("projectModalLabel").textContent = title;
+
+                      // Logo
+                      const logoEl = document.getElementById("projectModalLogo");
+                      logoEl.src = logoUrl;
+                      logoEl.alt = title;
+
+                      // Main Image
+                      const imgEl = document.getElementById("projectModalImg");
+                      if (imgEl) {
+                        imgEl.src = imgUrl;
+                        imgEl.alt = title;
+                      }
+
+                      // Timeline
+                      document.getElementById("projectModalStartDate").textContent = startdate;
+                      document.getElementById("projectModalEndDate").textContent = enddate;
+
+                      // Description
+                      document.getElementById("projectModalDesc").innerHTML = desc;
+
+                      // Role
+                        role_title = cleanListString(role_title);
+                        role_topic = cleanListString(role_topic);
+
+                        const roleTitleEl = document.getElementById("projectModalRoleTitle");
+                        const roleTopicEl = document.getElementById("projectModalRoleTopic");
+
+                        roleTitleEl.innerHTML = "";
+                        roleTopicEl.innerHTML = "";
+
+                        // If role_title contains multiple roles separated by commas or newlines
+                        role_title.split(/,|\n/).forEach((item) => {
+                          if (item.trim()) roleTitleEl.innerHTML += `<li>${escapeHtml(item.trim())}</li>`;
+                        });
+
+                        // If role_topic is just plain text or a sentence
+                        roleTopicEl.innerHTML = escapeHtml(role_topic);
+
+
+                      // Achievements
+                      achievements = cleanListString(achievements);
+                      const achievementsEl = document.getElementById("projectModalAchievements");
+                      achievementsEl.innerHTML = "";
+                      achievements.split(/,|\n/).forEach((a) => {
+                        if (a.trim()) achievementsEl.innerHTML += `<li>${escapeHtml(a.trim())}</li>`;
+                      });
+
+                      // Tech Stacks
+                      tech_language = cleanListString(tech_language);
+                      tech_frameworks = cleanListString(tech_frameworks);
+                      tech_tools = cleanListString(tech_tools);
+                      tech_database = cleanListString(tech_database);
+
+                      const techLanguageEl = document.getElementById("projectModalTechLanguage");
+                      const techFrameworksEl = document.getElementById("projectModalTechFrameworks");
+                      const techToolsEl = document.getElementById("projectModalTechTools");
+                      const techDatabaseEl = document.getElementById("projectModalTechDatabase");
+
+                      techLanguageEl.innerHTML = "";
+                      techFrameworksEl.innerHTML = "";
+                      techToolsEl.innerHTML = "";
+                      techDatabaseEl.innerHTML = "";
+
+                      tech_language.split(" ").forEach((t) => {
+                        if (t.trim()) techLanguageEl.innerHTML += `<span class="btn-get-started-project">${escapeHtml(t.trim())}</span> `;
+                      });
+
+                      tech_frameworks.split(" ").forEach((t) => {
+                        if (t.trim()) techFrameworksEl.innerHTML += `<span class="btn-get-started-project">${escapeHtml(t.trim())}</span> `;
+                      });
+
+                      tech_tools.split(" ").forEach((t) => {
+                        if (t.trim()) techToolsEl.innerHTML += `<span class="btn-get-started-project">${escapeHtml(t.trim())}</span> `;
+                      });
+
+                      tech_database.split(" ").forEach((t) => {
+                        if (t.trim()) techDatabaseEl.innerHTML += `<span class="btn-get-started-project">${escapeHtml(t.trim())}</span> `;
+                      });
+
+                      // Website Section
+                       const websiteSection = document.getElementById("websiteSection");
+                       if (website && website.trim() !== "" && website.trim() !== "#") {
+                          document.getElementById("projectModalWebsite").href = website;
+                          websiteSection.style.display = "flex";   // show it
+                       } else {
+                          websiteSection.style.display = "none";   // completely hide it
+                       }
+
+                       // GitHub Section
+                       const githubSection = document.getElementById("githubSection");
+                       if (github && github.trim() !== "" && github.trim() !== "#") {
+                          document.getElementById("projectModalGithub").href = github;
+                          githubSection.style.display = "flex";    // show it
+                       } else {
+                          githubSection.style.display = "none";    // completely hide it
+                       }
+
+
+                      // Show modal
+                      const modalEl = document.getElementById("projectModal");
+                      const bsModal = new bootstrap.Modal(modalEl);
+                      bsModal.show();
+                    }
+                </script>
+
+
+            </div>
+            {% else %}
+            <div class="row gy-12 justify-content-center">
+                <div class="info-item-1">
+                    <p class="text-muted mb-2">No Projects Yet!</p>
+                </div>
+            </div>
+            {% endif %}
         </div>
 
-        <!-- Contact List -->
-        <div class="container">
-            <ul class="con-info-list">
-                <li class="con-info-item">
-                    <img src="{{ request.url_for('static', path='images/contact/email.svg') }}" alt="Email Icon">
-                    <h3 class="h4 mb-2">Mail</h3>
-                    <p class="py-2">vaghmohammadsajid8@gmail.com</p>
-                    <a href="mailto:vaghmohammadsajid8@gmail.com" class="btn-get-started">Send Me</a>
-                </li>
-                <li class="con-info-item" style="border-color: #34b7a7;">
-                    <img src="{{ request.url_for('static', path='images/contact/telegram.svg') }}"
-                         alt="Telegram Icon">
-                    <h3 class="h4 mb-2">Telegram</h3>
-                    <p class="py-2">@VaghMohammadSajid786</p>
-                    <a href="https://t.me/MoSajid786" class="btn-get-started">Message</a>
-                </li>
-                <li class="con-info-item">
-                    <img src="{{ request.url_for('static', path='images/contact/github.svg') }}"
-                         alt="GitHub Icon">
-                    <h3 class="h4 mb-2">GitHub</h3>
-                    <p class="py-2">@VaghMohammadSajid</p>
-                    <a href="https://github.com/VaghMohammadSajid" class="btn-get-started">Follow</a>
-                </li>
-                <li class="con-info-item" style="border-color: #34b7a7;">
-                    <img src="{{ request.url_for('static', path='images/contact/skype.svg') }}"
-                         alt="Telegram Icon">
-                    <h3 class="h4 mb-2">Skype</h3>
-                    <p class="py-2">Mohammad Sajid</p>
-                    <a href="https://join.skype.com/invite/ytIwbahbF6eW" class="btn-get-started">Call Me</a>
-                </li>
-            </ul>
-        </div>
     </section>
 </main>
 

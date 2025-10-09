@@ -717,7 +717,7 @@ section,
 
 .info-item-1 a {
     text-decoration: none;
-    color: inherit;
+    color: black;
     padding: 10px 20px;
     display: inline-block;
     margin-top: 10px;
