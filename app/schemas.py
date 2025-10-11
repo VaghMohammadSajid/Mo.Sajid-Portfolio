@@ -2,6 +2,7 @@ from pydantic import BaseModel
 from typing import Optional, Any, List
 from datetime import date
 
+
 # ---------------- MyRoll ----------------
 class MyRollBase(BaseModel):
     roll_title: str
@@ -11,11 +12,13 @@ class MyRollBase(BaseModel):
         "from_attributes": True
     }
 
+
 class MyRoll(MyRollBase):
     roll_id: int
 
     class Config:
         from_attributes = True
+
 
 # ---------------- ReqSkill ----------------
 class ReqSkillBase(BaseModel):
@@ -28,11 +31,13 @@ class ReqSkillBase(BaseModel):
         "from_attributes": True
     }
 
+
 class ReqSkill(ReqSkillBase):
     req_skill_id: int
 
     class Config:
         from_attributes = True
+
 
 # ---------------- Project ----------------
 class ProjectBase(BaseModel):
@@ -51,10 +56,12 @@ class ProjectBase(BaseModel):
         "from_attributes": True
     }
 
+
 # For creating a project (nested objects allowed, no IDs required)
 class ProjectCreate(ProjectBase):
     my_roll_obj: MyRollBase
     req_skill_obj: ReqSkillBase
+
 
 # For reading from DB (IDs included, nested response schemas)
 class Project(ProjectBase):
@@ -62,5 +69,6 @@ class Project(ProjectBase):
     my_roll_obj: MyRoll
     req_skill_obj: ReqSkill
 
-    class Config:
-        orm_mode = True
+    model_config = {
+        "from_attributes": True
+    }
