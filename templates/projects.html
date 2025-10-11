@@ -59,10 +59,10 @@
                            data-tech-frameworks="{{ project.req_skill_obj.frameworks|default('') }}"
                            data-tech-tools="{{ project.req_skill_obj.tools|default('') }}"
                            data-tech-database="{{ project.req_skill_obj.database|default('') }}"
-                           data-website="{{ project.website_link|default('#') }}"
                            data-github="{{ project.github_link|default('#') }}"
                            onclick="openProjectModalFromEl(this)">
                             See More
+                            <!--data-website="{{ project.website_link|default('#') }}"-->
                         </a>
 
                     </div>
@@ -127,15 +127,15 @@
                                     </ul>
                                 </div>
                                 <div class="d-flex mt-3">
-                                  <span id="websiteSection" class="d-flex me-3">
-                                    <i class="flex-shrink-0">
-                                      <img style="width:30px;height:30px;"
-                                           src="{{ request.url_for('static', path='images/project/link.svg') }}">
-                                    </i>
-                                    <div style="margin-left:10px;">
-                                      <a id="projectModalWebsite" target="_blank">Website</a>
-                                    </div>
-                                  </span>
+<!--                                  <span id="websiteSection" class="d-flex me-3">-->
+<!--                                    <i class="flex-shrink-0">-->
+<!--                                      <img style="width:30px;height:30px;"-->
+<!--                                           src="{{ request.url_for('static', path='images/project/link.svg') }}">-->
+<!--                                    </i>-->
+<!--                                    <div style="margin-left:10px;">-->
+<!--                                      <a id="projectModalWebsite" target="_blank">Website</a>-->
+<!--                                    </div>-->
+<!--                                  </span>-->
 
                                     <span id="githubSection" class="d-flex">
                                     <i class="flex-shrink-0">
@@ -187,7 +187,7 @@
                       let tech_frameworks = el.getAttribute("data-tech-frameworks") || "";
                       let tech_tools = el.getAttribute("data-tech-tools") || "";
                       let tech_database = el.getAttribute("data-tech-database") || "";
-                      const website = el.getAttribute("data-website");
+<!--                      const website = el.getAttribute("data-website");-->
                       const github = el.getAttribute("data-github");
 
                       // Title
@@ -272,13 +272,13 @@
                       });
 
                       // Website Section
-                       const websiteSection = document.getElementById("websiteSection");
-                       if (website && website.trim() !== "" && website.trim() !== "#") {
-                          document.getElementById("projectModalWebsite").href = website;
-                          websiteSection.style.display = "flex";   // show it
-                       } else {
-                          websiteSection.style.display = "none";   // completely hide it
-                       }
+<!--                       const websiteSection = document.getElementById("websiteSection");-->
+<!--                       if (website && website.trim() !== "" && website.trim() !== "#") {-->
+<!--                          document.getElementById("projectModalWebsite").href = website;-->
+<!--                          websiteSection.style.display = "flex";   // show it-->
+<!--                       } else {-->
+<!--                          websiteSection.style.display = "none";   // completely hide it-->
+<!--                       }-->
 
                        // GitHub Section
                        const githubSection = document.getElementById("githubSection");
