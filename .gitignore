@@ -1,3 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environment variables
+.env
+
+# Database files
+*.db
+*.sqlite3
+
+# Alembic local cache
+alembic/versions/__pycache__/
+
+# Virtual environment
 env
-.idea
-__pycache__
+.env/
+.venv/
+.idea/
