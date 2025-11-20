@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Mo.Sajid | Home</title>
+
+    <!--Start all css file-->
+    <!-- Favicons -->
+    <link href="{{ request.url_for('static', path='images/navbar/logo_icon.svg') }}" rel="icon">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+
+    <!-- Main CSS File -->
+    <link href="{{ request.url_for('static', path='css/main.css') }}" rel="stylesheet">
+
+    <!--End all css file-->
+
+</head>
+<body>
+<main class="main">
+    <!-- Hero Section -->
+    <section id="hero" class="hero section" style="min-height: 0px;">
+        <div class="container text-center" data-aos="zoom-out" data-aos-delay="70">
+            <div class=" row justify-content-center">
+                <div class="info-item-1 col-lg-8">
+                    <img style="width:1000px; height: 470px; position:relative;"
+                         src="{{ request.url_for('static', path='images/404/error-page-not-found-vector.jpg') }}">
+                    <a href="/"
+                       style="text-align: center;position: relative;left: 400px;width: 200px;font-size: large;"
+                       class="btn btn-get-started">Back To Home</a>
+                </div>
+
+            </div>
+        </div>
+    </section><!-- /Hero Section -->
+
+</main>
+</body>
+</html>

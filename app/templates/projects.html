@@ -12,6 +12,20 @@
     {% include 'all_css.html' %}
     <!--End all css file-->
 
+    <style>
+        .btn-close:focus {
+            outline: none; /* remove blue border */
+            box-shadow: 0 0 0 1px #34b7a7; /* highlight ring in teal color */
+            opacity: 1; /* ensure button stays visible */
+        }
+        #projectModal > div > div > div.modal-footer > a:hover{
+            background-color:
+            color-mix(in srgb, var(--accent-color), transparent 20%);
+            color: var(--bs-body-color);
+        }
+        #projectModalLogo
+    </style>
+
 </head>
 
 <body class="contact-page">
@@ -33,16 +47,18 @@
                 <div class="col-lg-4">
                     <div class="info-item-1">
                         {% if project.img %}
-                        <img style="border-radius: 0; width: 200px; max-height:36px;"
+
+                        <img style="border-radius: 0; width: 250px; height: 150px; padding: 4px 2px 4px 2px;"
                              src="{{ request.url_for('static', path=project.img) }}"
                              class="img-fluid" alt="{{ project.project_name }}">
+
                         {% else %}
                         <img style="border-radius: 0;"
                              src="{{ request.url_for('static', path='images/ms_images/default_project.jpg') }}"
                              class="img-fluid" alt="{{ project.project_name }}">
                         {% endif %}
 
-                        <h3 class="h4 mb-2">{{ project.project_name }}</h3>
+                        <h5 class="h5 mb-2" style="width:268px;">{{ project.project_name }}</h5>
 
                         <!-- single link to open the single modal, pass safe JS values with tojson -->
                         <a href="javascript:void(0)" class="btn btn-get-started"
@@ -76,15 +92,15 @@
                             <div class="modal-header d-flex align-items-center">
                                 <i class="flex-shrink-0">
                                     <img id="projectModalLogo"
-                                         style="margin: 0 10px 0 0; border-radius: 20px; width: 100px; height: auto;"
+                                         style="margin: 0 10px 0 0; border-radius: 2px; width: 50px; height: auto;"
                                          src="" alt="Project Logo">
                                 </i>
                                 <div>
                                     <h5 id="projectModalLabel" class="mb-1">Project Title</h5>
                                     <p class="mb-0 text-muted">
-                                        <span id="projectModalStartDate">StartDate</span>
+                                        <span id="projectModalStartDate">StartDate </span>
                                         -
-                                        <span id="projectModalEndDate" class="mb-0 text-muted">EndDate</span>
+                                        <span id="projectModalEndDate" class="mb-0 text-muted"> EndDate</span>
                                     </p>
                                 </div>
                                 <a href="javascript:void(0)" class="btn-close ms-auto" data-bs-dismiss="modal"
@@ -127,15 +143,15 @@
                                     </ul>
                                 </div>
                                 <div class="d-flex mt-3">
-<!--                                  <span id="websiteSection" class="d-flex me-3">-->
-<!--                                    <i class="flex-shrink-0">-->
-<!--                                      <img style="width:30px;height:30px;"-->
-<!--                                           src="{{ request.url_for('static', path='images/project/link.svg') }}">-->
-<!--                                    </i>-->
-<!--                                    <div style="margin-left:10px;">-->
-<!--                                      <a id="projectModalWebsite" target="_blank">Website</a>-->
-<!--                                    </div>-->
-<!--                                  </span>-->
+                                    <!--                                  <span id="websiteSection" class="d-flex me-3">-->
+                                    <!--                                    <i class="flex-shrink-0">-->
+                                    <!--                                      <img style="width:30px;height:30px;"-->
+                                    <!--                                           src="{{ request.url_for('static', path='images/project/link.svg') }}">-->
+                                    <!--                                    </i>-->
+                                    <!--                                    <div style="margin-left:10px;">-->
+                                    <!--                                      <a id="projectModalWebsite" target="_blank">Website</a>-->
+                                    <!--                                    </div>-->
+                                    <!--                                  </span>-->
 
                                     <span id="githubSection" class="d-flex">
                                     <i class="flex-shrink-0">
@@ -150,7 +166,7 @@
                             </div>
 
                             <div class="modal-footer">
-                                <a href="javascript:void(0)" class="btn btn-secondary" data-bs-dismiss="modal">Close</a>
+                                <a href="javascript:void(0)" class="btn-get-started" data-bs-dismiss="modal">Close</a>
                             </div>
                         </div>
                     </div>
@@ -177,7 +193,7 @@
                       const title = el.getAttribute("data-title") || "";
                       const imgUrl = el.getAttribute("data-img") || "";
                       const logoUrl = el.getAttribute("data-logo") || "";
-                      const desc = el.getAttribute("data-desc") || "";
+                      let desc = el.getAttribute("data-desc") || "";
                       const startdate = el.getAttribute("data-startdate") || "";
                       const enddate = el.getAttribute("data-enddate") || "";
                       let role_title = el.getAttribute("data-role-title") || "";
@@ -206,11 +222,17 @@
                       }
 
                       // Timeline
-                      document.getElementById("projectModalStartDate").textContent = startdate;
-                      document.getElementById("projectModalEndDate").textContent = enddate;
+                      document.getElementById("projectModalStartDate").textContent = formatDateWithSuffix(startdate);
+                      document.getElementById("projectModalEndDate").textContent = formatDateWithSuffix(enddate);
+
 
                       // Description
-                      document.getElementById("projectModalDesc").innerHTML = desc;
+                      desc = cleanListString(desc);
+                      const descEl = document.getElementById("projectModalDesc");
+                      descEl.innerHTML = "";
+
+                       // If desc is just plain text or a sentence
+                        descEl.innerHTML = escapeHtml(desc);
 
                       // Role
                         role_title = cleanListString(role_title);
@@ -295,6 +317,30 @@
                       const bsModal = new bootstrap.Modal(modalEl);
                       bsModal.show();
                     }
+                    function formatDateWithSuffix(dateString) {
+                      if (!dateString) return "";
+
+                      const date = new Date(dateString);
+
+                      if (isNaN(date)) return dateString; // fallback if invalid
+
+                      const day = date.getDate();
+                      const month = date.toLocaleString("default", { month: "long" });
+                      const year = date.getFullYear();
+
+                      // Determine correct suffix
+                      const suffix =
+                        day % 10 === 1 && day !== 11
+                          ? "st"
+                          : day % 10 === 2 && day !== 12
+                          ? "nd"
+                          : day % 10 === 3 && day !== 13
+                          ? "rd"
+                          : "th";
+
+                      return `${day}${suffix} ${month}, ${year}`;
+                    }
+
                 </script>
 
 

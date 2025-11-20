@@ -705,8 +705,8 @@ section,
     background: var(--accent-color);
     font-family: var(--heading-font);
     text-transform: uppercase;
-    font-weight: 600;
-    font-size: 12px;
+    font-weight: 700;
+    font-size: 15px;
     letter-spacing: 1px;
     display: inline-block;
     padding: 12px 40px;
@@ -1617,3 +1617,4 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+

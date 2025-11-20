@@ -1,31 +1,97 @@
-import os.path
+"""
+main.py
+---------
+FastAPI Portfolio App for Mohammad Sajid Vagh
+"""
+
+import os
+import time
+import logging
+from datetime import date, datetime
+from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, Request, Depends
-from fastapi.responses import HTMLResponse, JSONResponse
+from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from pydantic import BaseModel
-from datetime import date, datetime
-from starlette.exceptions import HTTPException as StarletteHTTPException
-import uvicorn
-import logging
+from fastapi.routing import APIRoute
 from sqlalchemy.orm import Session
-from app import schemas, models, crud, seed_data
-from app.database import SessionLocal, engine, Base
-from app.models import *
+from starlette.exceptions import HTTPException as StarletteHTTPException
 
-# ------------------ Database ------------------
-Base.metadata.create_all(engine)
+from app.database import Base, engine, SessionLocal
+from app import crud, schemas, seed_data
+from starlette.routing import Mount
 
-# ------------------ Logging Config ------------------
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger("uvicorn")  # Use Uvicorn's logger
+# ==========================================================
+#                DATABASE INIT
+# ==========================================================
 
-# ------------------ FastAPI App ------------------
-app = FastAPI()
+Base.metadata.create_all(bind=engine)
+
+# ==========================================================
+#                LOGGING SETUP
+# ==========================================================
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s | %(levelname)s | %(name)s | %(message)s"
+)
+logger = logging.getLogger("PortfolioApp")
 
 
-# ------------------ Dependency ------------------
+# ==========================================================
+#                LIFESPAN HANDLER
+# ==========================================================
+
+@asynccontextmanager
+async def lifespan(_app: FastAPI):
+    logger.info("🚀 Running startup seeding...")
+    db = SessionLocal()
+    try:
+        projects = seed_data.get_seed_projects()
+        crud.sync_projects_with_seed(db, projects)
+        logger.info("✅ Database seeded successfully!")
+    except Exception as e:
+        logger.error(f"❌ Seeding failed: {e}")
+    finally:
+        db.close()
+
+    # Log registered routes
+    logger.info("📜 Registered Routes:")
+    for route in _app.routes:
+        if isinstance(route, APIRoute):
+            methods = ', '.join(route.methods)
+            logger.info(f"➡️ Route registered: {route.path} | methods=[{methods}] | name={route.name}")
+    yield
+    logger.info("🛑 Application shutting down...")
+
+
+# ==========================================================
+#                APP INIT
+# ==========================================================
+
+app = FastAPI(
+    title="Mo.Sajid Portfolio API",
+    description="FastAPI backend for portfolio management",
+    lifespan=lifespan,
+)
+
+# ==========================================================
+#                STATIC & TEMPLATE SETUP
+# ==========================================================
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+STATIC_DIR = os.path.join(BASE_DIR, "static")
+TEMPLATES_DIR = os.path.join(BASE_DIR, "templates")
+
+app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
+templates = Jinja2Templates(directory=TEMPLATES_DIR)
+
+
+# ==========================================================
+#            DATABASE DEPENDENCY
+# ==========================================================
+
 def get_db():
     db = SessionLocal()
     try:
@@ -34,110 +100,49 @@ def get_db():
         db.close()
 
 
-# ------------------ Static & Templates ------------------
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-STATIC_DIR = os.path.join(os.path.dirname(BASE_DIR), "static")
-app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
-templates = Jinja2Templates(directory=os.path.join(os.path.dirname(BASE_DIR), "templates"))
+# ==========================================================
+#                UTILS
+# ==========================================================
 
-
-# ------------------ Startup Event ------------------
-@app.on_event("startup")
-def startup_event():
-    seed_data.seed_projects()
-    logger.info("✅ Seed data executed on startup")
-
-
-# ------------------ CRUD Routes ------------------
-@app.post("/projects/", response_model=schemas.Project)
-def create_project(project: schemas.ProjectCreate, db: Session = Depends(get_db)):
-    return crud.create_projects(db=db, projects=project)
-
-
-@app.get("/projects/{pro_id}", response_model=schemas.Project)
-def project_read(pro_id: int, db: Session = Depends(get_db)):
-    db_project = crud.get_projects(db=db, pro_id=pro_id)
-    if not db_project:
-        raise StarletteHTTPException(status_code=404, detail="Project not found")
-    return db_project
-
-
-# ------------------ Middleware ------------------
-@app.middleware("http")
-async def log_requests(request: Request, call_next):
-    if request.method == "GET" and not request.url.path.startswith("/static"):
-        logger.info(f"➡️ Page visited: {request.url.path}")
-    try:
-        response = await call_next(request)
-        return response
-    except Exception as e:
-        logger.exception(f"❌ Unhandled error for {request.url.path}: {e}")
-        return HTMLResponse("Internal Server Error", status_code=500)
-
-
-# ------------------ Exception Handlers ------------------
-@app.exception_handler(StarletteHTTPException)
-async def http_exception_handler(request: Request, exc: StarletteHTTPException):
-    logger.error(f"🚨 HTTP {exc.status_code} error at {request.url.path}")
-    return JSONResponse(
-        status_code=exc.status_code,
-        content={"detail": exc.detail}
-    )
-
-
-# ------------------ Utils ------------------
-class BirthDateInput(BaseModel):
-    birthdate: date
-
-
-def calculate_age(data: BirthDateInput):
+def calculate_age(birthdate: date) -> int:
     today = date.today()
-    birthdate = data.birthdate
     return today.year - birthdate.year - (
             (today.month, today.day) < (birthdate.month, birthdate.day)
     )
 
 
-# ------------------ Routes ------------------
+# ==========================================================
+#                HTML ROUTES
+# ==========================================================
+
+
 @app.get("/", response_class=HTMLResponse)
 async def index(request: Request):
-    details = {
-        'name': 'Mohammad Sajid',
-        'detail': 'As a backend developer, I design and maintain the server-side logic that powers web applications.'
-    }
-    return templates.TemplateResponse("index.html", {"request": request, "details": details})
+    return templates.TemplateResponse("index.html", {
+        "request": request,
+        "details": {
+            "name": "Mohammad Sajid Vagh",
+            "intro": "Python Developer | Django | FastAPI | REST APIs | SQL | PostgreSQL",
+        },
+
+    })
 
 
 @app.get("/about", response_class=HTMLResponse)
 async def about(request: Request):
-    birth_date_obj = datetime.strptime('2002-04-26', '%Y-%m-%d').date()
-    age = calculate_age(BirthDateInput(birthdate=birth_date_obj))
-    details = {
-        'name': "Mohammad Sajid Vagh",
-        'birth_date': 'April 26, 2002',
-        'age': age,
-        'Phone': '+91 8980331323',
-        'Degree': 'Bachelor of Computer Applications',
-        'City': 'Gujarat, India',
-        'Email': 'vaghmohammadsajid8@gmail.com',
-        'introduction': (
-            "I’m a Python developer with a BCA degree and hands-on experience "
-            "building backend features using Django, REST APIs, and relational databases."
-        )
-    }
-    logger.info(f"🎓 Degree: {details['Degree']}")
-    return templates.TemplateResponse("about.html", {"request": request, "details": details})
-
-
-@app.get("/projects", response_class=HTMLResponse)
-async def projects(request: Request, db: Session = Depends(get_db)):
-    projects_orm = crud.get_projects(db)  # returns all Projects
-    projects = [schemas.Project.from_orm(p) for p in projects_orm]  # convert to Pydantic
-
-    return templates.TemplateResponse(
-        "projects.html",
-        {"request": request, "projects": projects}
-    )
+    birthdate = datetime.strptime("2002-04-26", "%Y-%m-%d").date()
+    return templates.TemplateResponse("about.html", {
+        "request": request,
+        "details": {
+            "name": "Mohammad Sajid Vagh",
+            "birth_date": "April 26, 2002",
+            "age": calculate_age(birthdate),
+            "degree": "Bachelor of Computer Applications (BCA)",
+            "city": "Himmatnagar, Gujarat, India",
+            "email": "vaghmohammadsajid8@gmail.com",
+            "phone": "+91 8980331323",
+        }
+    })
 
 
 @app.get("/contact", response_class=HTMLResponse)
@@ -145,6 +150,62 @@ async def contact(request: Request):
     return templates.TemplateResponse("contact.html", {"request": request})
 
 
-# ------------------ Main ------------------
+@app.get("/projects", response_class=HTMLResponse)
+async def get_projects_page(request: Request, db: Session = Depends(get_db)):
+    projects = crud.get_projects(db)
+    return templates.TemplateResponse("projects.html", {"request": request, "projects": projects})
+
+
+# ==========================================================
+#                PROJECT CRUD ROUTES
+# ==========================================================
+
+
+@app.get("/api/projects", response_model=list[schemas.Project])
+def api_get_all_projects(db: Session = Depends(get_db)):
+    return crud.get_projects(db)
+
+
+@app.post("/api/projects", response_model=schemas.Project)
+def api_create_or_update_project(project: schemas.ProjectCreate, db: Session = Depends(get_db)):
+    logger.info(f"🛠 Upsert project: {project.project_name}")
+    return crud.create_or_update_project(db, project)
+
+
+@app.delete("/api/projects/{pro_id}")
+def api_delete_project(pro_id: int, db: Session = Depends(get_db)):
+    deleted = crud.delete_project(db, pro_id)
+    if not deleted:
+        raise StarletteHTTPException(status_code=404, detail="Project not found")
+    return {"message": "Project deleted successfully"}
+
+
+# ==============================================
+#        CATCH ALL ROUTE (404 FALLBACK)
+# ==============================================
+
+@app.exception_handler(StarletteHTTPException)
+async def http_error_handler(request: Request, exc: StarletteHTTPException):
+    logger.error(f"❌ HTTP {exc.status_code} → {request.url}")
+
+    # 👉 Ignore Chrome DevTools auto-request
+    if "/.well-known/appspecific/com.chrome.devtools.json" in str(request.url):
+        return HTMLResponse(status_code=204)  # No Content (fully silent)
+
+    # Normal 404
+    if exc.status_code == 404:
+        return templates.TemplateResponse("404.html", {"request": request}, status_code=404)
+
+    # Other errors
+    return HTMLResponse(str(exc.detail), status_code=exc.status_code)
+
+
+
+# ==============================================
+#            RUN SERVER
+# ==============================================
+
 if __name__ == "__main__":
-    uvicorn.run("app.main:app", host="127.0.0.1", port=8001, reload=True)
+    import uvicorn
+
+    uvicorn.run("app.main:app", host="127.0.0.1", port=8002, reload=True)
