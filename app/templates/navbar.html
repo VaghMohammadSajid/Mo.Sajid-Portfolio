@@ -1,55 +1,73 @@
-<!-- MENU -->
-<header id="header" class="header d-flex align-items-center light-background sticky-top">
-    <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
-
-        <div class="header-social-links">
-        </div>
-
-        <a href="/" class="logo d-flex align-items-center me-auto me-xl-0">
-            <img
-                    class="hover-logo"
-                    style="border-radius: 20px;"
-                    src="{{ request.url_for('static', path='images/navbar/logo_icon.svg') }}"
-                    alt="Logo"
-            >
-        </a>
-
-        <nav id="navmenu" class="navmenu">
-            <div class="header-social-links">
-            </div>
-            <ul>
-                <li><a href="/" class="{% if request.path == '/' %}active{% endif %}"><i><img
-                        style="width:20px; height:20px;"
-                        src="{{ request.url_for('static', path='images/navbar/home.svg') }}"> </i><span
-                        style="position: relative;left: 5px;">Home</span></a></li>
-                <li><a href="/about" class="{% if request.path == '/about' %}active{% endif %}"> <i><img
-                        style="width:20px; height:20px;"
-                        src="{{ request.url_for('static', path='images/navbar/user.svg') }}"> </i>
-                    <span
-                            style="position: relative;left: 5px;">About Me</span></a>
-                </li>
-                <li>
-                    <a href="/projects" class="{% if request.url.path == '/projects' %}active{% endif %}">
-                        <i><img style="width:20px; height:20px;"
-                                src="{{ url_for('static', path='images/project/folder-management.svg') }}"></i>
-                        <span style="position: relative; left: 5px;">Projects</span>
-                    </a>
-                </li>
-
-
-                <li><a href="/contact"
-                       class="{% if request.path == '/contact' %}active{% endif %}"><i><img
-                        style="width:20px; height:20px;"
-                        src="{{ request.url_for('static', path='images/navbar/support.svg') }}"> </i>
-                    <span style="position: relative;left: 5px;">Contact</span>
+<div class="top-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-5 col1">
+                <a class="social-icon" href="mailto:vaghmohammadsajid8@gmail.com">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
                 </a>
+            </div>
+
+            <div class="col-sm-6 col-7 col2">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <a href="https://www.facebook.com/msvagh.vagh"><i class="fa fa-facebook-official"
+                                                                          aria-hidden="true"></i></a>
+                        <a href="https://www.instagram.com/mammu_6534"><i class="fa fa-instagram"
+                                                                          aria-hidden="true"></i></a>
+                        <a href="https://x.com/MoSajidVagh"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                        <a href="https://www.instagram.com/mammu_6534"><i class="fa fa-github"
+                                                                          aria-hidden="true"></i></a>
+                        <a href="https://www.linkedin.com/in/mohammadsajid-vagh-111504274"><i class="fa fa-linkedin"
+                                                                                              aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Navigation -->
+<nav id="myHeader" class="header navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <a class="navbar-brand" href="/"><img
+                style="position:relative; top:10px; width: 40px; height:40px;"
+                src="{{ request.url_for('static', path='images/navbar/logo_icon.svg') }}"
+                alt="logo"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item {% if request.path == '/' %}active{% endif %}">
+                    <a class="nav-link " href="/">Home</a>
+                </li>
+                <li class="nav-item {% if request.path == '/about' %}active{% endif %}">
+                    <a class="nav-link " href="/about">About Us</a>
+                </li>
+                <li class="nav-item {% if request.path == '/skills' %}active{% endif %}">
+                    <a class="nav-link " href="/skills">My Skills</a>
+                </li>
+                <li class="nav-item {% if request.path == '/projects' %}active{% endif %}">
+                    <a class="nav-link" href="/projects">My Projects</a>
+                </li>
+                <li class="nav-item {% if request.path == '/contact' %}active{% endif %}">
+                    <a class="nav-link " href="/contact">Contact Us</a>
                 </li>
             </ul>
-            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-        </nav>
-
-        <div class="header-social-links">
         </div>
+    </div>
+</nav>
 
+<header class="banner">
+    <div class="gradient"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 heading"
+                 style="position: relative; letter-spacing: 0.5px;">
+                <h2 data-aos="fade-right" data-aos-delay="300">Hi I'm <span style="font-weight: 600; padding: 4px 10px 4px 10px;  color: rgb(255, 255, 0);
+                    background: #000;">{{ details.name }} 👋</span></h2>
+                <h3 data-aos="fade-left" data-aos-delay="300">{{ details.intro }}</h3>
+            </div>
+        </div>
     </div>
 </header>

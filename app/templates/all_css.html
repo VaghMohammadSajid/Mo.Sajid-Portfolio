@@ -1,18 +1,17 @@
+
 <!-- Favicons -->
-<link href="{{ request.url_for('static', path='images/navbar/logo_icon.svg') }}" rel="icon">
+<link rel="icon" type="image/svg+xml" href="{{ request.url_for('static', path='images/navbar/logo_icon.svg') }}">
 
 <!-- Fonts -->
-<link href="https://fonts.googleapis.com" rel="preconnect">
-<link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap"
-      rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-<!-- Vendor CSS Files -->
-<link href="{{ request.url_for('static', path='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-<link href="{{ request.url_for('static', path='vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
-<link href="{{ request.url_for('static', path='vendor/aos/aos.css') }}" rel="stylesheet">
-<link href="{{ request.url_for('static', path='vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
-<link href="{{ request.url_for('static', path='vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700" rel="stylesheet">
+<!-- Font Awesome 4.7 (ONLY ONCE) -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css">
 
 <!-- Main CSS File -->
 <link href="{{ request.url_for('static', path='css/main.css') }}" rel="stylesheet">
+<link rel="stylesheet" href="{{ request.url_for('static', path='css/animate.css') }}">

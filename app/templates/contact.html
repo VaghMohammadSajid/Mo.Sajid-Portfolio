@@ -1,74 +1,118 @@
-<!DOCTYPE html>
+<!--<main class="main">-->
+<!--    &lt;!&ndash; Contact Section &ndash;&gt;-->
+<!--    <section id="contact" class="contact section">-->
+<!--        <div class="container section-title" data-aos="fade-up">-->
+<!--            <h2>Contact</h2>-->
+<!--            <h3 class="text-center mt-0">Tell me about your next project</h3>-->
+<!--            <p style="font-size: 18px; font-weight: 300; line-height: 1.5; color: #5b5b5b;">-->
+<!--                Feel free to reach out for collaborations or just a friendly hello-->
+<!--            </p>-->
+<!--        </div>-->
+
+<!--        &lt;!&ndash; Contact List &ndash;&gt;-->
+<!--        <div class="container">-->
+<!--            <ul class="con-info-list">-->
+<!--                <li class="con-info-item">-->
+<!--                    <img src="{{ request.url_for('static', path='images/contact/email.svg') }}" alt="Email Icon">-->
+<!--                    <h3 class="h4 mb-2">Mail</h3>-->
+<!--                    <p class="py-2">vaghmohammadsajid8@gmail.com</p>-->
+<!--                    <a href="mailto:vaghmohammadsajid8@gmail.com" class="btn-get-started">Send Me</a>-->
+<!--                </li>-->
+<!--                <li class="con-info-item" style="border-color: #34b7a7;">-->
+<!--                    <img src="{{ request.url_for('static', path='images/contact/telegram.svg') }}"-->
+<!--                         alt="Telegram Icon">-->
+<!--                    <h3 class="h4 mb-2">Telegram</h3>-->
+<!--                    <p class="py-2">@VaghMohammadSajid786</p>-->
+<!--                    <a href="https://t.me/MoSajid786" class="btn-get-started">Message</a>-->
+<!--                </li>-->
+<!--                <li class="con-info-item">-->
+<!--                    <img src="{{ request.url_for('static', path='images/contact/github.svg') }}"-->
+<!--                         alt="GitHub Icon">-->
+<!--                    <h3 class="h4 mb-2">GitHub</h3>-->
+<!--                    <p class="py-2">@VaghMohammadSajid</p>-->
+<!--                    <a href="https://github.com/VaghMohammadSajid" class="btn-get-started">Follow</a>-->
+<!--                </li>-->
+<!--                <li class="con-info-item" style="border-color: #34b7a7;">-->
+<!--                    <img src="{{ request.url_for('static', path='images/contact/skype.svg') }}"-->
+<!--                         alt="Telegram Icon">-->
+<!--                    <h3 class="h4 mb-2">Skype</h3>-->
+<!--                    <p class="py-2">Mohammad Sajid</p>-->
+<!--                    <a href="https://join.skype.com/invite/ytIwbahbF6eW" class="btn-get-started">Call Me</a>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </section>-->
+<!--</main>-->
+
+<!doctype html>
 <html lang="en">
-
 <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Mo.Sajid | Contact</title>
-    <meta name="description" content="Contact Mo.Sajid Vagh">
-    <meta name="keywords" content="">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Mo.Sajid | About</title>
     <!--Start all css file-->
     {% include 'all_css.html' %}
     <!--End all css file-->
-
 </head>
 
-<body class="contact-page">
+
+<body>
 
 <!--Start navbar-->
 {% include 'navbar.html' %}
 <!--End navbar-->
 
-<main class="main">
-    <!-- Contact Section -->
-    <section id="contact" class="contact section">
-        <div class="container section-title" data-aos="fade-up">
-            <h2>Contact</h2>
-            <h3 class="text-center mt-0">Tell me about your next project</h3>
-            <p style="font-size: 18px; font-weight: 300; line-height: 1.5; color: #5b5b5b;">
-                Feel free to reach out for collaborations or just a friendly hello
-            </p>
+<!-- Contact section Start -->
+<div id="contact">
+    <div class="container">
+        <h2>Contact us</h2>
+        <div class="row">
+            <div class="col-md-12" data-aos="fade-up" data-aos-duration="800">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni maxime repudiandae excepturi amet,
+                    explicabo cum numquam nulla voluptatum minus necessitatibus cumque alias officiis mollitia sed. Non
+                    dolores voluptate sint, dolore.</p>
+                <p>Magni maxime repudiandae excepturi amet, explicabo cum numquam nulla voluptatum minus necessitatibus
+                    cumque alias officiis mollitia sed. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni
+                    maxime repudiandae excepturi amet, explicabo cum numquam nulla voluptatum minus necessitatibus
+                    cumque alias officiis mollitia sed. Non dolores voluptate sint, dolore.</p>
+            </div>
         </div>
-
-        <!-- Contact List -->
-        <div class="container">
-            <ul class="con-info-list">
-                <li class="con-info-item">
-                    <img src="{{ request.url_for('static', path='images/contact/email.svg') }}" alt="Email Icon">
-                    <h3 class="h4 mb-2">Mail</h3>
-                    <p class="py-2">vaghmohammadsajid8@gmail.com</p>
-                    <a href="mailto:vaghmohammadsajid8@gmail.com" class="btn-get-started">Send Me</a>
-                </li>
-                <li class="con-info-item" style="border-color: #34b7a7;">
-                    <img src="{{ request.url_for('static', path='images/contact/telegram.svg') }}"
-                         alt="Telegram Icon">
-                    <h3 class="h4 mb-2">Telegram</h3>
-                    <p class="py-2">@VaghMohammadSajid786</p>
-                    <a href="https://t.me/MoSajid786" class="btn-get-started">Message</a>
-                </li>
-                <li class="con-info-item">
-                    <img src="{{ request.url_for('static', path='images/contact/github.svg') }}"
-                         alt="GitHub Icon">
-                    <h3 class="h4 mb-2">GitHub</h3>
-                    <p class="py-2">@VaghMohammadSajid</p>
-                    <a href="https://github.com/VaghMohammadSajid" class="btn-get-started">Follow</a>
-                </li>
-                <li class="con-info-item" style="border-color: #34b7a7;">
-                    <img src="{{ request.url_for('static', path='images/contact/skype.svg') }}"
-                         alt="Telegram Icon">
-                    <h3 class="h4 mb-2">Skype</h3>
-                    <p class="py-2">Mohammad Sajid</p>
-                    <a href="https://join.skype.com/invite/ytIwbahbF6eW" class="btn-get-started">Call Me</a>
-                </li>
-            </ul>
+        <div class="container py-5">
+            <div class="row" data-aos="fade-up" data-aos-duration="800">
+                <div class="col-md-12">
+                    <form>
+                        <div class="form-group row">
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="Your Name" required>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="Your Email" required>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="Website" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-xs-12 col-md-12">
+                                <textarea type="text" class="form-control" placeholder="Your Message" rows="6"
+                                          required></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary px-4">get a quote</button>
+                    </form>
+                </div>
+            </div>
         </div>
-    </section>
-</main>
+    </div>
+</div>
 
-<!--Start Footer -->
+<!-- Contact section End -->
+
+<!--Start Footer-->
 {% include 'footer.html' %}
-<!--End Footer -->
-
+<!--End Footer-->
 </body>
 </html>

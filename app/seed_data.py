@@ -28,40 +28,53 @@ def get_seed_projects():
                 "Efficient admin customization",
                 "Seamless database integration"
             ],
-            img="images/project/oneup.svg",
-            logo_img="images/project/oneup.svg",
+            images=[  # ✅ MULTIPLE IMAGES
+                "images/project/oneup/dashboard.png",
+                "images/project/oneup/dashboard-1.png",
+                "images/project/oneup/orders.png",
+            ],
+            logo_img="images/project/oneup/oneup.svg",
             github_link="https://github.com/VaghMohammadSajid/OneupBrand_Project-Admin_panel-",
             website_link="",
             start_date="2024-01-01",
             end_date="2024-10-01",
         ),
         schemas.ProjectCreate(
-            project_name="SwaggerAPI Teens & Togather",
-            description=["A secure chat API for teenagers with REST and real-time communication."],
+            project_name="RoseValley E-commerce Website",
+            description=[
+                "RoseValley is an E-commerce platform developed as a college project using Java, JSP, Servlet, and Hibernate. "
+                "It provides a simple and user-friendly online shopping experience with secure authentication, product catalog, "
+                "shopping cart, and order management features."
+            ],
             my_roll_obj=schemas.MyRollBase(
-                roll_title="API Developer",
+                roll_title="Full Stack Developer",
                 roll_topic=[
-                    "Developed RESTful APIs with DRF",
-                    "Integrated user authentication",
-                    "Worked on real-time message flow"
+                    "Designed and developed both frontend and backend modules",
+                    "Implemented user authentication and authorization",
+                    "Built product listing, cart, and order management features",
+                    "Worked with database integration using Hibernate ORM"
                 ]
             ),
             req_skill_obj=schemas.ReqSkillBase(
-                language="Python",
-                frameworks="Django, DRF",
-                tools="Swagger, Git, PyCharmIDE",
-                database="PostgreSQL"
+                language="Java, HTML, CSS, JavaScript",
+                frameworks="JSP, Servlet, Hibernate, Bootstrap",
+                tools="Git, VS Code, Postman, Apache Tomcat",
+                database="MySQL"
             ),
             key_achievement=[
-                "Built scalable messaging APIs",
-                "Improved security and authentication",
-                "Collaborated with frontend for seamless UX"
+                "Successfully developed a complete end-to-end e-commerce application",
+                "Implemented admin panel for product management",
+                "Integrated shopping cart and order tracking system",
+                "Deployed and tested the application on Apache Tomcat server"
             ],
-            img="images/project/teens.svg",
-            logo_img="images/project/teens.svg",
-            github_link="https://github.com/VaghMohammadSajid/teens_togather",
-            website_link="",
-            start_date="2024-07-01",
+            images=[
+                "images/project/rosevalley/homepage.png"
+                "images/project/rosevalley/orderplace.png"
+            ],
+            logo_img="images/project/rosevalley/rosevalley_logo.svg",
+            github_link="https://github.com/VaghMohammadSajid/RoseValley",
+            website_link="http://localhost:8080/RoseValley",
+            start_date="2024-02-25",
             end_date="2025-03-31",
         ),
         schemas.ProjectCreate(
@@ -86,11 +99,54 @@ def get_seed_projects():
                 "Implemented secure user roles",
                 "Deployed real-time attendance reports"
             ],
-            img="images/project/biometric-attendance.svg",
-            logo_img="images/project/biometric-attendance.svg",
-            github_link="https://github.com/VaghMohammadSajid/biometric_attendance",
+            images=[
+                "images/project/biometric-attendance.png"
+            ],
+            logo_img="images/project/biometric-attendance/biometric_attendance_logo.svg",
+            github_link="https://github.com/VaghMohammadSajid/RoseVally_E_Commmerce",
             website_link="",
             start_date="2024-02-25",
+            end_date="2025-03-31",
+        ),
+        schemas.ProjectCreate(
+            project_name="SwaggerAPI Teens & Togather",
+            description=["A secure chat API for teenagers with REST and real-time communication."],
+            my_roll_obj=schemas.MyRollBase(
+                roll_title="API Developer",
+                roll_topic=[
+                    "Developed RESTful APIs with DRF",
+                    "Integrated user authentication",
+                    "Worked on real-time message flow"
+                ]
+            ),
+            req_skill_obj=schemas.ReqSkillBase(
+                language="Python",
+                frameworks="Django, DRF",
+                tools="Swagger, Git, PyCharmIDE",
+                database="PostgreSQL"
+            ),
+            key_achievement=[
+                "Built scalable messaging APIs",
+                "Improved security and authentication",
+                "Collaborated with frontend for seamless UX"
+            ],
+            images=[  # ✅ ONLY THIS
+                "images/project/teens/main.png",
+                "images/project/teens/appointmeant.png",
+                "images/project/teens/doctor.png",
+                "images/project/teens/doctor-1.png",
+                "images/project/teens/dynamic-content.png",
+                "images/project/teens/happy.png",
+                "images/project/teens/meditation.png",
+                "images/project/teens/user.png",
+                "images/project/teens/user-1.png",
+                "images/project/teens/user-2.png",
+                "images/project/teens/voice-day.png",
+            ],
+            logo_img="images/project/teens/teens_logo.png",
+            github_link="https://github.com/VaghMohammadSajid/teens_togather",
+            website_link="",
+            start_date="2024-07-01",
             end_date="2025-03-31",
         ),
     ]
@@ -104,7 +160,10 @@ def seed_all_data(db):
     """
     seed_projects = get_seed_projects()
 
-    existing_projects = {p.project_name: p for p in db.query(Projects).all()}
+    existing_projects = {
+        p.project_name: p for p in db.query(Projects).all()
+    }
+
     seed_project_names = [p.project_name for p in seed_projects]
 
     # Create or update
@@ -112,6 +171,7 @@ def seed_all_data(db):
         crud.create_or_update_project(db, project)  # ✅ updated line
         print("------------------------------------------------------------")
         print("✅ Created or Updated!")
+        print("✅ Created or Updated:", project.project_name)
         print("------------------------------------------------------------")
 
     # Delete projects not in seed data

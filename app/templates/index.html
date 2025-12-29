@@ -1,48 +1,159 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Mo.Sajid | Home</title>
-    <meta name="description" content="Mohammad Sajid Vagh - Backend Developer with expertise in Django and server-side logic.">
-    <meta name="keywords" content="Backend Developer, Django, Mohammad Sajid Vagh, Server Logic">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Mo.Sajid | About</title>
     <!--Start all css file-->
     {% include 'all_css.html' %}
     <!--End all css file-->
-
 </head>
 
-<body class="index-page">
 
-    <!--Start navbar-->
-    {% include 'navbar.html' %}
-    <!--End navbar-->
+<body>
 
-    <main class="main">
+<!--Start navbar-->
+{% include 'navbar.html' %}
+<!--End navbar-->
 
-        <!-- Hero Section -->
-        <section id="hero" class="hero section">
-            <div class="container text-center" data-aos="zoom-out" data-aos-delay="70">
-                <div class="row justify-content-center">
-                    <div class="info-item-1 col-lg-8">
-                        <h2 style="color:#34b7a7;">
-                            <span style="font-weight: bold;font-size: 30px;color: #222222;">Hi, I'm</span>
-                            {{ details.name }}.
-                        </h2>
-                        <p>{{ details.detail }}</p>
-                        <a href="about" class="btn btn-get-started">About Me</a>
+<!-- FEATURES -->
+<!-- About Section Start -->
+<section class="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 heading">
+                <div class="icon">
+                    <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div class="col-sm-12 heading">
+                <h3>All you need to know about jumper agency</h3>
+                <h4>we are well versed in trending web design and creativity</h4>
+            </div>
+        </div>
+        <div class="row" data-aos="fade-up">
+            <div class="col-sm-4 col1">
+                <div class="row">
+                    <div class="col-sm-2 box1">
+                        <i class="fa fa-desktop" aria-hidden="true"></i>
+                    </div>
+                    <div class="col-sm-10 inner-content">
+                        <h3>design.</h3>
+                        <p>Lorem Ipsum is simply dummy text of the printing and scrambled it to make a type specimen
+                            book. It has survived not only five</p>
                     </div>
                 </div>
             </div>
-        </section><!-- /Hero Section -->
+            <div class="col-sm-4 col2">
+                <div class="row">
+                    <div class="col-sm-2 box1">
+                        <i class="fa fa-cogs" aria-hidden="true"></i>
+                    </div>
+                    <div class="col-sm-10 inner-content">
+                        <h3>Web Designing.</h3>
+                        <p>Lorem Ipsum is simply dummy text of the printing and scrambled it to make a type of the
+                            printing and scrambled it to of the printing and scrambled it to . It has survived not only
+                            five</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col3">
+                <div class="row">
+                    <div class="col-sm-2 box1">
+                        <i class="fa fa-code" aria-hidden="true"></i>
+                    </div>
+                    <div class="col-sm-10 inner-content">
+                        <h3>coding.</h3>
+                        <p>Lorem Ipsum is simply dummy text of the printing and scrambled it to make a type specimen
+                            book. It has survived not only five</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-    </main>
+<section class="blog">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 heading">
+                <h3>Take a Look at My Latest Projects</h3>
+                <h4>Where creativity meets clean and professional development</h4>
+            </div>
+        </div>
+        {% if projects %}
+        {% for project in projects %}
 
-    <!--Start Footer -->
-    {% include 'footer.html' %}
-    <!--End Footer -->
+        {# Open a new row for every 2 items #}
+        {% if loop.index0 % 2 == 0 %}
+        <div class="row" data-aos="fade-up" style="background:#f5f5f5; padding-bottom:70px;">
+            {% endif %}
+
+            <div class="col-lg-6 col-sm-6" style="padding: 10px 0;">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12">
+                        <div class="image-one">
+                            <img style="border: 1px solid #dbdbdb;"
+                                 src="{{ request.url_for('static', path=project.logo_img) }}"
+                                 class="img-thumbnail blog-1" alt="">
+                            <div class="text-block">
+
+                                <h4><a href="/projects-details/{{ project.pro_id }}">design</a></h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12">
+                        <div class="blog-column1">
+                            <h5><a href="/projects-details">{{ project.project_name }}</a></h5>
+                            <p>{{ project.description | join(', ') | truncate(80) }}</p>
+                            <a class="btn btn-primary" href="/projects-details/{{ project.pro_id }}">More >></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {# Close row after 2 items #}
+            {% if loop.index0 % 2 == 1 or loop.last %}
+        </div>
+        {% endif %}
+
+        {% endfor %}
+        {% endif %}
+
+    </div>
+</section>
+
+
+<section class="Subscribe" data-aos="fade-up">
+    <div class="container">
+        <!-- Grid row-->
+        <div class="row main">
+            <!-- Grid column -->
+            <div class="col-lg-6 col-sm-6 col1">
+                <div class="heading">
+                    <h3>Subscribe to Newsletter</h3>
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-6 col1">
+                <form>
+                    <div class="input-group">
+                        <input name="email" id="email" type="email" placeholder="Enter your email id" required>
+                        <button class="btn btn-info" type="submit">Subscribe</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!--Start Footer-->
+{% include 'footer.html' %}
+<!--End Footer-->
 
 </body>
 </html>

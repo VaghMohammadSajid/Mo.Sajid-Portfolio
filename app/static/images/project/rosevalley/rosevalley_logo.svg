@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="1500"
+        height="1300"
+        viewBox="0 0 1500 1300">
+
+    <!-- Background -->
+    <rect width="100%" height="100%" fill="#f4f8f0"/>
+
+    <!-- Logo Group (CENTERED) -->
+    <g transform="translate(750,650)">
+
+        <!-- Leaf Icon -->
+        <g transform="translate(0,-220)">
+            <!-- Left Leaf -->
+            <path
+                    d="M0 0
+           C -120 -180 -360 -180 -420 0
+           C -300 60 -120 60 0 0 Z"
+                    fill="#6bb00b"/>
+
+            <!-- Right Leaf -->
+            <path
+                    d="M0 0
+           C 120 -180 360 -180 420 0
+           C 300 60 120 60 0 0 Z"
+                    fill="#6bb00b"/>
+
+            <!-- Stem -->
+            <rect x="-12" y="0" width="24" height="80" fill="#6bb00b"/>
+        </g>
+
+        <!-- Text -->
+        <text
+                x="0"
+                y="60"
+                text-anchor="middle"
+                font-family="Arial, Helvetica, sans-serif"
+                font-size="260"
+                font-weight="600"
+                fill="#6bb00b">
+            rosevalley.
+        </text>
+
+    </g>
+</svg>

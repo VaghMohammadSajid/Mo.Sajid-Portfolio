@@ -1,40 +1,55 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <title>Mo.Sajid | Home</title>
-
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Mo.Sajid | About</title>
     <!--Start all css file-->
-    <!-- Favicons -->
-    <link href="{{ request.url_for('static', path='images/navbar/logo_icon.svg') }}" rel="icon">
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com" rel="preconnect">
-    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-
-    <!-- Main CSS File -->
-    <link href="{{ request.url_for('static', path='css/main.css') }}" rel="stylesheet">
-
+    {% include 'all_css.html' %}
     <!--End all css file-->
-
 </head>
-<body>
-<main class="main">
-    <!-- Hero Section -->
-    <section id="hero" class="hero section" style="min-height: 0px;">
-        <div class="container text-center" data-aos="zoom-out" data-aos-delay="70">
-            <div class=" row justify-content-center">
-                <div class="info-item-1 col-lg-8">
-                    <img style="width:1000px; height: 470px; position:relative;"
-                         src="{{ request.url_for('static', path='images/404/error-page-not-found-vector.jpg') }}">
-                    <a href="/"
-                       style="text-align: center;position: relative;left: 400px;width: 200px;font-size: large;"
-                       class="btn btn-get-started">Back To Home</a>
-                </div>
 
+
+<body>
+
+<section class="about">
+    <div class="container ">
+        <div class="row">
+            <div class="col-sm-3">
+            </div>
+            <div class="col-sm-6 col2">
+                <div class="row">
+                    <div class="inner-content" style="text-align: center;">
+                        <h1>
+                            <!-- Example of a sorry/sad emoji icon in Font Awesome 4 -->
+                            <i class="fa fa-frown-o" style="color: black;font-size: 118px;" aria-hidden="true"></i>
+
+                        </h1>
+                        <h1>Error 404!</h1>
+                        <h2>Sorry Page Not Found</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-3">
             </div>
         </div>
-    </section><!-- /Hero Section -->
-
-</main>
+        <div class="col-sm-12 heading">
+            <div class="load-more">
+                <a href="/" style="color: black; font-family: inherit;
+                        font-weight: 500;background: linear-gradient(135deg, rgba(132, 181, 0, 1) 0%, rgba(0, 197, 199, 1) 100%);"
+                   class="btn btn-info">Back To Home
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Start All Js -->
+{% include 'all_js.html' %}
+<!--End All Js-->
 </body>
 </html>
+

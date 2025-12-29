@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Mo.Sajid | About</title>
+    <!--Start all css file-->
+    {% include 'all_css.html' %}
+    <!--End all css file-->
+</head>
+
+<body>
+
+<!--Start navbar-->
+{% include 'navbar.html' %}
+<!--End navbar-->
+
+<!-- Blog Section Start -->
+<section id="blog-page" style="padding-top: 40px;">
+    {% if project_detail %}
+    <!-- Container Start -->
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12">
+                <h3 class="heading1" style="position: relative; top: -30px;">{{ project_detail.project_name }}</h3>
+                <figure>
+                    <img class="image" style="object-fit: unset;"
+                         src="{{ request.url_for('static', path='images/project/rosevalley/product_image.jpg') }}"
+                         alt="Image">
+                </figure>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                <h4>Start {{ project_detail.start_date.strftime('%B %d, %Y') }} Posted by <span style="color: #3a3a3a">OSOM</span>
+                    In :<span
+                            style="color: #3a3a3a"> Fashion</span></h4>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                <ul class="social-links">
+                    <li style="background-color: #3b5998;" data-aos="zoom-in" data-aos-duration="1200">
+                        <a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a><span>1.2m</span>
+                    </li>
+                    <li style="background-color: #55acee;" data-aos="zoom-in" data-aos-duration="1200">
+                        <a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a><span>448.6k</span>
+                    </li>
+                    <li style="background-color: #cb2027;margin: 0;" data-aos="zoom-in" data-aos-duration="1200">
+                        <a href=""><i class="fa fa-pinterest-p" aria-hidden="true"></i></a><span>111.7k</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+    </div>
+    <!-- Container Ended -->
+
+    <!-- Container Start -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="inner-contant">
+                    <p data-aos="fade-up" data-aos-duration="1000">
+                       {{ project_detail.description | join(' ,')}}
+                    </p>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </div>
+    <!-- Container Ended -->
+
+    <!-- Container Start -->
+    <div class="container">
+        <h3 class="heading2">Similar Posts</h3>
+        <!-- Row Start-->
+        {% if projects %}
+
+
+        <div class="row" style="background: #f5f5f5;padding-top: 40px;">
+            {% for project in projects %}
+            <div class="col-lg-6 col-sm-6">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12">
+                        <div class="image-one">
+                            <img src="{{ request.url_for('static', path=project.logo_img) }}" alt=""
+                                 class="img-thumbnail blog-1">
+                            <div class="text-block">
+                                <h4><a href="/projects-details/{{ project.pro_id }}">design</a></h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12">
+                        <div class="blog-column1">
+                            <h5><a href="blog_single.html">{{ project.project_name }}</a></h5>
+                            <p>{{ project.description | join(',') }}</p>
+                            <a class="btn btn-primary" href="blog_single.html" role="button">More >></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        {% endif %}
+    </div>
+    {% endif %}
+    <!-- Container Ended -->
+</section>
+
+<!--Start Footer-->
+{% include 'footer.html' %}
+<!--End Footer-->
+
+</body>
+</html>

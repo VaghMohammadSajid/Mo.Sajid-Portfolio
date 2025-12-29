@@ -29,7 +29,7 @@ class ProjectBase(BaseModel):
     project_name: str
     description: Optional[List[str]] = None
     key_achievement: Optional[List[str]] = None
-    img: Optional[str] = None
+    images: Optional[List[str]] = None
     logo_img: Optional[str] = None
     project_video: Optional[str] = None
     github_link: Optional[str] = None

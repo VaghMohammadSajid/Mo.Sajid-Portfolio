@@ -1,365 +1,398 @@
-<!DOCTYPE html>
+<!--<main class="main">-->
+<!--    <section id="about" class="about section">-->
+<!--        &lt;!&ndash; Section Title &ndash;&gt;-->
+<!--        <div class="container section-title" data-aos="fade-up">-->
+<!--            <h2>Projects</h2>-->
+<!--        </div>&lt;!&ndash; End Section Title &ndash;&gt;-->
+<!--        <div class="container" data-aos="fade-up" data-aos-delay="100">-->
+<!--            {% if projects %}-->
+<!--            <div class="row gy-4 justify-content-center">-->
+<!--                {% for project in projects %}-->
+<!--                <div class="col-lg-4">-->
+<!--                    <div class="info-item-1">-->
+<!--                        {% if project.img %}-->
+
+<!--                        <img style="border-radius: 0; width: 300px; height: 150px; padding: 4px 2px 4px 2px;"-->
+<!--                             src="{{ request.url_for('static', path=project.img) }}"-->
+<!--                             class="img-fluid" alt="{{ project.project_name }}">-->
+
+<!--                        {% else %}-->
+<!--                        <img style="border-radius: 0;"-->
+<!--                             src="{{ request.url_for('static', path='images/ms_images/default_project.jpg') }}"-->
+<!--                             class="img-fluid" alt="{{ project.project_name }}">-->
+<!--                        {% endif %}-->
+
+<!--                        <h5 class="h5 mb-2" style="width:268px;">{{ project.project_name }}</h5>-->
+
+<!--                        &lt;!&ndash; single link to open the single modal, pass safe JS values with tojson &ndash;&gt;-->
+<!--                        <a href="javascript:void(0)" class="btn btn-get-started"-->
+<!--                           data-title="{{ project.project_name|default('') }}"-->
+<!--                           data-logo="{{ request.url_for('static', path=project.logo_img|default('')) }}"-->
+<!--                           data-img="{{ request.url_for('static', path=project.img|default('')) }}"-->
+<!--                           data-desc="{{ project.description|default('') }}"-->
+<!--                           data-startdate="{{ project.start_date|default('') }}"-->
+<!--                           data-enddate="{{ project.end_date|default('') }}"-->
+<!--                           data-role-title="{{ project.my_roll_obj.roll_title|default('') }}"-->
+<!--                           data-role-topic="{{ project.my_roll_obj.roll_topic|default('') }}"-->
+<!--                           data-achievements="{{ project.key_achievement|default('') }}"-->
+<!--                           data-tech-language="{{ project.req_skill_obj.language|default('') }}"-->
+<!--                           data-tech-frameworks="{{ project.req_skill_obj.frameworks|default('') }}"-->
+<!--                           data-tech-tools="{{ project.req_skill_obj.tools|default('') }}"-->
+<!--                           data-tech-database="{{ project.req_skill_obj.database|default('') }}"-->
+<!--                           data-github="{{ project.github_link|default('#') }}"-->
+<!--                           onclick="openProjectModalFromEl(this)">-->
+<!--                            See More-->
+<!--                            &lt;!&ndash;data-website="{{ project.website_link|default('#') }}"&ndash;&gt;-->
+<!--                        </a>-->
+
+<!--                    </div>-->
+<!--                </div>-->
+<!--                {% endfor %}-->
+<!--                &lt;!&ndash; SINGLE Project Details Modal (place once, outside the loop) &ndash;&gt;-->
+<!--                <div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel"-->
+<!--                     aria-hidden="true">-->
+<!--                    <div class="modal-dialog modal-lg modal-dialog-centered">-->
+<!--                        <div class="modal-content">-->
+<!--                            <div class="modal-header d-flex align-items-center">-->
+<!--                                <i class="flex-shrink-0">-->
+<!--                                    <img id="projectModalLogo"-->
+<!--                                         style="margin: 0 10px 0 0; border-radius: 2px; width: 50px; height: auto;"-->
+<!--                                         src="" alt="Project Logo">-->
+<!--                                </i>-->
+<!--                                <div>-->
+<!--                                    <h5 id="projectModalLabel" class="mb-1">Project Title</h5>-->
+<!--                                    <p class="mb-0 text-muted">-->
+<!--                                        <span id="projectModalStartDate">StartDate </span>-->
+<!--                                        - -->
+<!--                                        <span id="projectModalEndDate" class="mb-0 text-muted"> EndDate</span>-->
+<!--                                    </p>-->
+<!--                                </div>-->
+<!--                                <a href="javascript:void(0)" class="btn-close ms-auto" data-bs-dismiss="modal"-->
+<!--                                   aria-label="Close"></a>-->
+<!--                            </div>-->
+<!--                            <div class="modal-body">-->
+<!--                                <div id="projectModalDesc"></div>-->
+
+<!--                                <div class="py-2">-->
+<!--                                    <h5>My Role:</h5>-->
+<!--                                    <p style="margin-left: 1.3rem !important;" class="mb-2" id="projectModalRoleTitle">-->
+<!--                                    </p>-->
+<!--                                    <ul>-->
+<!--                                        <li id="projectModalRoleTopic"></li>-->
+
+<!--                                    </ul>-->
+
+<!--                                </div>-->
+
+<!--                                <div>-->
+<!--                                    <h5>Key Achievements:</h5>-->
+<!--                                    <ul id="projectModalAchievements"></ul>-->
+<!--                                </div>-->
+
+<!--                                <div class="py-2">-->
+<!--                                    <h5>Tech Stack:</h5>-->
+<!--                                    <ul>-->
+<!--                                        <li>-->
+<!--                                            Languages : <span id="projectModalTechLanguage"></span>-->
+<!--                                        </li>-->
+<!--                                        <li>-->
+<!--                                            Frameworks : <span id="projectModalTechFrameworks"></span>-->
+<!--                                        </li>-->
+<!--                                        <li>-->
+<!--                                            Tools : <span id="projectModalTechTools"></span>-->
+<!--                                        </li>-->
+<!--                                        <li>-->
+<!--                                            Databases : <span id="projectModalTechDatabase"></span>-->
+<!--                                        </li>-->
+<!--                                    </ul>-->
+<!--                                </div>-->
+<!--                                <div class="d-flex mt-3">-->
+<!--                                    &lt;!&ndash;                                  <span id="websiteSection" class="d-flex me-3">&ndash;&gt;-->
+<!--                                    &lt;!&ndash;                                    <i class="flex-shrink-0">&ndash;&gt;-->
+<!--                                    &lt;!&ndash;                                      <img style="width:30px;height:30px;"&ndash;&gt;-->
+<!--                                    &lt;!&ndash;                                           src="{{ request.url_for('static', path='images/project/link.svg') }}">&ndash;&gt;-->
+<!--                                    &lt;!&ndash;                                    </i>&ndash;&gt;-->
+<!--                                    &lt;!&ndash;                                    <div style="margin-left:10px;">&ndash;&gt;-->
+<!--                                    &lt;!&ndash;                                      <a id="projectModalWebsite" target="_blank">Website</a>&ndash;&gt;-->
+<!--                                    &lt;!&ndash;                                    </div>&ndash;&gt;-->
+<!--                                    &lt;!&ndash;                                  </span>&ndash;&gt;-->
+
+<!--                                    <span id="githubSection" class="d-flex">-->
+<!--                                    <i class="flex-shrink-0">-->
+<!--                                      <img style="width:30px;height:30px;"-->
+<!--                                           src="{{ request.url_for('static', path='images/project/link.svg') }}">-->
+<!--                                    </i>-->
+<!--                                    <div style="margin-left:10px;">-->
+<!--                                      <a id="projectModalGithub" target="_blank">GitHub</a>-->
+<!--                                    </div>-->
+<!--                                  </span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+<!--                            <div class="modal-footer">-->
+<!--                                <a href="javascript:void(0)" class="btn-get-started" data-bs-dismiss="modal">Close</a>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <script>-->
+<!--                    function escapeHtml(str) {-->
+<!--                      return String(str).replace(/[&<>"']/g, function (m) {-->
+<!--                        return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[m];-->
+<!--                      });-->
+<!--                    }-->
+
+<!--                    // Clean DB strings: remove [ ], quotes, and ensure commas-->
+<!--                    function cleanListString(str) {-->
+<!--                      if (!str) return "";-->
+<!--                      return str-->
+<!--                        .replace(/^\[|\]$/g, "") // remove []-->
+<!--                        .replace(/['"]+/g, "")   // remove quotes-->
+<!--                        .replace(/\s*,\s*/g, ",") // normalize commas-->
+<!--                        .trim();-->
+<!--                    }-->
+
+
+<!--                    function openProjectModalFromEl(el) {-->
+<!--                      const title = el.getAttribute("data-title") || "";-->
+<!--                      const imgUrl = el.getAttribute("data-img") || "";-->
+<!--                      const logoUrl = el.getAttribute("data-logo") || "";-->
+<!--                      let desc = el.getAttribute("data-desc") || "";-->
+<!--                      const startdate = el.getAttribute("data-startdate") || "";-->
+<!--                      const enddate = el.getAttribute("data-enddate") || "";-->
+<!--                      let role_title = el.getAttribute("data-role-title") || "";-->
+<!--                      let role_topic = el.getAttribute("data-role-topic") || "";-->
+<!--                      let achievements = el.getAttribute("data-achievements") || "";-->
+<!--                      let tech_language = el.getAttribute("data-tech-language") || "";-->
+<!--                      let tech_frameworks = el.getAttribute("data-tech-frameworks") || "";-->
+<!--                      let tech_tools = el.getAttribute("data-tech-tools") || "";-->
+<!--                      let tech_database = el.getAttribute("data-tech-database") || "";-->
+<!--&lt;!&ndash;                      const website = el.getAttribute("data-website");&ndash;&gt;-->
+<!--                      const github = el.getAttribute("data-github");-->
+
+<!--                      // Title-->
+<!--                      document.getElementById("projectModalLabel").textContent = title;-->
+
+<!--                      // Logo-->
+<!--                      const logoEl = document.getElementById("projectModalLogo");-->
+<!--                      logoEl.src = logoUrl;-->
+<!--                      logoEl.alt = title;-->
+
+<!--                      // Main Image-->
+<!--                      const imgEl = document.getElementById("projectModalImg");-->
+<!--                      if (imgEl) {-->
+<!--                        imgEl.src = imgUrl;-->
+<!--                        imgEl.alt = title;-->
+<!--                      }-->
+
+<!--                      // Timeline-->
+<!--                      document.getElementById("projectModalStartDate").textContent = formatDateWithSuffix(startdate);-->
+<!--                      document.getElementById("projectModalEndDate").textContent = formatDateWithSuffix(enddate);-->
+
+
+<!--                      // Description-->
+<!--                      desc = cleanListString(desc);-->
+<!--                      const descEl = document.getElementById("projectModalDesc");-->
+<!--                      descEl.innerHTML = "";-->
+
+<!--                       // If desc is just plain text or a sentence-->
+<!--                        descEl.innerHTML = escapeHtml(desc);-->
+
+<!--                      // Role-->
+<!--                        role_title = cleanListString(role_title);-->
+<!--                        role_topic = cleanListString(role_topic);-->
+
+<!--                        const roleTitleEl = document.getElementById("projectModalRoleTitle");-->
+<!--                        const roleTopicEl = document.getElementById("projectModalRoleTopic");-->
+
+<!--                        roleTitleEl.innerHTML = "";-->
+<!--                        roleTopicEl.innerHTML = "";-->
+
+<!--                        // If role_title contains multiple roles separated by commas or newlines-->
+<!--                        role_title.split(/,|\n/).forEach((item) => {-->
+<!--                          if (item.trim()) roleTitleEl.innerHTML += `<li>${escapeHtml(item.trim())}</li>`;-->
+<!--                        });-->
+
+<!--                        // If role_topic is just plain text or a sentence-->
+<!--                        roleTopicEl.innerHTML = escapeHtml(role_topic);-->
+
+
+<!--                      // Achievements-->
+<!--                      achievements = cleanListString(achievements);-->
+<!--                      const achievementsEl = document.getElementById("projectModalAchievements");-->
+<!--                      achievementsEl.innerHTML = "";-->
+<!--                      achievements.split(/,|\n/).forEach((a) => {-->
+<!--                        if (a.trim()) achievementsEl.innerHTML += `<li>${escapeHtml(a.trim())}</li>`;-->
+<!--                      });-->
+
+<!--                      // Tech Stacks-->
+<!--                      tech_language = cleanListString(tech_language);-->
+<!--                      tech_frameworks = cleanListString(tech_frameworks);-->
+<!--                      tech_tools = cleanListString(tech_tools);-->
+<!--                      tech_database = cleanListString(tech_database);-->
+
+<!--                      const techLanguageEl = document.getElementById("projectModalTechLanguage");-->
+<!--                      const techFrameworksEl = document.getElementById("projectModalTechFrameworks");-->
+<!--                      const techToolsEl = document.getElementById("projectModalTechTools");-->
+<!--                      const techDatabaseEl = document.getElementById("projectModalTechDatabase");-->
+
+<!--                      techLanguageEl.innerHTML = "";-->
+<!--                      techFrameworksEl.innerHTML = "";-->
+<!--                      techToolsEl.innerHTML = "";-->
+<!--                      techDatabaseEl.innerHTML = "";-->
+
+<!--                      tech_language.split(" ").forEach((t) => {-->
+<!--                        if (t.trim()) techLanguageEl.innerHTML += `<span class="btn-get-started-project">${escapeHtml(t.trim())}</span> `;-->
+<!--                      });-->
+
+<!--                      tech_frameworks.split(" ").forEach((t) => {-->
+<!--                        if (t.trim()) techFrameworksEl.innerHTML += `<span class="btn-get-started-project">${escapeHtml(t.trim())}</span> `;-->
+<!--                      });-->
+
+<!--                      tech_tools.split(" ").forEach((t) => {-->
+<!--                        if (t.trim()) techToolsEl.innerHTML += `<span class="btn-get-started-project">${escapeHtml(t.trim())}</span> `;-->
+<!--                      });-->
+
+<!--                      tech_database.split(" ").forEach((t) => {-->
+<!--                        if (t.trim()) techDatabaseEl.innerHTML += `<span class="btn-get-started-project">${escapeHtml(t.trim())}</span> `;-->
+<!--                      });-->
+
+<!--                      // Website Section-->
+<!--&lt;!&ndash;                       const websiteSection = document.getElementById("websiteSection");&ndash;&gt;-->
+<!--&lt;!&ndash;                       if (website && website.trim() !== "" && website.trim() !== "#") {&ndash;&gt;-->
+<!--&lt;!&ndash;                          document.getElementById("projectModalWebsite").href = website;&ndash;&gt;-->
+<!--&lt;!&ndash;                          websiteSection.style.display = "flex";   // show it&ndash;&gt;-->
+<!--&lt;!&ndash;                       } else {&ndash;&gt;-->
+<!--&lt;!&ndash;                          websiteSection.style.display = "none";   // completely hide it&ndash;&gt;-->
+<!--&lt;!&ndash;                       }&ndash;&gt;-->
+
+<!--                       // GitHub Section-->
+<!--                       const githubSection = document.getElementById("githubSection");-->
+<!--                       if (github && github.trim() !== "" && github.trim() !== "#") {-->
+<!--                          document.getElementById("projectModalGithub").href = github;-->
+<!--                          githubSection.style.display = "flex";    // show it-->
+<!--                       } else {-->
+<!--                          githubSection.style.display = "none";    // completely hide it-->
+<!--                       }-->
+
+
+<!--                      // Show modal-->
+<!--                      const modalEl = document.getElementById("projectModal");-->
+<!--                      const bsModal = new bootstrap.Modal(modalEl);-->
+<!--                      bsModal.show();-->
+<!--                    }-->
+<!--                    function formatDateWithSuffix(dateString) {-->
+<!--                      if (!dateString) return "";-->
+
+<!--                      const date = new Date(dateString);-->
+
+<!--                      if (isNaN(date)) return dateString; // fallback if invalid-->
+
+<!--                      const day = date.getDate();-->
+<!--                      const month = date.toLocaleString("default", { month: "long" });-->
+<!--                      const year = date.getFullYear();-->
+
+<!--                      // Determine correct suffix-->
+<!--                      const suffix =-->
+<!--                        day % 10 === 1 && day !== 11-->
+<!--                          ? "st"-->
+<!--                          : day % 10 === 2 && day !== 12-->
+<!--                          ? "nd"-->
+<!--                          : day % 10 === 3 && day !== 13-->
+<!--                          ? "rd"-->
+<!--                          : "th";-->
+
+<!--                      return `${day}${suffix} ${month}, ${year}`;-->
+<!--                    }-->
+
+<!--                </script>-->
+
+
+<!--            </div>-->
+<!--            {% else %}-->
+<!--            <div class="row gy-12 justify-content-center">-->
+<!--                <div class="info-item-1">-->
+<!--                    <p class="text-muted mb-2">No Projects Yet!</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            {% endif %}-->
+<!--        </div>-->
+
+<!--    </section>-->
+<!--</main>-->
+
+<!doctype html>
 <html lang="en">
-
 <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Mo.Sajid | Contact</title>
-    <meta name="description" content="Contact Mo.Sajid Vagh">
-    <meta name="keywords" content="">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Mo.Sajid | About</title>
     <!--Start all css file-->
     {% include 'all_css.html' %}
     <!--End all css file-->
-
-    <style>
-        .btn-close:focus {
-            outline: none; /* remove blue border */
-            box-shadow: 0 0 0 1px #34b7a7; /* highlight ring in teal color */
-            opacity: 1; /* ensure button stays visible */
-        }
-        #projectModal > div > div > div.modal-footer > a:hover{
-            background-color:
-            color-mix(in srgb, var(--accent-color), transparent 20%);
-            color: var(--bs-body-color);
-        }
-        #projectModalLogo
-    </style>
-
 </head>
 
-<body class="contact-page">
+
+<body>
 
 <!--Start navbar-->
 {% include 'navbar.html' %}
 <!--End navbar-->
 
-<main class="main">
-    <section id="about" class="about section">
-        <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
-            <h2>Projects</h2>
-        </div><!-- End Section Title -->
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
-            {% if projects %}
-            <div class="row gy-4 justify-content-center">
-                {% for project in projects %}
-                <div class="col-lg-4">
-                    <div class="info-item-1">
-                        {% if project.img %}
+<!-- FEATURES -->
+<!-- Projects Section Start -->
 
-                        <img style="border-radius: 0; width: 250px; height: 150px; padding: 4px 2px 4px 2px;"
-                             src="{{ request.url_for('static', path=project.img) }}"
-                             class="img-fluid" alt="{{ project.project_name }}">
+<section id="portfolio">
 
-                        {% else %}
-                        <img style="border-radius: 0;"
-                             src="{{ request.url_for('static', path='images/ms_images/default_project.jpg') }}"
-                             class="img-fluid" alt="{{ project.project_name }}">
-                        {% endif %}
+    <div class="container">
 
-                        <h5 class="h5 mb-2" style="width:268px;">{{ project.project_name }}</h5>
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <h4>Here are the projects I’ve built with passion, precision, and purpose.
+                    Each project reflects my learning, creativity, and commitment to writing clean, efficient, and
+                    scalable code.</h4>
+                {% if projects %}
+                <div class="row" data-aos="fade-right" data-aos-duration="800">
+                    {% for project in projects %}
+                    {% if project.images %}
 
-                        <!-- single link to open the single modal, pass safe JS values with tojson -->
-                        <a href="javascript:void(0)" class="btn btn-get-started"
-                           data-title="{{ project.project_name|default('') }}"
-                           data-logo="{{ request.url_for('static', path=project.logo_img|default('')) }}"
-                           data-img="{{ request.url_for('static', path=project.img|default('')) }}"
-                           data-desc="{{ project.description|default('') }}"
-                           data-startdate="{{ project.start_date|default('') }}"
-                           data-enddate="{{ project.end_date|default('') }}"
-                           data-role-title="{{ project.my_roll_obj.roll_title|default('') }}"
-                           data-role-topic="{{ project.my_roll_obj.roll_topic|default('') }}"
-                           data-achievements="{{ project.key_achievement|default('') }}"
-                           data-tech-language="{{ project.req_skill_obj.language|default('') }}"
-                           data-tech-frameworks="{{ project.req_skill_obj.frameworks|default('') }}"
-                           data-tech-tools="{{ project.req_skill_obj.tools|default('') }}"
-                           data-tech-database="{{ project.req_skill_obj.database|default('') }}"
-                           data-github="{{ project.github_link|default('#') }}"
-                           onclick="openProjectModalFromEl(this)">
-                            See More
-                            <!--data-website="{{ project.website_link|default('#') }}"-->
-                        </a>
+                    <a href="{{ request.url_for('static', path=project.images[0].image_path) }}"
+                       data-toggle="lightbox"
+                       data-gallery="gallery-{{ project.pro_id }}"
+                       class="col-sm-4 box ">
 
-                    </div>
-                </div>
-                {% endfor %}
-                <!-- SINGLE Project Details Modal (place once, outside the loop) -->
-                <div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel"
-                     aria-hidden="true">
-                    <div class="modal-dialog modal-lg modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header d-flex align-items-center">
-                                <i class="flex-shrink-0">
-                                    <img id="projectModalLogo"
-                                         style="margin: 0 10px 0 0; border-radius: 2px; width: 50px; height: auto;"
-                                         src="" alt="Project Logo">
-                                </i>
-                                <div>
-                                    <h5 id="projectModalLabel" class="mb-1">Project Title</h5>
-                                    <p class="mb-0 text-muted">
-                                        <span id="projectModalStartDate">StartDate </span>
-                                        -
-                                        <span id="projectModalEndDate" class="mb-0 text-muted"> EndDate</span>
-                                    </p>
-                                </div>
-                                <a href="javascript:void(0)" class="btn-close ms-auto" data-bs-dismiss="modal"
-                                   aria-label="Close"></a>
-                            </div>
-                            <div class="modal-body">
-                                <div id="projectModalDesc"></div>
+                        <img src="{{ request.url_for('static', path=project.logo_img) }}" class="img-fluid">
 
-                                <div class="py-2">
-                                    <h5>My Role:</h5>
-                                    <p style="margin-left: 1.3rem !important;" class="mb-2" id="projectModalRoleTitle">
-                                    </p>
-                                    <ul>
-                                        <li id="projectModalRoleTopic"></li>
-
-                                    </ul>
-
-                                </div>
-
-                                <div>
-                                    <h5>Key Achievements:</h5>
-                                    <ul id="projectModalAchievements"></ul>
-                                </div>
-
-                                <div class="py-2">
-                                    <h5>Tech Stack:</h5>
-                                    <ul>
-                                        <li>
-                                            Languages : <span id="projectModalTechLanguage"></span>
-                                        </li>
-                                        <li>
-                                            Frameworks : <span id="projectModalTechFrameworks"></span>
-                                        </li>
-                                        <li>
-                                            Tools : <span id="projectModalTechTools"></span>
-                                        </li>
-                                        <li>
-                                            Databases : <span id="projectModalTechDatabase"></span>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="d-flex mt-3">
-                                    <!--                                  <span id="websiteSection" class="d-flex me-3">-->
-                                    <!--                                    <i class="flex-shrink-0">-->
-                                    <!--                                      <img style="width:30px;height:30px;"-->
-                                    <!--                                           src="{{ request.url_for('static', path='images/project/link.svg') }}">-->
-                                    <!--                                    </i>-->
-                                    <!--                                    <div style="margin-left:10px;">-->
-                                    <!--                                      <a id="projectModalWebsite" target="_blank">Website</a>-->
-                                    <!--                                    </div>-->
-                                    <!--                                  </span>-->
-
-                                    <span id="githubSection" class="d-flex">
-                                    <i class="flex-shrink-0">
-                                      <img style="width:30px;height:30px;"
-                                           src="{{ request.url_for('static', path='images/project/link.svg') }}">
-                                    </i>
-                                    <div style="margin-left:10px;">
-                                      <a id="projectModalGithub" target="_blank">GitHub</a>
-                                    </div>
-                                  </span>
-                                </div>
-                            </div>
-
-                            <div class="modal-footer">
-                                <a href="javascript:void(0)" class="btn-get-started" data-bs-dismiss="modal">Close</a>
-                            </div>
+                        <div class="overlay">
+                            <img src="{{ request.url_for('static', path='images/icon/plus-img.png') }}">
+                            <div class="text">{{ project.project_name }}</div>
                         </div>
-                    </div>
+                    </a>
+
+                    {% for img in project.images[1:] %}
+                    <a href="{{ request.url_for('static', path=img.image_path) }}"
+                       data-toggle="lightbox"
+                       data-gallery="gallery-{{ project.pro_id }}"
+                       style="display:none;"></a>
+                    {% endfor %}
+                    {% endif %}
+                    {% endfor %}
                 </div>
-                <script>
-                    function escapeHtml(str) {
-                      return String(str).replace(/[&<>"']/g, function (m) {
-                        return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[m];
-                      });
-                    }
-
-                    // Clean DB strings: remove [ ], quotes, and ensure commas
-                    function cleanListString(str) {
-                      if (!str) return "";
-                      return str
-                        .replace(/^\[|\]$/g, "") // remove []
-                        .replace(/['"]+/g, "")   // remove quotes
-                        .replace(/\s*,\s*/g, ",") // normalize commas
-                        .trim();
-                    }
-
-
-                    function openProjectModalFromEl(el) {
-                      const title = el.getAttribute("data-title") || "";
-                      const imgUrl = el.getAttribute("data-img") || "";
-                      const logoUrl = el.getAttribute("data-logo") || "";
-                      let desc = el.getAttribute("data-desc") || "";
-                      const startdate = el.getAttribute("data-startdate") || "";
-                      const enddate = el.getAttribute("data-enddate") || "";
-                      let role_title = el.getAttribute("data-role-title") || "";
-                      let role_topic = el.getAttribute("data-role-topic") || "";
-                      let achievements = el.getAttribute("data-achievements") || "";
-                      let tech_language = el.getAttribute("data-tech-language") || "";
-                      let tech_frameworks = el.getAttribute("data-tech-frameworks") || "";
-                      let tech_tools = el.getAttribute("data-tech-tools") || "";
-                      let tech_database = el.getAttribute("data-tech-database") || "";
-<!--                      const website = el.getAttribute("data-website");-->
-                      const github = el.getAttribute("data-github");
-
-                      // Title
-                      document.getElementById("projectModalLabel").textContent = title;
-
-                      // Logo
-                      const logoEl = document.getElementById("projectModalLogo");
-                      logoEl.src = logoUrl;
-                      logoEl.alt = title;
-
-                      // Main Image
-                      const imgEl = document.getElementById("projectModalImg");
-                      if (imgEl) {
-                        imgEl.src = imgUrl;
-                        imgEl.alt = title;
-                      }
-
-                      // Timeline
-                      document.getElementById("projectModalStartDate").textContent = formatDateWithSuffix(startdate);
-                      document.getElementById("projectModalEndDate").textContent = formatDateWithSuffix(enddate);
-
-
-                      // Description
-                      desc = cleanListString(desc);
-                      const descEl = document.getElementById("projectModalDesc");
-                      descEl.innerHTML = "";
-
-                       // If desc is just plain text or a sentence
-                        descEl.innerHTML = escapeHtml(desc);
-
-                      // Role
-                        role_title = cleanListString(role_title);
-                        role_topic = cleanListString(role_topic);
-
-                        const roleTitleEl = document.getElementById("projectModalRoleTitle");
-                        const roleTopicEl = document.getElementById("projectModalRoleTopic");
-
-                        roleTitleEl.innerHTML = "";
-                        roleTopicEl.innerHTML = "";
-
-                        // If role_title contains multiple roles separated by commas or newlines
-                        role_title.split(/,|\n/).forEach((item) => {
-                          if (item.trim()) roleTitleEl.innerHTML += `<li>${escapeHtml(item.trim())}</li>`;
-                        });
-
-                        // If role_topic is just plain text or a sentence
-                        roleTopicEl.innerHTML = escapeHtml(role_topic);
-
-
-                      // Achievements
-                      achievements = cleanListString(achievements);
-                      const achievementsEl = document.getElementById("projectModalAchievements");
-                      achievementsEl.innerHTML = "";
-                      achievements.split(/,|\n/).forEach((a) => {
-                        if (a.trim()) achievementsEl.innerHTML += `<li>${escapeHtml(a.trim())}</li>`;
-                      });
-
-                      // Tech Stacks
-                      tech_language = cleanListString(tech_language);
-                      tech_frameworks = cleanListString(tech_frameworks);
-                      tech_tools = cleanListString(tech_tools);
-                      tech_database = cleanListString(tech_database);
-
-                      const techLanguageEl = document.getElementById("projectModalTechLanguage");
-                      const techFrameworksEl = document.getElementById("projectModalTechFrameworks");
-                      const techToolsEl = document.getElementById("projectModalTechTools");
-                      const techDatabaseEl = document.getElementById("projectModalTechDatabase");
-
-                      techLanguageEl.innerHTML = "";
-                      techFrameworksEl.innerHTML = "";
-                      techToolsEl.innerHTML = "";
-                      techDatabaseEl.innerHTML = "";
-
-                      tech_language.split(" ").forEach((t) => {
-                        if (t.trim()) techLanguageEl.innerHTML += `<span class="btn-get-started-project">${escapeHtml(t.trim())}</span> `;
-                      });
-
-                      tech_frameworks.split(" ").forEach((t) => {
-                        if (t.trim()) techFrameworksEl.innerHTML += `<span class="btn-get-started-project">${escapeHtml(t.trim())}</span> `;
-                      });
-
-                      tech_tools.split(" ").forEach((t) => {
-                        if (t.trim()) techToolsEl.innerHTML += `<span class="btn-get-started-project">${escapeHtml(t.trim())}</span> `;
-                      });
-
-                      tech_database.split(" ").forEach((t) => {
-                        if (t.trim()) techDatabaseEl.innerHTML += `<span class="btn-get-started-project">${escapeHtml(t.trim())}</span> `;
-                      });
-
-                      // Website Section
-<!--                       const websiteSection = document.getElementById("websiteSection");-->
-<!--                       if (website && website.trim() !== "" && website.trim() !== "#") {-->
-<!--                          document.getElementById("projectModalWebsite").href = website;-->
-<!--                          websiteSection.style.display = "flex";   // show it-->
-<!--                       } else {-->
-<!--                          websiteSection.style.display = "none";   // completely hide it-->
-<!--                       }-->
-
-                       // GitHub Section
-                       const githubSection = document.getElementById("githubSection");
-                       if (github && github.trim() !== "" && github.trim() !== "#") {
-                          document.getElementById("projectModalGithub").href = github;
-                          githubSection.style.display = "flex";    // show it
-                       } else {
-                          githubSection.style.display = "none";    // completely hide it
-                       }
-
-
-                      // Show modal
-                      const modalEl = document.getElementById("projectModal");
-                      const bsModal = new bootstrap.Modal(modalEl);
-                      bsModal.show();
-                    }
-                    function formatDateWithSuffix(dateString) {
-                      if (!dateString) return "";
-
-                      const date = new Date(dateString);
-
-                      if (isNaN(date)) return dateString; // fallback if invalid
-
-                      const day = date.getDate();
-                      const month = date.toLocaleString("default", { month: "long" });
-                      const year = date.getFullYear();
-
-                      // Determine correct suffix
-                      const suffix =
-                        day % 10 === 1 && day !== 11
-                          ? "st"
-                          : day % 10 === 2 && day !== 12
-                          ? "nd"
-                          : day % 10 === 3 && day !== 13
-                          ? "rd"
-                          : "th";
-
-                      return `${day}${suffix} ${month}, ${year}`;
-                    }
-
-                </script>
-
-
+                {% endif %}
             </div>
-            {% else %}
-            <div class="row gy-12 justify-content-center">
-                <div class="info-item-1">
-                    <p class="text-muted mb-2">No Projects Yet!</p>
-                </div>
-            </div>
-            {% endif %}
         </div>
+        <div class="load-more">
+            <button type="button" class="btn btn-secondary">load more</button>
+        </div>
+    </div>
+</section>
 
-    </section>
-</main>
-
-<!--Start Footer -->
+<!--Start Footer-->
 {% include 'footer.html' %}
-<!--End Footer -->
+<!--End Footer-->
 
 </body>
 </html>

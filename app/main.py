@@ -5,7 +5,6 @@ FastAPI Portfolio App for Mohammad Sajid Vagh
 """
 
 import os
-import time
 import logging
 from datetime import date, datetime
 from contextlib import asynccontextmanager
@@ -20,7 +19,6 @@ from starlette.exceptions import HTTPException as StarletteHTTPException
 
 from app.database import Base, engine, SessionLocal
 from app import crud, schemas, seed_data
-from starlette.routing import Mount
 
 # ==========================================================
 #                DATABASE INIT
@@ -117,14 +115,15 @@ def calculate_age(birthdate: date) -> int:
 
 
 @app.get("/", response_class=HTMLResponse)
-async def index(request: Request):
+async def index(request: Request, db: Session = Depends(get_db)):
+    projects = crud.get_projects(db)
     return templates.TemplateResponse("index.html", {
         "request": request,
         "details": {
             "name": "Mohammad Sajid Vagh",
-            "intro": "Python Developer | Django | FastAPI | REST APIs | SQL | PostgreSQL",
+            "intro": "A Passionate Python Developer 🐍🚀",
         },
-
+        "projects": projects
     })
 
 
@@ -141,19 +140,58 @@ async def about(request: Request):
             "city": "Himmatnagar, Gujarat, India",
             "email": "vaghmohammadsajid8@gmail.com",
             "phone": "+91 8980331323",
+            "intro": "A Passionate Python Developer 🐍🚀",
         }
+    })
+
+
+@app.get("/skills", response_class=HTMLResponse)
+async def skills(request: Request):
+    return templates.TemplateResponse("skills.html", {
+        "request": request,
+        "details": {
+            "name": "Mohammad Sajid Vagh",
+            "intro": "A Passionate Python Developer 🐍🚀",
+        },
+    })
+
+
+@app.get("/projects-details/{pro_id}", response_class=HTMLResponse)
+async def detailsProjects(request: Request, pro_id: int, db: Session = Depends(get_db)):
+    project_details = crud.get_projects_by_id(db, pro_id)
+    projects = crud.get_projects(db)
+    print("link is a projects details :", project_details.images[0].image_path)
+    return templates.TemplateResponse("details_projects.html", {
+        "request": request,
+        "details": {
+            "name": "Mohammad Sajid Vagh",
+            "intro": "A Passionate Python Developer 🐍🚀",
+        },
+        "project_detail": project_details,
+        "projects": projects
     })
 
 
 @app.get("/contact", response_class=HTMLResponse)
 async def contact(request: Request):
-    return templates.TemplateResponse("contact.html", {"request": request})
+    return templates.TemplateResponse("contact.html", {
+        "request": request,
+        "details": {
+            "name": "Mohammad Sajid Vagh",
+            "intro": "A Passionate Python Developer 🐍🚀",
+        },
+    })
 
 
 @app.get("/projects", response_class=HTMLResponse)
 async def get_projects_page(request: Request, db: Session = Depends(get_db)):
     projects = crud.get_projects(db)
-    return templates.TemplateResponse("projects.html", {"request": request, "projects": projects})
+    return templates.TemplateResponse("projects.html",
+                                      {"request": request, "details": {
+                                          "name": "Mohammad Sajid Vagh",
+                                          "intro": "A Passionate Python Developer 🐍🚀",
+                                      },
+                                       "projects": projects})
 
 
 # ==========================================================
@@ -198,7 +236,6 @@ async def http_error_handler(request: Request, exc: StarletteHTTPException):
 
     # Other errors
     return HTMLResponse(str(exc.detail), status_code=exc.status_code)
-
 
 
 # ==============================================
