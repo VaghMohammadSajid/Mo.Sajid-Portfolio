@@ -49,7 +49,7 @@ class Projects(Base):
 
     pro_id = Column(Integer, primary_key=True, index=True)
     project_name = Column(String, unique=True, nullable=False)
-    nickname = Column(String, nullable=True)
+    project_nickname = Column(String, nullable=True)
     description = Column(JSON, nullable=True)
 
     my_roll_id = Column(Integer, ForeignKey("my_roll.roll_id"), nullable=False)
