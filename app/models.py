@@ -49,6 +49,7 @@ class Projects(Base):
 
     pro_id = Column(Integer, primary_key=True, index=True)
     project_name = Column(String, unique=True, nullable=False)
+    project_nickname = Column(String, unique=True, nullable=True)
     description = Column(JSON, nullable=True)
 
     my_roll_id = Column(Integer, ForeignKey("my_roll.roll_id"), nullable=False)
@@ -64,6 +65,8 @@ class Projects(Base):
 
     my_roll_obj = relationship("MyRoll", back_populates="projects")
     req_skill_obj = relationship("ReqSkill", back_populates="project")
+
+    main_image = Column(String, nullable=True)
 
     images = relationship(
         "ProjectImage",

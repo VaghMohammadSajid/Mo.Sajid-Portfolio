@@ -28,27 +28,24 @@
                 <h3 class="heading1" style="position: relative; top: -30px;">{{ project_detail.project_name }}</h3>
                 <figure>
                     <img class="image" style="object-fit: unset;"
-                         src="{{ request.url_for('static', path='images/project/rosevalley/product_image.jpg') }}"
+                         src="{{ request.url_for('static', path=project_detail.main_image) }}"
                          alt="Image">
                 </figure>
             </div>
         </div>
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-6">
-                <h4>Start {{ project_detail.start_date.strftime('%B %d, %Y') }} Posted by <span style="color: #3a3a3a">OSOM</span>
-                    In :<span
-                            style="color: #3a3a3a"> Fashion</span></h4>
+                <h4>To view the GitHub repository, please click the GitHub button.</h4>
             </div>
+
             <div class="col-xs-12 col-sm-12 col-md-6">
                 <ul class="social-links">
-                    <li style="background-color: #3b5998;" data-aos="zoom-in" data-aos-duration="1200">
-                        <a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a><span>1.2m</span>
-                    </li>
-                    <li style="background-color: #55acee;" data-aos="zoom-in" data-aos-duration="1200">
-                        <a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a><span>448.6k</span>
-                    </li>
-                    <li style="background-color: #cb2027;margin: 0;" data-aos="zoom-in" data-aos-duration="1200">
-                        <a href=""><i class="fa fa-pinterest-p" aria-hidden="true"></i></a><span>111.7k</span>
+                    <li style="background-color: #24292e; font-weight: 500;" data-aos="zoom-in"
+                        data-aos-duration="1200">
+                        <a href="{{ project_detail.github_repo_url }}" target="_blank">
+                            <i style="font-size: 30px;" class="fa fa-github" aria-hidden="true"></i>
+                        </a>
+                        <span style="font-size: 13px; padding-left: 10px; position: relative;bottom: 6px;">{{ project_detail.project_nickname }}</span>
                     </li>
                 </ul>
             </div>
@@ -63,7 +60,7 @@
             <div class="col-md-12">
                 <div class="inner-contant">
                     <p data-aos="fade-up" data-aos-duration="1000">
-                       {{ project_detail.description | join(' ,')}}
+                        {{ project_detail.description | join(' ,')}}
                     </p>
                 </div>
                 <hr>

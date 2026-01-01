@@ -8,6 +8,7 @@ def get_seed_projects():
     return [
         schemas.ProjectCreate(
             project_name="E-Commerce Website OneUpBrand",
+            project_nickname="OneUpBrand",
             description=["A feature-rich e-commerce platform with Django Oscar integration."],
             my_roll_obj=schemas.MyRollBase(
                 roll_title="Full Stack Developer",
@@ -34,6 +35,7 @@ def get_seed_projects():
                 "images/project/oneup/orders.png",
             ],
             logo_img="images/project/oneup/oneup.svg",
+            main_image="images/project/oneup/oneup.svg",
             github_link="https://github.com/VaghMohammadSajid/OneupBrand_Project-Admin_panel-",
             website_link="",
             start_date="2024-01-01",
@@ -41,6 +43,7 @@ def get_seed_projects():
         ),
         schemas.ProjectCreate(
             project_name="RoseValley E-commerce Website",
+            project_nickname="RoseValley",
             description=[
                 "RoseValley is an E-commerce platform developed as a college project using Java, JSP, Servlet, and Hibernate. "
                 "It provides a simple and user-friendly online shopping experience with secure authentication, product catalog, "
@@ -68,10 +71,11 @@ def get_seed_projects():
                 "Deployed and tested the application on Apache Tomcat server"
             ],
             images=[
-                "images/project/rosevalley/homepage.png"
+                "images/project/rosevalley/homepage.png",
                 "images/project/rosevalley/orderplace.png"
             ],
             logo_img="images/project/rosevalley/rosevalley_logo.svg",
+            main_image="images/project/rosevalley/product_image.jpg",
             github_link="https://github.com/VaghMohammadSajid/RoseValley",
             website_link="http://localhost:8080/RoseValley",
             start_date="2024-02-25",
@@ -79,6 +83,7 @@ def get_seed_projects():
         ),
         schemas.ProjectCreate(
             project_name="Biometric Attendance System",
+            project_nickname="Biometric Attendance",
             description=["A Django-based attendance app using biometric validation."],
             my_roll_obj=schemas.MyRollBase(
                 roll_title="Full Stack Developer",
@@ -103,6 +108,7 @@ def get_seed_projects():
                 "images/project/biometric-attendance.png"
             ],
             logo_img="images/project/biometric-attendance/biometric_attendance_logo.svg",
+            main_image="images/project/biometric-attendance/biometric_attendance_logo.svg",
             github_link="https://github.com/VaghMohammadSajid/RoseVally_E_Commmerce",
             website_link="",
             start_date="2024-02-25",
@@ -110,6 +116,7 @@ def get_seed_projects():
         ),
         schemas.ProjectCreate(
             project_name="SwaggerAPI Teens & Togather",
+            project_nickname="Teens&Togather",
             description=["A secure chat API for teenagers with REST and real-time communication."],
             my_roll_obj=schemas.MyRollBase(
                 roll_title="API Developer",
@@ -144,6 +151,7 @@ def get_seed_projects():
                 "images/project/teens/voice-day.png",
             ],
             logo_img="images/project/teens/teens_logo.png",
+            main_image="images/project/teens/teens_logo.png",
             github_link="https://github.com/VaghMohammadSajid/teens_togather",
             website_link="",
             start_date="2024-07-01",
