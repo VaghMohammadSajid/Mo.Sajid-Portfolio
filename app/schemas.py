@@ -28,6 +28,7 @@ class ReqSkillBase(BaseModel):
 class ProjectBase(BaseModel):
     project_name: str
     project_nickname: str
+    project_type: str
     description: Optional[List[str]] = None
     key_achievement: Optional[List[str]] = None
     images: Optional[List[str]] = None

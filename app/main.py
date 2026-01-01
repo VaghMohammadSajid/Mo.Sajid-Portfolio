@@ -74,16 +74,6 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
-
-@app.on_event("startup")
-async def startup_event():
-    print("🔧 Running DB migrations...")
-    run_migrations()  # ✅ FIRST
-
-    print("🌱 Running seed data...")
-    seed_data()  # ✅ AFTER migration
-
-
 # ==========================================================
 #                STATIC & TEMPLATE SETUP
 # ==========================================================
@@ -255,4 +245,4 @@ async def http_error_handler(request: Request, exc: StarletteHTTPException):
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run("app.main:app", host="127.0.0.1", port=8004, reload=True)
+    uvicorn.run("app.main:app", host="127.0.0.1", port=8005, reload=True)

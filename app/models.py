@@ -51,6 +51,7 @@ class Projects(Base):
     project_name = Column(String, unique=True, nullable=False)
     project_nickname = Column(String, nullable=True)
     description = Column(JSON, nullable=True)
+    project_type = Column(String, nullable=True)
 
     my_roll_id = Column(Integer, ForeignKey("my_roll.roll_id"), nullable=False)
     req_skill_id = Column(Integer, ForeignKey("req_skills.req_skill_id"), nullable=False, unique=True)
