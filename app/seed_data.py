@@ -8,7 +8,7 @@ def get_seed_projects():
     return [
         schemas.ProjectCreate(
             project_name="E-Commerce Website OneUpBrand",
-            project_nickname="OneUpBrand",
+            nickname="OneUpBrand",
             description=["A feature-rich e-commerce platform with Django Oscar integration."],
             my_roll_obj=schemas.MyRollBase(
                 roll_title="Full Stack Developer",
@@ -43,7 +43,7 @@ def get_seed_projects():
         ),
         schemas.ProjectCreate(
             project_name="RoseValley E-commerce Website",
-            project_nickname="RoseValley",
+            nickname="RoseValley",
             description=[
                 "RoseValley is an E-commerce platform developed as a college project using Java, JSP, Servlet, and Hibernate. "
                 "It provides a simple and user-friendly online shopping experience with secure authentication, product catalog, "
@@ -83,7 +83,7 @@ def get_seed_projects():
         ),
         schemas.ProjectCreate(
             project_name="Biometric Attendance System",
-            project_nickname="Biometric Attendance",
+            nickname="Biometric Attendance",
             description=["A Django-based attendance app using biometric validation."],
             my_roll_obj=schemas.MyRollBase(
                 roll_title="Full Stack Developer",
@@ -116,7 +116,7 @@ def get_seed_projects():
         ),
         schemas.ProjectCreate(
             project_name="SwaggerAPI Teens & Togather",
-            project_nickname="Teens&Togather",
+            nickname="Teens&Togather",
             description=["A secure chat API for teenagers with REST and real-time communication."],
             my_roll_obj=schemas.MyRollBase(
                 roll_title="API Developer",
