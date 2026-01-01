@@ -19,6 +19,17 @@ from starlette.exceptions import HTTPException as StarletteHTTPException
 
 from app.database import Base, engine, SessionLocal
 from app import crud, schemas, seed_data
+from sqlalchemy import text
+
+
+def add_project_nickname_column():
+    with engine.connect() as conn:
+        conn.execute(text("""
+            ALTER TABLE projects
+            ADD COLUMN IF NOT EXISTS project_nickname VARCHAR(255);
+        """))
+        conn.commit()
+
 
 # ==========================================================
 #                DATABASE INIT
