@@ -74,7 +74,10 @@ def get_seed_projects():
             ],
             images=[
                 "images/project/rosevalley/homepage.png",
-                "images/project/rosevalley/orderplace.png"
+                "images/project/rosevalley/orderplace.png",
+                "images/project/rosevalley/howshow.png",
+                "images/project/rosevalley/navbar.png",
+                "images/project/rosevalley/partner.png",
             ],
             logo_img="images/project/rosevalley/rosevalley_logo.svg",
             main_image="images/project/rosevalley/product_image.jpg",
