@@ -95,7 +95,7 @@
 
         {# Open a new row for every 2 projects #}
         {% if loop.index0 % 2 == 0 %}
-        <div class="row" data-aos="fade-up" style="background:#f5f5f5; padding-bottom:70px;">
+        <div class="row" data-aos="fade-up" style="padding-bottom:70px;">
             {% endif %}
 
             <div class="col-lg-6 col-sm-6" style="padding: 15px 0;">
@@ -126,7 +126,7 @@
                                 </a>
                             </h5>
 
-                            <p>
+                            <p style="margin-right: 5px;">
                                 {{ project.description | join(', ') | truncate(90) }}
                             </p>
 
@@ -142,7 +142,6 @@
             {% if loop.index0 % 2 == 1 or loop.last %}
         </div>
         {% endif %}
-
         {% endfor %}
         {% else %}
         <div class="row">
@@ -154,6 +153,62 @@
 
     </div>
 </section>
+
+<section class="portfolio container">
+    <div class="gradient"></div>
+
+    <div class="main-content">
+        <div class="row">
+            <div class="col-lg-12 heading">
+                <h3>Look at my Projects of works</h3>
+                <h4>we are well versed in trending web design and creativity</h4>
+            </div>
+        </div>
+        {% if projects %}
+        <div class="row" data-aos="fade-right" data-aos-duration="800">
+            <div id="recipeCarousel"
+                 class="carousel slide w-100"
+                 data-ride="carousel"
+                 data-wrap="false"
+                 data-interval="false">
+
+                <div class="carousel-inner" role="listbox">
+
+                    {% for project in projects%}
+                    <div class="carousel-item {% if loop.first %}active{% endif %}">
+
+                        <a href="{{ request.url_for('static', path=project.images[0].image_path) }}"
+                           class="col-md-4 col-12 box"
+                           data-toggle="lightbox">
+
+                            <img src="{{ request.url_for('static', path=project.logo_img) }}"
+                                 class="img-fluid">
+
+                            <div class="overlay">
+                                <img src="{{ request.url_for('static', path='images/icon/plus-img.png') }}">
+                                <div class="text">{{ project.project_nickname }}</div>
+                            </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+
+                </div>
+
+                <!-- Controls -->
+                <a class="carousel-control-prev" href="#recipeCarousel" role="button" data-slide="prev">
+                    <i class="fa fa-long-arrow-left"></i>
+                </a>
+
+                <a class="carousel-control-next" href="#recipeCarousel" role="button" data-slide="next">
+                    <i class="fa fa-long-arrow-right"></i>
+                </a>
+
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
 
 <!--Start Footer-->
 {% include 'footer.html' %}

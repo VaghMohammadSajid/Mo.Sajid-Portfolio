@@ -7,6 +7,32 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Mo.Sajid | About</title>
+
+    <style>
+        .skill-a-tag{
+            border-radius: 10px;
+            background: whitesmoke;
+            color: #4c4545;
+            font-size: 20px;
+            margin: 5px;
+            border: 1px solid rgba(0, 0, 0, .125);
+            padding: 5px;
+        }
+        .skill-a-tag > i{
+            border-radius:15px;
+            margin-left: 5px;
+            padding: 4px 0px 4px 0px;
+        }
+        .skill-a-tag > i::before{
+            padding: 15px 15px 15px 15px;
+            font-size: 20px;
+            border-radius: 10px;
+            justify-content:center;
+            align-item: center;
+        }
+
+    </style>
+
     <!--Start all css file-->
     {% include 'all_css.html' %}
     <!--End all css file-->
@@ -22,7 +48,7 @@
 <section class="services">
     <!--Accordion wrapper-->
     <div class="container">
-
+        <h3 class="heading2" style="position: relative; bottom:27px; line-height:20px;">My Knowledge & Skills</h3>
         <div class="accordion accordion-1" id="accordionEx23" role="tablist">
             <div class="card" data-aos="fade-up" data-aos-delay="300">
                 <div class="card-header blue lighten-3 z-depth-1" role="tab" id="heading96">
@@ -172,40 +198,162 @@
                     </div>
                 </div>
             </div>
-<!--            <div class="card" data-aos="fade-up" data-aos-delay="300">-->
-<!--                <div class="card-header blue lighten-3 z-depth-1" role="tab" id="heading98">-->
-<!--                    <h2 class="text-uppercase mb-0 py-1">-->
-<!--                        <a class="collapsed" data-toggle="collapse" href="#collapse98" aria-expanded="false"-->
-<!--                           aria-controls="collapse98">-->
-<!--                            Psd to Html & Wordpress Coding <i class="fa fa-angle-down rotate-icon fa-2x"></i>-->
-<!--                        </a>-->
-<!--                    </h2>-->
-<!--                </div>-->
-<!--                <div id="collapse98" class="collapse" role="tabpanel" aria-labelledby="heading98"-->
-<!--                     data-parent="#accordionEx23">-->
-<!--                    <div class="card-body">-->
-<!--                        <div class="row">-->
-<!--                            <div class="col-md-12">-->
-<!--                                <div class="inner-content">-->
-<!--                                    <img src="images/about-bg.jpg" alt="about-bg" class="thumbnail image">-->
-<!--                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem-->
-<!--                                        Ipsum has been the industry's standard dummy text ever since the 1500s, when an-->
-<!--                                        unknown printer took a galley of type and scrambled it to make a type specimen-->
-<!--                                        book. It has survived not only five centuries, but also the leap into electronic-->
-<!--                                        typesetting,It was popularised in the 1960s with the release of Letraset sheets-->
-<!--                                        containing Lorem Ipsum passages..</p>-->
+            <div class="card" data-aos="fade-up" data-aos-delay="300">
+                <div class="card-header blue lighten-3 z-depth-1" role="tab" id="heading98">
+                    <h2 class="text-uppercase mb-0 py-1">
+                        <a class="collapsed" data-toggle="collapse" href="#collapse98" aria-expanded="false"
+                           aria-controls="collapse98">
+                            Skills <i class="fa fa-angle-down rotate-icon fa-2x"></i>
+                        </a>
+                    </h2>
+                </div>
+                <div id="collapse98" class="collapse" role="tabpanel" aria-labelledby="heading98"
+                     data-parent="#accordionEx23">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="inner-content d-flex justify-content-center align-items-center">
 
-<!--                                    <p>remaining essentially unchanged. It was popularised in the 1960s with the release-->
-<!--                                        of Letraset sheets containing Lorem Ipsum passages.. Lorem Ipsum is simply dummy-->
-<!--                                        text of the printing and typesetting industry. Lorem Ipsum has been the-->
-<!--                                        industry's standard dummy text ever since the 1500s, when an unknown printer-->
-<!--                                        took a galley of type and scrambled it to make a type specimen book.</p>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
+                                    <div class="col-md-3">
+
+                                        <a href="https://github.com/VaghMohammadSajid"
+                                           target="_blank" rel="noopener noreferrer"
+                                           class="d-block skill-a-tag"
+                                        >
+                                            <i class="devicon-html5-plain colored"></i> HTML
+                                        </a>
+
+                                        <a href="https://www.linkedin.com/in/mohammadsajid-vagh-111504274"
+                                           target="_blank" rel="noopener noreferrer"
+                                           class="d-block skill-a-tag"
+                                        >
+                                            <i class="devicon-css3-plain colored"></i> CSS
+                                        </a>
+
+                                        <a href="https://www.linkedin.com/in/mohammadsajid-vagh-111504274"
+                                           target="_blank" rel="noopener noreferrer"
+                                           class="d-block skill-a-tag"
+                                        >
+                                            <i class="devicon-javascript-plain colored"></i> JavaScript
+                                        </a>
+
+                                        <a href="https://www.linkedin.com/in/mohammadsajid-vagh-111504274"
+                                           target="_blank" rel="noopener noreferrer"
+                                           class="d-block skill-a-tag"
+                                        >
+                                            <i class="devicon-react-original colored"
+                                               aria-hidden="true"></i> React-JS
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a href="https://www.python.org/"
+                                           target="_blank" rel="noopener noreferrer"
+                                           class="d-block skill-a-tag"
+                                        >
+                                            <i class="devicon-python-plain colored"
+                                               aria-hidden="true"></i> Python
+                                        </a>
+
+                                        <a href="https://www.djangoproject.com/"
+                                           target="_blank" rel="noopener noreferrer"
+                                           class="d-block skill-a-tag"
+                                        >
+                                            <i class="devicon-django-plain colored"
+                                               aria-hidden="true"></i> Django
+                                        </a>
+
+                                        <a href="https://django-oscar.readthedocs.io/en/latest/"
+                                           target="_blank" rel="noopener noreferrer"
+                                           class="d-block skill-a-tag"
+                                        >
+                                            <i class="devicon-django-plain colored"
+                                               aria-hidden="true"></i> Django-Oscar
+                                        </a>
+
+                                        <a href="https://www.linkedin.com/in/mohammadsajid-vagh-111504274"
+                                           target="_blank" rel="noopener noreferrer"
+                                           class="d-block skill-a-tag"
+                                        >
+                                            <i class="fa fa-sitemap"
+                                               aria-hidden="true"></i>DataStructure
+                                        </a>
+
+                                    </div>
+                                    <div class="col-md-3">
+
+                                        <a href="https://github.com/VaghMohammadSajid"
+                                           target="_blank" rel="noopener noreferrer"
+                                           class="d-block skill-a-tag"
+                                        >
+                                            <i class="devicon-java-plain colored"
+                                               aria-hidden="true"></i> Java
+                                        </a>
+
+                                        <a href="https://www.linkedin.com/in/mohammadsajid-vagh-111504274"
+                                           target="_blank" rel="noopener noreferrer"
+                                           class="d-block skill-a-tag"
+                                        >
+                                            <i class="devicon-java-plain-wordmark colored"
+                                               aria-hidden="true"></i> JSP
+                                        </a>
+
+                                        <a href="https://www.linkedin.com/in/mohammadsajid-vagh-111504274"
+                                           target="_blank" rel="noopener noreferrer"
+                                           class="d-block skill-a-tag"
+                                        >
+                                            <i class="devicon-apache-plain colored"
+                                               aria-hidden="true"></i> Servlet
+                                        </a>
+
+                                        <a href="https://www.linkedin.com/in/mohammadsajid-vagh-111504274"
+                                           target="_blank" rel="noopener noreferrer"
+                                           class="d-block skill-a-tag"
+                                        >
+                                            <i class="devicon-hibernate-plain colored"
+                                               aria-hidden="true"></i> Hibernate
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a href="https://fastapi.tiangolo.com/"
+                                           target="_blank" rel="noopener noreferrer"
+                                           class="d-block skill-a-tag"
+                                        >
+                                            <i class="devicon-fastapi-plain colored"
+                                               aria-hidden="true"></i> FastAPI
+                                        </a>
+
+                                        <a href="https://www.linkedin.com/in/mohammadsajid-vagh-111504274"
+                                           target="_blank" rel="noopener noreferrer"
+                                           class="d-block skill-a-tag"
+                                        >
+                                            <i class="devicon-postman-plain colored"
+                                               aria-hidden="true"></i>RestAPI
+                                        </a>
+
+                                        <a href="https://www.linkedin.com/in/mohammadsajid-vagh-111504274"
+                                           target="_blank" rel="noopener noreferrer"
+                                           class="d-block skill-a-tag"
+                                        >
+                                            <i class="devicon-mysql-plain colored"
+                                               aria-hidden="true"></i> MySQL
+                                        </a>
+
+                                        <a href="https://www.linkedin.com/in/mohammadsajid-vagh-111504274"
+                                           target="_blank" rel="noopener noreferrer"
+                                           class="d-block skill-a-tag"
+                                        >
+                                            <i class="devicon-postgresql-plain colored"
+                                               aria-hidden="true"></i> Postgresql
+                                        </a>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <!--Accordion wrapper-->
     </div>

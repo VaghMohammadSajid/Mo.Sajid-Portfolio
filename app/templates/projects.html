@@ -351,9 +351,10 @@
 
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <h4>Here are the projects I’ve built with passion, precision, and purpose.
+                <p style="margin-top:20px; margin-bottom:20px;">Here are the projects I’ve built with passion,
+                    precision, and purpose.
                     Each project reflects my learning, creativity, and commitment to writing clean, efficient, and
-                    scalable code.</h4>
+                    scalable code.</p>
                 {% if projects %}
                 <div class="row" data-aos="fade-right" data-aos-duration="800">
                     {% for project in projects %}
@@ -362,9 +363,10 @@
                     <a href="{{ request.url_for('static', path=project.images[0].image_path) }}"
                        data-toggle="lightbox"
                        data-gallery="gallery-{{ project.pro_id }}"
-                       class="col-sm-4 box ">
+                       class="col-sm-4 box project-item">
 
-                        <img src="{{ request.url_for('static', path=project.logo_img) }}" class="img-fluid">
+                        <img src="{{ request.url_for('static', path=project.logo_img) }}" class="img-fluid"
+                             alt="{{ project.project_name }}">
 
                         <div class="overlay">
                             <img src="{{ request.url_for('static', path='images/icon/plus-img.png') }}">
@@ -381,11 +383,15 @@
                     {% endif %}
                     {% endfor %}
                 </div>
+                {% else %}
+                <p class="text-muted">No projects found.</p>
                 {% endif %}
             </div>
         </div>
-        <div class="load-more">
-            <button type="button" class="btn btn-secondary">load more</button>
+        <div class="load-more text-center mt-4" style="display:none;">
+            <button type="button" class="btn btn-secondary" id="loadMoreBtn">
+                Load More
+            </button>
         </div>
     </div>
 </section>
@@ -393,6 +399,36 @@
 <!--Start Footer-->
 {% include 'footer.html' %}
 <!--End Footer-->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
 
+        const items = document.querySelectorAll(".project-item");
+        const loadMoreBtn = document.getElementById("loadMoreBtn");
+        const loadMoreWrapper = document.querySelector(".load-more");
+
+        const visibleCount = 3;
+
+        // Hide projects after first 3
+        items.forEach((item, index) => {
+            if (index >= visibleCount) {
+                item.style.display = "none";
+            }
+        });
+
+        // Show Load More only if projects > 3
+        if (items.length > visibleCount) {
+            loadMoreWrapper.style.display = "block";
+        }
+
+        // On click → show all projects
+        loadMoreBtn.addEventListener("click", function () {
+            items.forEach(item => {
+                item.style.display = "block";
+            });
+            loadMoreWrapper.style.display = "none";
+        });
+
+    });
+</script>
 </body>
 </html>

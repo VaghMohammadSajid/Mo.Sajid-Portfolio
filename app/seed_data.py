@@ -111,10 +111,16 @@ def get_seed_projects():
                 "Deployed real-time attendance reports"
             ],
             images=[
-                "images/project/biometric-attendance.png"
+                "images/project/biometric-attendance/main.png",
+                "images/project/biometric-attendance/account.png",
+                "images/project/biometric-attendance/admin_and_device.png",
+                "images/project/biometric-attendance/meals.png",
+                "images/project/biometric-attendance/member_and_plans.png",
+                "images/project/biometric-attendance/videos.png",
+                "images/project/biometric-attendance/workout.png",
             ],
             logo_img="images/project/biometric-attendance/biometric_attendance_logo.svg",
-            main_image="images/project/biometric-attendance/biometric_attendance_logo.svg",
+            main_image="images/project/biometric-attendance/main.png",
             github_link="https://github.com/VaghMohammadSajid/RoseVally_E_Commmerce",
             website_link="",
             start_date="2024-02-25",

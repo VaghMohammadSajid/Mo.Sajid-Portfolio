@@ -54,6 +54,9 @@ textarea {resize: none;}
   font-style: normal;
   font-family: 'Montserrat', sans-serif;
 }
+.d-block{
+    display:block;
+}
 /*==============================
       // Nav-bar Styles //
 ==============================*/
@@ -385,7 +388,7 @@ header .btn-primary:hover {
     padding-bottom: 80px;
     margin-bottom: 60px;
     position: relative;
-    background-image: url("../images/portfolio-bg.jpg");
+    background-image: url("../images/banner/banner-4.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -512,7 +515,7 @@ header .btn-primary:hover {
 .portfolio .carousel-control-prev {left: -109px;}
 .portfolio .carousel-control-next {right: -109px;}
 .portfolio .carousel-control-next, .carousel-control-prev {top: 0;opacity: 1;color: #000;}
-.portfolio .fa {padding: 8px 12px;background: #fff;}
+.portfolio .fa {padding: 8px 12px;background: #fff;color: black;}
 .portfolio .carousel-inner .carousel-item.active,
 .portfolio .carousel-inner .carousel-item-next,
 .portfolio .carousel-inner .carousel-item-prev {
@@ -1117,7 +1120,7 @@ textarea.form-control {
 }
 #portfolio button:hover {
     background: #000000;
-    color: #fff;
+    color: #FFFF00;
 }
 
 #portfolio .box {
@@ -1180,7 +1183,7 @@ textarea.form-control {
 .services .fa-2x {font-size: 35px;float: right;line-height: 84px;}
 .services .card-body {padding: 0;}
 .services .card {border-radius: 0;margin-bottom: 75px;}
-.services .inner-content {padding: 50px;}
+.services .inner-content {padding: 25px;}
 .services h2 a {line-height: 80px;padding-left: 30px;color: #000;font-size: 23px;}
 .card-header {background-color: transparent;}
 .services p {
@@ -1417,7 +1420,7 @@ textarea.form-control {
     .banner {height: 320px;}
     .banner .heading  h1 {font-size: 20px;padding-bottom: 5px;}
     .banner .heading  h2 {font-size: 14px;padding-bottom: 15px;letter-spacing: 1px;}
-    #about-us .image {height: 200px;}
+    #about-us .image {height: 330px;}
     #about-us p {font-size: 12px;}
     #about-us {padding-top: 30px;}
     #contact p{line-height: 24px;}
@@ -1445,7 +1448,7 @@ textarea.form-control {
     .portfolio .fa {padding: 6px 9px;background: #000000a3;}
     .portfolio .carousel-control-next, .carousel-control-prev {color: #fff;}
     #portfolio h4 {font-size: 12px;line-height: 24px;}
-    .services .image {height: 200px;}
+    .services .image {height: 230px;}
     .services h2 a {line-height: 30px;font-size: 14px;padding-left: 0;}
     #portfolio {padding-bottom: 50px;}
     #portfolio button {width: 130px;line-height: 30px;}

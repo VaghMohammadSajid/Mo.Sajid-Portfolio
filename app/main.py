@@ -121,7 +121,7 @@ async def index(request: Request, db: Session = Depends(get_db)):
         "request": request,
         "details": {
             "name": "Mohammad Sajid Vagh",
-            "intro": "A Passionate Python Developer 🐍🚀",
+            "intro": "I am an enthusiastic and detail-oriented Python & Django developer with ~1.5 years of hands-on experience building web applications, REST APIs and working with relational databases. I enjoy solving real-world problems, optimizing backend systems, and I'm actively learning AI / ML to expand my skillset.",
         },
         "projects": projects
     })
@@ -140,7 +140,7 @@ async def about(request: Request):
             "city": "Himmatnagar, Gujarat, India",
             "email": "vaghmohammadsajid8@gmail.com",
             "phone": "+91 8980331323",
-            "intro": "A Passionate Python Developer 🐍🚀",
+            "intro": "I am an enthusiastic and detail-oriented Python & Django developer with ~1.5 years of hands-on experience building web applications, REST APIs and working with relational databases. I enjoy solving real-world problems, optimizing backend systems, and I'm actively learning AI / ML to expand my skillset.",
         }
     })
 
@@ -151,7 +151,7 @@ async def skills(request: Request):
         "request": request,
         "details": {
             "name": "Mohammad Sajid Vagh",
-            "intro": "A Passionate Python Developer 🐍🚀",
+            "intro": "I am an enthusiastic and detail-oriented Python & Django developer with ~1.5 years of hands-on experience building web applications, REST APIs and working with relational databases. I enjoy solving real-world problems, optimizing backend systems, and I'm actively learning AI / ML to expand my skillset.",
         },
     })
 
@@ -165,7 +165,7 @@ async def detailsProjects(request: Request, pro_id: int, db: Session = Depends(g
         "request": request,
         "details": {
             "name": "Mohammad Sajid Vagh",
-            "intro": "A Passionate Python Developer 🐍🚀",
+            "intro": "I am an enthusiastic and detail-oriented Python & Django developer with ~1.5 years of hands-on experience building web applications, REST APIs and working with relational databases. I enjoy solving real-world problems, optimizing backend systems, and I'm actively learning AI / ML to expand my skillset.",
         },
         "project_detail": project_details,
         "projects": projects
@@ -178,7 +178,7 @@ async def contact(request: Request):
         "request": request,
         "details": {
             "name": "Mohammad Sajid Vagh",
-            "intro": "A Passionate Python Developer 🐍🚀",
+            "intro": "I am an enthusiastic and detail-oriented Python & Django developer with ~1.5 years of hands-on experience building web applications, REST APIs and working with relational databases. I enjoy solving real-world problems, optimizing backend systems, and I'm actively learning AI / ML to expand my skillset.",
         },
     })
 
@@ -189,7 +189,7 @@ async def get_projects_page(request: Request, db: Session = Depends(get_db)):
     return templates.TemplateResponse("projects.html",
                                       {"request": request, "details": {
                                           "name": "Mohammad Sajid Vagh",
-                                          "intro": "A Passionate Python Developer 🐍🚀",
+                                          "intro": "I am an enthusiastic and detail-oriented Python & Django developer with ~1.5 years of hands-on experience building web applications, REST APIs and working with relational databases. I enjoy solving real-world problems, optimizing backend systems, and I'm actively learning AI / ML to expand my skillset.",
                                       },
                                        "projects": projects})
 
@@ -245,4 +245,4 @@ async def http_error_handler(request: Request, exc: StarletteHTTPException):
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run("app.main:app", host="127.0.0.1", port=8005, reload=True)
+    uvicorn.run("app.main:app", host="127.0.0.1", port=8006, reload=True)
